@@ -1,0 +1,55 @@
+/* 
+  Localizable.strings
+  PersianCalculatorPro
+
+  Created by volek on 11/2/11.
+  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
+*/
+"English" = "Inglés";
+"Farsi" = "Persa";
+"Spanish" = "Español";
+"Arabic" = "árabe";
+"Chinese"="Chino";
+"Polish"="Polaco";
+"Japanese"="Jaoanese";
+
+"Language"="Lengua";
+"More"="Más";
+"Erase"="Borrar";
+"Save"="Salvar";
+
+"0"="0";
+"1"="1";
+"2"="2";
+"3"="3";
+"4"="4";
+"5"="5";
+"6"="6";
+"7"="7";
+"8"="8";
+"9"="9";
+
+"000"="000";
+"1/x"="1/x";
+"x2"="x2";
+"x3"="x3";
+"errorcode1"="No se puede crear la expresión de plazo";
+"errorcode2"="no es un operador válido";
+"errorcode3"="no se puede analizar identificador";
+"errorcode4"="nombres de las variables debe ser al menos un carácter de longitud";
+"errorcode5"="no se puede analizar el número";
+"errorcode6"="desconocido prioridad para el elemento";
+"errorcode7"="paréntesis que falta después de la función";
+"errorcode8"="paréntesis desequilibrado";
+"errorcode9"="aridad desconocido para el operador";
+"errorcode10"="no operando de la izquierda a binario";
+"errorcode11"="no el de la derecha a binario"; 
+"errorcode12"="no operando de la izquierda para unario"; 
+"errorcode13"="no el de la derecha para unario";
+"errorcode14"="falta operando (s) para el operador";
+"errorcode15"="incapaz de resolver una expresión variable";
+"errorcode16"="incapaz de resolver la función";
+"errorcode17"="inválida tipo de retorno de la función";
+"errorcode18"="random () sólo puede tener un máximo de dos argumentos";
+"errorcode19"="límite superior de random () debe ser mayor que el límite inferior";
+

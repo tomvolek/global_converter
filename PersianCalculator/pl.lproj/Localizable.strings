@@ -1,0 +1,58 @@
+/* 
+  Localizable.strings
+  PersianCalculatorPro
+
+  Created by volek on 11/2/11.
+  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
+*/
+"English"="اAngielski";
+"Farsi"="Perski";
+"Spanish"="Hiszpański";
+"Arabic" = "Arabski";
+"Chinese"="Chiński";
+"Polish"="Polski";
+"Japanese"="Japoński";
+
+"International Calculator"="Międzynarodowy Kalkulator";
+"Language"="język";
+"Erase"="wymazać";
+"More"="więcej";
+"Sound:"="dźwięk";
+"Done"="zrobić";
+"Decimal:"="dziesiętny";
+"Save"="uratować";
+
+"0"="0";
+"1"="1";
+"2"="2";
+"3"="3";
+"4"="4";
+"5"="5";
+"6"="6";
+"7"="7";
+"8"="8";
+"9"="9";
+"."=",";
+"000"="000";
+"1/x"="1/x";
+"x2"="x2";
+"x3"="x3";
+"errorcode1"="Unable to create expression from term";
+"errorcode2"="is not a valid operator";
+"errorcode3"="unable to parse identifier";
+"errorcode4"="variable names must be at least 1 character long";
+"errorcode5"="unable to parse number";
+"errorcode6"="unknown precedence for token";
+"errorcode7"="missing parentheses after function";
+"errorcode8"="imbalanced parentheses";
+"errorcode9"="unknown arity for operator";
+"errorcode10"="no left operand to binary";
+"errorcode11"="no right operand to binary"; 
+"errorcode12"="no left operand to unary"; 
+"errorcode13"="no right operand to unary";
+"errorcode14"="missing operand(s) for operator";
+"errorcode15"="unable to resolve variable expression";
+"errorcode16"="unable to resolve function";
+"errorcode17"="invalid return type from function";
+"errorcode18"="random() may only have up to 2 arguments";
+"errorcode19"="upper bound of random() must be larger than lower bound";

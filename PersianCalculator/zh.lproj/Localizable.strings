@@ -1,0 +1,69 @@
+/* 
+  Localizable.strings
+  PersianCalculatorPro
+
+  Created by volek on 11/2/11.
+  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
+*/
+"English"="英语";
+"Farsi"="波斯语";
+"Spanish"="西班牙语";
+"Arabic" = "阿拉伯语";
+"Chinese"="中国语";
+"Polish"="波兰";
+"Japanese"="日本";
+"Language"="语言";
+"More"="更多";
+"Erase"="抹去";
+"Sound:"="声音";
+"Done"="完成";
+"Decimal:"="十进制";
+"International Calculator"="国际计算器";
+"Save"="保存";
+
+"0"="零";
+"1"="一";
+"2"="二";
+"3"="三";
+"4"="四";
+"5"="五";
+"6"="六";
+"7"="七";
+"8"="八";
+"9"="九";
+"10"="一零";
+"000"="零零零";
+"1/x"="一/x";
+"x2"="x二";
+"x3"="x三";
+"2.718252**"="二,۷۱۸二۵二**";
+"3.141592653589793"="۳,一۴一۵۹二۶۵۳۵۸۹۷۹۳";
+"10^"="十^";
+"cos-1"="cos-一";
+"sin-1"="sin-一";
+"tan-1"="tan-一";
+"log2"="log二";
+"sinh-1"="sinh-一";
+"cosh-1"="cosh-一";
+"tanh-1"="tanh-一";
+"2^x"="二^x";
+"2**"="二**";
+"errorcode1"="Unable to create expression from term";
+"errorcode2"="is not a valid operator";
+"errorcode3"="unable to parse identifier";
+"errorcode4"="variable names must be at least 1 character long";
+"errorcode5"="unable to parse number";
+"errorcode6"="unknown precedence for token";
+"errorcode7"="missing parentheses after function";
+"errorcode8"="imbalanced parentheses";
+"errorcode9"="unknown arity for operator";
+"errorcode10"="no left operand to binary";
+"errorcode11"="no right operand to binary"; 
+"errorcode12"="no left operand to unary"; 
+"errorcode13"="no right operand to unary";
+"errorcode14"="missing operand(s) for operator";
+"errorcode15"="unable to resolve variable expression";
+"errorcode16"="unable to resolve function";
+"errorcode17"="invalid return type from function";
+"errorcode18"="random() may only have up to 2 arguments";
+"errorcode19"="upper bound of random() must be larger than lower bound";

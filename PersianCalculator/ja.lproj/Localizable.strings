@@ -1,0 +1,71 @@
+/* 
+  Localizable.strings
+  PersianCalculatorPro
+
+  Created by volek on 11/2/11.
+  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
+*/
+
+"English"="ا英語を";
+"Farsi"="取得";
+"Spanish"="スペイン";
+"Arabic" = "アラビア";
+"Chinese"="中国";
+"Polish"="ポーランド";
+"Japanese"="日本";
+"More"="より";
+"Language"="言語";
+"Erase"="消去する";
+"Sound:"="音";
+"Done"="行わ";
+"Decimal:"="進";
+"International Calculator"="国際的な電卓";
+"Save"="保存し";
+
+"0"="0";
+"1"="1";
+"2"="2";
+"3"="3";
+"4"="4";
+"5"="5";
+"6"="6";
+"7"="7";
+"8"="8";
+"9"="9";
+"000"="000";
+"1/x"="1/x";
+"x2"="x2";
+"x3"="x3";
+"2.718252**"="2.718252**";
+"3.141592653589793"="3.141592653589793";
+"10^"="10^";
+"cos-1"="cos-1";
+"sin-1"="sin-1";
+"tan-1"="tan-1";
+"log2"="log2";
+"sinh-1"="sinh-1";
+"cosh-1"="cosh-1";
+"tanh-1"="tanh-1";
+"2^x"="2^x";
+"2**"="2**";
+"random(0,1000)"="random(1,1000)";
+"calcError1"="no right operand to binary";
+"errorcode1"="言葉から式を作成できません";
+"errorcode2"="のではない有効な演算子";
+"errorcode3"="識別子を解析できません";
+"errorcode4"="変数名は少なくとも1文字の長さが必要";
+"errorcode5"="数を解析することができません";
+"errorcode6"="トークンのための未知の順位";
+"errorcode7"="関数の後にかっこが見つからない";
+"errorcode8"="アンバランス括弧";
+"errorcode9"="オペレータのための未知の引数の個数";
+"errorcode10"="バイナリには、左側のオペランドなし";
+"errorcode11"="バイナリへの右オペランドなし"; 
+"errorcode12"="単項には、左側のオペランドなし"; 
+"errorcode13"="単項する右オペランドなし";
+"errorcode14"="演算子の欠落オペランド";
+"errorcode15"="変数式を解決することができない";
+"errorcode16"="関数を解決することができない";
+"errorcode17"="関数からの戻り値の型が無効";
+"errorcode18"="ランダムは（）のみ、最大2つの引数を持つことができます";
+"errorcode19"="上部のランダム（）の下限は下限よりも大きくなければなりません";
