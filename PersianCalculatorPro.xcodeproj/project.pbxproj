@@ -117,7 +117,6 @@
 		5A53F0F71463879700D72F67 /* Spain-Flag-128.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A53F0F61463879700D72F67 /* Spain-Flag-128.png */; };
 		5A53F0FB1463883300D72F67 /* United-States-Flag-128.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A53F0FA1463883300D72F67 /* United-States-Flag-128.png */; };
 		5A55AA761490154A000401EE /* LocalizationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A55AA751490154A000401EE /* LocalizationHelper.m */; };
-		5A587426144CFD2A009C63A2 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A587425144CFD2A009C63A2 /* SenTestingKit.framework */; };
 		5A5AF41D14639641005C89D7 /* UITableViewHeaderShowinfo.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A5AF41C14639641005C89D7 /* UITableViewHeaderShowinfo.png */; };
 		5A5AF4201463D225005C89D7 /* worldMapBackgroud.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A5AF41F1463D225005C89D7 /* worldMapBackgroud.png */; };
 		5A5C71B6148FE67C00FC7CD3 /* plot.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A5C71B5148FE67C00FC7CD3 /* plot.png */; };
@@ -682,7 +681,6 @@
 		5A53F0FA1463883300D72F67 /* United-States-Flag-128.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "United-States-Flag-128.png"; sourceTree = "<group>"; };
 		5A55AA741490154A000401EE /* LocalizationHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalizationHelper.h; sourceTree = "<group>"; };
 		5A55AA751490154A000401EE /* LocalizationHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalizationHelper.m; sourceTree = "<group>"; };
-		5A587425144CFD2A009C63A2 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		5A5AF41C14639641005C89D7 /* UITableViewHeaderShowinfo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UITableViewHeaderShowinfo.png; sourceTree = "<group>"; };
 		5A5AF41F1463D225005C89D7 /* worldMapBackgroud.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = worldMapBackgroud.png; sourceTree = "<group>"; };
 		5A5C71B5148FE67C00FC7CD3 /* plot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plot.png; sourceTree = "<group>"; };
@@ -1058,7 +1056,6 @@
 				5A6C573D14569B8500793A3F /* AudioToolbox.framework in Frameworks */,
 				5A6C573B1456992100793A3F /* AVFoundation.framework in Frameworks */,
 				5A28F7051451867400EDD475 /* CoreText.framework in Frameworks */,
-				5A587426144CFD2A009C63A2 /* SenTestingKit.framework in Frameworks */,
 				5A473E9A134858AC00F8CB13 /* QuartzCore.framework in Frameworks */,
 				5A473E981348589F00F8CB13 /* MessageUI.framework in Frameworks */,
 				5A473E281348521100F8CB13 /* UIKit.framework in Frameworks */,
@@ -1309,7 +1306,6 @@
 				5A28F7041451867400EDD475 /* CoreText.framework */,
 				5A6C573A1456992000793A3F /* AVFoundation.framework */,
 				5A6C573C14569B8500793A3F /* AudioToolbox.framework */,
-				5A587425144CFD2A009C63A2 /* SenTestingKit.framework */,
 				5A473E99134858AC00F8CB13 /* QuartzCore.framework */,
 				5A473E971348589F00F8CB13 /* MessageUI.framework */,
 				5A473E271348521100F8CB13 /* UIKit.framework */,

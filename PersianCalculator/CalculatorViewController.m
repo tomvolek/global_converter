@@ -451,12 +451,14 @@ NSInteger counter =0;
     if ( (toInterfaceOrientation == UIInterfaceOrientationLandscapeLeft) ||(toInterfaceOrientation == UIInterfaceOrientationLandscapeRight) )
     {
         NSLog(@"What is the orientation: %i", toInterfaceOrientation);
-        [self.navigationController setNavigationBarHidden:TRUE animated:FALSE]; 
-        if (persianViewController ==nil) {
+        //[self.navigationController setNavigationBarHidden:TRUE animated:FALSE]; 
+        //if (persianViewController ==nil) {
            // persianViewController = [[PersianCalculatorLandscape alloc] init];
            // persianViewController = [[[PersianCalculatorLandscape alloc] init]  initWithNibName:@"PersianCalculatorView" bundle:nil];
             
-            persianViewController = [[[[PersianCalculatorLandscape alloc] init]  initWithNibName:@"PersianCalculatorLandscape" bundle:nil]autorelease];
+        //    persianViewController = [[[[PersianCalculatorLandscape alloc] init]  initWithNibName:@"PersianCalculatorLandscape" bundle:nil]autorelease];
+            
+            
             
             //self.view =    persianViewController.view;  
             
@@ -464,7 +466,13 @@ NSInteger counter =0;
             //[[UIApplication sharedApplication] setStatusBarHidden:TRUE animated:FALSE];
 
             
-        }
+        //}
+        PersianCalculatorLandscape *myOwnController = [[[[PersianCalculatorLandscape alloc] init]  initWithNibName:@"PersianCalculatorLandscape" bundle:nil]autorelease];
+        NSMutableArray* newArray = [NSMutableArray arrayWithArray:self.tabBarController.viewControllers];
+        [newArray replaceObjectAtIndex:0 withObject:myOwnController];
+        [self.tabBarController setViewControllers:newArray animated:YES];
+        //[self.tabBarController.moreNavigationController popViewControllerAnimated:YES];
+        //[self.tabBarController.moreNavigationController pushViewController:persianViewController animated:YES];
         //self.tabBarController.hidesBottomBarWhenPushed = YES;
         
        
@@ -500,28 +508,28 @@ NSInteger counter =0;
     }
     else
     {
-        [self.navigationController setNavigationBarHidden:FALSE animated:FALSE];
-        [self.navigationController popToRootViewControllerAnimated:NO];
+        //[self.navigationController setNavigationBarHidden:FALSE animated:FALSE];
+        //[self.navigationController popToRootViewControllerAnimated:NO];
     }
 }
 
 
 -(void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation { 
-    CGRect previousRect = self.view.frame;
+    //CGRect previousRect = self.view.frame;
     UIInterfaceOrientation toOrientation = self.interfaceOrientation;
     
     if ( self.tabBarController.view.subviews.count >= 2 )
     {
-        UIView *transView = [self.tabBarController.view.subviews objectAtIndex:0];
+        //UIView *transView = [self.tabBarController.view.subviews objectAtIndex:0];
         UIView *tabBar = [self.tabBarController.view.subviews objectAtIndex:1];
         
         if(toOrientation == UIInterfaceOrientationLandscapeLeft || toOrientation == UIInterfaceOrientationLandscapeRight) {                                     
-            transView.frame = CGRectMake(0, 0, 480, 320 );
+            //transView.frame = CGRectMake(0, 0, 480, 320 );
             tabBar.hidden = TRUE;
         }
         else
         {                               
-            transView.frame = previousRect;         
+            //transView.frame = previousRect;         
             tabBar.hidden = FALSE;
         }
     }
@@ -547,7 +555,7 @@ NSInteger counter =0;
 
 - (void)dealloc {
     
-    [persianViewController dealloc];
+    //[persianViewController dealloc];
     [super dealloc];
 }
 

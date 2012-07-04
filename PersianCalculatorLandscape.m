@@ -7,7 +7,7 @@
 //  43.405x963.134
 
 #import "PersianCalculatorLandscape.h"
-
+#import "CalculatorViewController.h"
 
 @implementation PersianCalculatorLandscape
 
@@ -647,7 +647,7 @@ NSString *fractionValue;
 - (void)initMagnifiedLetter { 
     
     UIImage *magniferImage = [UIImage imageNamed:@"keysymbol.png"];
-    magnifiedLetter = [[ UIImageView alloc ] initWithFrame:CGRectMake(0.0, 0.0, magniferImage.size.width, magniferImage.size.height)];
+    self.magnifiedLetter = [[ UIImageView alloc ] initWithFrame:CGRectMake(0.0, 0.0, magniferImage.size.width, magniferImage.size.height)];
     
     NSLog(@"Magwidthe: %f",magniferImage.size.width);
     NSLog(@"Magheigh: %f",magniferImage.size.height);
@@ -753,22 +753,41 @@ NSString *fractionValue;
 {
     if ( (toInterfaceOrientation == UIInterfaceOrientationPortrait) || (toInterfaceOrientation == UIInterfaceOrientationPortraitUpsideDown) )
     {
-        
-        [self.navigationController popToRootViewControllerAnimated:NO];
-    }
-    else {
-    PersianCalculatorLandscape  *persianViewController = [[[[PersianCalculatorLandscape alloc] init]  initWithNibName:@"PersianCalculatorLandscape" bundle:nil]autorelease];
-        
+        CalculatorViewController *calcViewController = [[[[CalculatorViewController alloc] init]  initWithNibName:@"CalculatorViewController" bundle:nil]autorelease];
+        NSMutableArray* newArray = [NSMutableArray arrayWithArray:self.tabBarController.viewControllers];
+        [newArray replaceObjectAtIndex:0 withObject:calcViewController];
+        [self.tabBarController setViewControllers:newArray animated:YES];
     }
     
+}
+
+-(void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation { 
+    //CGRect previousRect = self.view.frame;
+    UIInterfaceOrientation toOrientation = self.interfaceOrientation;
     
+    if ( self.tabBarController.view.subviews.count >= 2 )
+    {
+        UIView *transView = [self.tabBarController.view.subviews objectAtIndex:0];
+        UIView *tabBar = [self.tabBarController.view.subviews objectAtIndex:1];
+        
+        if ( (toOrientation == UIInterfaceOrientationPortrait) || (toOrientation == UIInterfaceOrientationPortraitUpsideDown) ) {                                     
+            //transView.frame = CGRectMake(0, 0, 480, 320 );
+            tabBar.hidden = FALSE;
+        }
+        else
+        {                               
+            transView.frame = CGRectMake(0, 0, 480, 320 );         
+            tabBar.hidden = TRUE;
+        }
+    }
 }
 
 
 
 - (void)dealloc
 {
-    [magnifiedLetter dealloc];
+    
+    [magnifiedLetter release];
     [calcRecord release];
     [super dealloc];
 }
