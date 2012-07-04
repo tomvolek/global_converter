@@ -756,6 +756,12 @@ NSString *fractionValue;
         
         [self.navigationController popToRootViewControllerAnimated:NO];
     }
+    else {
+    PersianCalculatorLandscape  *persianViewController = [[[[PersianCalculatorLandscape alloc] init]  initWithNibName:@"PersianCalculatorLandscape" bundle:nil]autorelease];
+        
+    }
+    
+    
 }
 
 

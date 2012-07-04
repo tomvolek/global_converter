@@ -25,6 +25,7 @@ bool soundFlag;
 NSInteger counter =0;
 
 
+
 /*NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
 [soundSwitch setOn:[userDefaults boolForKey:@"audioSwitch"]];
 */
@@ -446,16 +447,22 @@ NSInteger counter =0;
 
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
 {
-    NSLog(@"What is the orientation: %i", toInterfaceOrientation);
+    //NSLog(@"What is the orientation: %i", toInterfaceOrientation);
     if ( (toInterfaceOrientation == UIInterfaceOrientationLandscapeLeft) ||(toInterfaceOrientation == UIInterfaceOrientationLandscapeRight) )
     {
+        NSLog(@"What is the orientation: %i", toInterfaceOrientation);
+        [self.navigationController setNavigationBarHidden:TRUE animated:FALSE]; 
         if (persianViewController ==nil) {
            // persianViewController = [[PersianCalculatorLandscape alloc] init];
            // persianViewController = [[[PersianCalculatorLandscape alloc] init]  initWithNibName:@"PersianCalculatorView" bundle:nil];
             
-            persianViewController = [[[PersianCalculatorLandscape alloc] init]  initWithNibName:@"PersianCalculatorLandscape" bundle:nil];
+            persianViewController = [[[[PersianCalculatorLandscape alloc] init]  initWithNibName:@"PersianCalculatorLandscape" bundle:nil]autorelease];
             
-            //self.view =    persianViewController.view;     
+            //self.view =    persianViewController.view;  
+            
+            //[self.navigationController setNavigationBarHidden:TRUE animated:FALSE]; 
+            //[[UIApplication sharedApplication] setStatusBarHidden:TRUE animated:FALSE];
+
             
         }
         //self.tabBarController.hidesBottomBarWhenPushed = YES;
@@ -493,9 +500,36 @@ NSInteger counter =0;
     }
     else
     {
+        [self.navigationController setNavigationBarHidden:FALSE animated:FALSE];
         [self.navigationController popToRootViewControllerAnimated:NO];
     }
 }
+
+
+-(void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation { 
+    CGRect previousRect = self.view.frame;
+    UIInterfaceOrientation toOrientation = self.interfaceOrientation;
+    
+    if ( self.tabBarController.view.subviews.count >= 2 )
+    {
+        UIView *transView = [self.tabBarController.view.subviews objectAtIndex:0];
+        UIView *tabBar = [self.tabBarController.view.subviews objectAtIndex:1];
+        
+        if(toOrientation == UIInterfaceOrientationLandscapeLeft || toOrientation == UIInterfaceOrientationLandscapeRight) {                                     
+            transView.frame = CGRectMake(0, 0, 480, 320 );
+            tabBar.hidden = TRUE;
+        }
+        else
+        {                               
+            transView.frame = previousRect;         
+            tabBar.hidden = FALSE;
+        }
+    }
+}
+
+
+
+
 
 - (void)didReceiveMemoryWarning {
 	// Releases the view if it doesn't have a superview.
