@@ -763,7 +763,7 @@ NSString *fractionValue;
             [self.tabBarController setViewControllers:newArray animated:YES];
         }
         else if (selectedTabindex == 1) {
-            PlotCalc *plotViewController = [[[[PlotCalc alloc] init]  initWithNibName:@"CalculatorViewController" bundle:nil]autorelease];
+            PlotCalc *plotViewController = [[[[PlotCalc alloc] init]  initWithNibName:@"PlotCalc" bundle:nil]autorelease];
             NSMutableArray* newArray = [NSMutableArray arrayWithArray:self.tabBarController.viewControllers];
             [newArray replaceObjectAtIndex:1 withObject:plotViewController];
             [self.tabBarController setViewControllers:newArray animated:YES];
