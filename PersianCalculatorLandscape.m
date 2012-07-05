@@ -8,6 +8,7 @@
 
 #import "PersianCalculatorLandscape.h"
 #import "CalculatorViewController.h"
+#import "PlotCalc.h"
 
 @implementation PersianCalculatorLandscape
 
@@ -621,10 +622,11 @@ NSString *fractionValue;
     [display resignFirstResponder];
 }
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil whichTab:(int)tabselected
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+        selectedTabindex = tabselected;
         [self registerForKeyboardNotifications];
         
        
@@ -753,10 +755,19 @@ NSString *fractionValue;
 {
     if ( (toInterfaceOrientation == UIInterfaceOrientationPortrait) || (toInterfaceOrientation == UIInterfaceOrientationPortraitUpsideDown) )
     {
-        CalculatorViewController *calcViewController = [[[[CalculatorViewController alloc] init]  initWithNibName:@"CalculatorViewController" bundle:nil]autorelease];
-        NSMutableArray* newArray = [NSMutableArray arrayWithArray:self.tabBarController.viewControllers];
-        [newArray replaceObjectAtIndex:0 withObject:calcViewController];
-        [self.tabBarController setViewControllers:newArray animated:YES];
+        if (selectedTabindex == 0)
+        {
+            CalculatorViewController *calcViewController = [[[[CalculatorViewController alloc] init]  initWithNibName:@"CalculatorViewController" bundle:nil]autorelease];
+            NSMutableArray* newArray = [NSMutableArray arrayWithArray:self.tabBarController.viewControllers];
+            [newArray replaceObjectAtIndex:0 withObject:calcViewController];
+            [self.tabBarController setViewControllers:newArray animated:YES];
+        }
+        else if (selectedTabindex == 1) {
+            PlotCalc *plotViewController = [[[[PlotCalc alloc] init]  initWithNibName:@"CalculatorViewController" bundle:nil]autorelease];
+            NSMutableArray* newArray = [NSMutableArray arrayWithArray:self.tabBarController.viewControllers];
+            [newArray replaceObjectAtIndex:1 withObject:plotViewController];
+            [self.tabBarController setViewControllers:newArray animated:YES];
+        }
     }
     
 }

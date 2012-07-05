@@ -43,6 +43,7 @@
     UIImageView     *magnifiedLetter;
     UIImageView     *magnifiedLetterRubOut;
     NSString        *memory;
+    int             selectedTabindex;
 }
 
 @property (nonatomic,retain) UITextView *display;
@@ -76,5 +77,7 @@
 -(IBAction) secondButton:(id)sender ;
 -(IBAction) showInfo:(id) sender;
 -(IBAction) showDoneMessage:(id)sender;
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil whichTab:(int)tabselected;
 
 @end

@@ -467,7 +467,7 @@ int whichTextField=0;
     {
         NSLog(@"What is the orientation: %i", toInterfaceOrientation);
         
-        PersianCalculatorLandscape *myOwnController = [[[[PersianCalculatorLandscape alloc] init]  initWithNibName:@"PersianCalculatorLandscape" bundle:nil]autorelease];
+        PersianCalculatorLandscape *myOwnController = [[[[PersianCalculatorLandscape alloc] init]  initWithNibName:@"PersianCalculatorLandscape" bundle:nil whichTab:1]autorelease];
         NSMutableArray* newArray = [NSMutableArray arrayWithArray:self.tabBarController.viewControllers];
         [newArray replaceObjectAtIndex:1 withObject:myOwnController];
         [self.tabBarController setViewControllers:newArray animated:YES];
@@ -520,5 +520,6 @@ int whichTextField=0;
         { return [NSNumber numberWithDouble:1/val]; }
     }
 }
+
 
 @end

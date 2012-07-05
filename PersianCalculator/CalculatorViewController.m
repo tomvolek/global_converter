@@ -438,7 +438,7 @@ NSInteger counter =0;
     {
         NSLog(@"What is the orientation: %i", toInterfaceOrientation);
         
-        PersianCalculatorLandscape *myOwnController = [[[[PersianCalculatorLandscape alloc] init]  initWithNibName:@"PersianCalculatorLandscape" bundle:nil]autorelease];
+        PersianCalculatorLandscape *myOwnController = [[[[PersianCalculatorLandscape alloc] init]  initWithNibName:@"PersianCalculatorLandscape" bundle:nil whichTab:0]autorelease];
         NSMutableArray* newArray = [NSMutableArray arrayWithArray:self.tabBarController.viewControllers];
         [newArray replaceObjectAtIndex:0 withObject:myOwnController];
         [self.tabBarController setViewControllers:newArray animated:YES];
