@@ -460,6 +460,46 @@ int whichTextField=0;
    // return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+{
+    //NSLog(@"What is the orientation: %i", toInterfaceOrientation);
+    if ( (toInterfaceOrientation == UIInterfaceOrientationLandscapeLeft) ||(toInterfaceOrientation == UIInterfaceOrientationLandscapeRight) )
+    {
+        NSLog(@"What is the orientation: %i", toInterfaceOrientation);
+        
+        PersianCalculatorLandscape *myOwnController = [[[[PersianCalculatorLandscape alloc] init]  initWithNibName:@"PersianCalculatorLandscape" bundle:nil]autorelease];
+        NSMutableArray* newArray = [NSMutableArray arrayWithArray:self.tabBarController.viewControllers];
+        [newArray replaceObjectAtIndex:1 withObject:myOwnController];
+        [self.tabBarController setViewControllers:newArray animated:YES];
+    }
+    else
+    {
+        //[self.navigationController setNavigationBarHidden:FALSE animated:FALSE];
+        //[self.navigationController popToRootViewControllerAnimated:NO];
+    }
+}
+
+-(void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation { 
+    //CGRect previousRect = self.view.frame;
+    UIInterfaceOrientation toOrientation = self.interfaceOrientation;
+    
+    if ( self.tabBarController.view.subviews.count >= 2 )
+    {
+        
+        UIView *tabBar = [self.tabBarController.view.subviews objectAtIndex:1];
+        
+        if(toOrientation == UIInterfaceOrientationLandscapeLeft || toOrientation == UIInterfaceOrientationLandscapeRight) {                                     
+            //transView.frame = CGRectMake(0, 0, 480, 320 );
+            tabBar.hidden = TRUE;
+        }
+        else
+        {                               
+            tabBar.hidden = FALSE;
+        }
+    }
+}
+
+
 -(NSUInteger)numberOfRecordsForPlot:(CPTPlot *)plot {
     return 51;
 }

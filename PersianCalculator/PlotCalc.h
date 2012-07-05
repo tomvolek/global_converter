@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "CorePlot-CocoaTouch.h"
 #import "LocalizationHelper.h"
+#import "PersianCalculatorLandscape.h"
 #import "CalcLocalize.h"
 #import "customKeyboard.h"
 

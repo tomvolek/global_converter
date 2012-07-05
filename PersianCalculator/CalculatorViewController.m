@@ -379,10 +379,6 @@ NSInteger counter =0;
     
     // call our helper class to localize all strings on a view
     [LocalizationHelper localizeView:self.view];
-    
-    
-
-    
 }
 
 
@@ -390,9 +386,6 @@ NSInteger counter =0;
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = YES;
-
-    
-  //  [projectNavigationController viewWillAppear:animated];
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     soundFlag= [userDefaults boolForKey:@"audioSwitch"];
    
@@ -416,7 +409,6 @@ NSInteger counter =0;
             [btn setTitle:NSLocalizedString([btn titleForState:UIControlStateNormal],nil) forState:UIControlStateNormal];
         }
         else if ([view isKindOfClass:[UILabel class]]){
-            
             UILabel *lbl = (UILabel*)view;
             lbl.text =  NSLocalizedString(lbl.text,nil);
         }
@@ -429,19 +421,13 @@ NSInteger counter =0;
     {
         tabBarItem.title = NSLocalizedString(tabBarItem.title,nil);
     }
-
-    
-   
-    
 }
 
 // Override to allow orientations other than the default portrait orientation.
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     // Return YES for supported orientations
-    
-    //return (interfaceOrientation == UIInterfaceOrientationLandscapeRight);
- return YES ;
+   return YES ;
     
 }
 
@@ -451,60 +437,11 @@ NSInteger counter =0;
     if ( (toInterfaceOrientation == UIInterfaceOrientationLandscapeLeft) ||(toInterfaceOrientation == UIInterfaceOrientationLandscapeRight) )
     {
         NSLog(@"What is the orientation: %i", toInterfaceOrientation);
-        //[self.navigationController setNavigationBarHidden:TRUE animated:FALSE]; 
-        //if (persianViewController ==nil) {
-           // persianViewController = [[PersianCalculatorLandscape alloc] init];
-           // persianViewController = [[[PersianCalculatorLandscape alloc] init]  initWithNibName:@"PersianCalculatorView" bundle:nil];
-            
-        //    persianViewController = [[[[PersianCalculatorLandscape alloc] init]  initWithNibName:@"PersianCalculatorLandscape" bundle:nil]autorelease];
-            
-            
-            
-            //self.view =    persianViewController.view;  
-            
-            //[self.navigationController setNavigationBarHidden:TRUE animated:FALSE]; 
-            //[[UIApplication sharedApplication] setStatusBarHidden:TRUE animated:FALSE];
-
-            
-        //}
+        
         PersianCalculatorLandscape *myOwnController = [[[[PersianCalculatorLandscape alloc] init]  initWithNibName:@"PersianCalculatorLandscape" bundle:nil]autorelease];
         NSMutableArray* newArray = [NSMutableArray arrayWithArray:self.tabBarController.viewControllers];
         [newArray replaceObjectAtIndex:0 withObject:myOwnController];
         [self.tabBarController setViewControllers:newArray animated:YES];
-        //[self.tabBarController.moreNavigationController popViewControllerAnimated:YES];
-        //[self.tabBarController.moreNavigationController pushViewController:persianViewController animated:YES];
-        //self.tabBarController.hidesBottomBarWhenPushed = YES;
-        
-       
-     /*   [UIView transitionFromView:self.view 
-                            toView:persianViewController.view 
-                          duration:1 
-                           options:UIViewAnimationTransitionCurlDown 
-                             completion:^(BOOL finished) {
-                        if (finished) {
-                              persianViewController.view;
-                           }
-                       }];
-        
-       */  
-        
-        //[self.view addSubview:persianViewController.view];
-        //[self addChildViewController:persianViewController];
-        //[self willMoveToParentViewController:nil];
-        
-        //[self transitionFromViewController:self toViewController:persianViewController duration:0.3 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{} completion:^(BOOL finished) {
-        //    [self removeFromParentViewController];
-        //    [persianViewController didMoveToParentViewController:self];
-        //}];
-
-        //persianViewController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
-        
-        //[self.tabBarController presentModalViewController:persianViewController animated:YES];
-        //self.tabBarController.hidesBottomBarWhenPushed = YES;
-        //[self.tabBarController presentModalViewController:persianViewController animated:YES];
-         //[self.navigationController pushViewController:persianViewController animated:NO];
-      
-      
     }
     else
     {
@@ -520,7 +457,7 @@ NSInteger counter =0;
     
     if ( self.tabBarController.view.subviews.count >= 2 )
     {
-        //UIView *transView = [self.tabBarController.view.subviews objectAtIndex:0];
+        
         UIView *tabBar = [self.tabBarController.view.subviews objectAtIndex:1];
         
         if(toOrientation == UIInterfaceOrientationLandscapeLeft || toOrientation == UIInterfaceOrientationLandscapeRight) {                                     
@@ -529,14 +466,10 @@ NSInteger counter =0;
         }
         else
         {                               
-            //transView.frame = previousRect;         
             tabBar.hidden = FALSE;
         }
     }
 }
-
-
-
 
 
 - (void)didReceiveMemoryWarning {
@@ -554,8 +487,6 @@ NSInteger counter =0;
 
 
 - (void)dealloc {
-    
-    //[persianViewController dealloc];
     [super dealloc];
 }
 
