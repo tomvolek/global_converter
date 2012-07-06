@@ -761,12 +761,23 @@ NSString *fractionValue;
             NSMutableArray* newArray = [NSMutableArray arrayWithArray:self.tabBarController.viewControllers];
             [newArray replaceObjectAtIndex:0 withObject:calcViewController];
             [self.tabBarController setViewControllers:newArray animated:YES];
+            
+            UIViewController *tab1 = [newArray objectAtIndex:0];
+            tab1.tabBarItem.image = [UIImage imageNamed:@"161-calculator.png"];
+            tab1.tabBarItem.title = NSLocalizedString(@"Calculator",nill);
+            
         }
         else if (selectedTabindex == 1) {
-            PlotCalc *plotViewController = [[[[PlotCalc alloc] init]  initWithNibName:@"PlotCalc" bundle:nil]autorelease];
+           PlotCalc *plotViewController = [[[[PlotCalc alloc] init]  initWithNibName:@"PlotCalc" bundle:nil]autorelease];
             NSMutableArray* newArray = [NSMutableArray arrayWithArray:self.tabBarController.viewControllers];
             [newArray replaceObjectAtIndex:1 withObject:plotViewController];
             [self.tabBarController setViewControllers:newArray animated:YES];
+            
+            UIViewController *tab1 = [newArray objectAtIndex:1];
+            tab1.tabBarItem.image = [UIImage imageNamed:@"16-line-chart.png"];
+            tab1.tabBarItem.title = NSLocalizedString(@"Plot",nill);
+            
+            
         }
     }
     
