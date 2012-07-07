@@ -296,7 +296,7 @@ int whichTextField=0;
    
     // Do any additional setup after loading the view from its nib.
     // graph = [[CPTXYGraph alloc] initWithFrame: self.view.bounds];
-    graph = [[CPTXYGraph alloc] initWithFrame: CGRectMake(0, 0, 320, 350)];
+    graph = [[CPTXYGraph alloc] initWithFrame: CGRectMake(0, 0, 320, 294)];
     
     CPTGraphHostingView *hostingView = (CPTGraphHostingView *)[self.view viewWithTag:88];
     hostingView.hostedGraph = graph;

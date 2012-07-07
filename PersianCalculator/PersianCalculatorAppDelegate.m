@@ -8,7 +8,7 @@
 
 #import "PersianCalculatorAppDelegate.h"
 #import "CalculatorViewController.h"
-
+#import "PlotCalc.h"
 
 @implementation PersianCalculatorAppDelegate
 

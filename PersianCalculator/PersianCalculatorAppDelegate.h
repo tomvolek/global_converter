@@ -11,7 +11,7 @@
 @class CalculatorViewController;
 
 
-@interface PersianCalculatorAppDelegate : NSObject <UIApplicationDelegate> {
+@interface PersianCalculatorAppDelegate : NSObject <UIApplicationDelegate, UITabBarControllerDelegate> {
     UIWindow *window;
     CalculatorViewController *viewController;
      
