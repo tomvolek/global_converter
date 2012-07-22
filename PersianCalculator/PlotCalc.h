@@ -17,20 +17,43 @@
 {
     CPTXYGraph *graph;
     UIPickerView *myPickerView;
-    NSArray              *equations; 
+    NSArray             *equations; 
     CustomKeyboard      *keyboardView;
     AVAudioPlayer       *theAudio;
-    IBOutlet UITextField *functionText;
-    IBOutlet UITextField *yTextfield;
-    IBOutlet UITextField  *inputFormula;
+    UITextField *functionText;
+    UITextField *yTextfield;
+    UITextField  *inputFormula;
+    UILabel *x1label, *x2label, *x3label, *x4label, *x5label, *x6label;
+    UITextField *y1TextField, *y2TextField, *y3TextField, *y4TextField, *y5TextField, *y6TextField;
+    
     
 }
 
-@property (nonatomic, retain) IBOutlet UITextField *functionText;
-@property (nonatomic, retain) IBOutlet UITextField *yTextfield;
-@property (nonatomic, retain) IBOutlet UITextField *inputFormula;
+@property (nonatomic, retain)  UITextField *functionText;
+@property (nonatomic, retain)  UITextField *yTextfield;
+@property (nonatomic, retain)  UITextField *inputFormula;
 @property (nonatomic, retain) CustomKeyboard *keyboardView;
-@property (nonatomic,retain)  UIPickerView *myPickerView;
+@property (nonatomic, retain) UIPickerView *myPickerView;
+
+@property (nonatomic, retain) UILabel *x1label;
+@property (nonatomic, retain) UILabel *x2label;
+@property (nonatomic, retain) UILabel *x3label;
+@property (nonatomic, retain) UILabel *x4label;
+@property (nonatomic, retain) UILabel *x5label;
+@property (nonatomic, retain) UILabel *x6label;
+
+@property (nonatomic, retain) UITextField *y1TextField;
+@property (nonatomic, retain) UITextField *y2TextField;
+@property (nonatomic, retain) UITextField *y3TextField;
+@property (nonatomic, retain) UITextField *y4TextField;
+@property (nonatomic, retain) UITextField *y5TextField;
+@property (nonatomic, retain) UITextField *y6TextField;
+
+
+
+
+
+
 
 -(void) keyboardShow;
 -(void) keyboardHide;

@@ -34,6 +34,8 @@
     float              currencyToRate;
     
     NSMutableDictionary *currencyList;
+    NSMutableArray *countryCurrancyList;
+    
     NSMutableArray      *countryNames;
     NSMutableArray      *AllCountryNames;
     NSMutableArray      *favorites;

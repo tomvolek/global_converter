@@ -15,21 +15,22 @@
 @interface InfoViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>{
     UISwitch    *soundSwitch;
     UITableView *languageTableView;
-    IBOutlet UIStepper   *myStepper;
-    IBOutlet UILabel *fractionValue;
+    UIStepper   *myStepper;
+    UILabel *fractionValue;
     NSMutableArray *listOfLanguages;
     NSIndexPath *lastIndexPath;
     NSArray     *languageSet;
+    NSString    *Fraction;
 	int stepperValue;
 }
 
 @property (nonatomic,retain) NSArray *languageSet;
 @property (nonatomic,retain) NSIndexPath *lastIndexPath;
 @property (nonatomic,retain) NSMutableArray *listOfLanguages;
-@property (nonatomic,retain) IBOutlet UILabel   *fractionValue;
 @property (nonatomic,retain) IBOutlet UISwitch *soundSwitch;
-@property (nonatomic,retain) IBOutlet UITableView *languageTableView;
-
+@property (nonatomic,retain) UITableView *languageTableView;
+@property (nonatomic,retain) IBOutlet UIStepper   *myStepper;
+@property (nonatomic,retain) IBOutlet UILabel *fractionValue;
 
 
 -(IBAction) setSoundSwitch;

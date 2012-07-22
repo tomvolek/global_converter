@@ -17,7 +17,7 @@
 @synthesize lastIndexPath;
 @synthesize languageSet;
 @synthesize fractionValue;
-NSString    *Fraction;
+@synthesize  myStepper;
 
 
 

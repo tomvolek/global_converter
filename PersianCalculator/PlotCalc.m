@@ -14,7 +14,21 @@
             yTextfield,
             inputFormula,
             keyboardView,
+            x1label,
+            x2label,
+            x3label,
+            x4label,
+            x5label,
+            x6label,
+            y1TextField,
+            y2TextField,
+            y3TextField,
+            y4TextField,
+            y5TextField,
+            y6TextField,
             myPickerView;
+
+
 bool soundFlag;
 // flag to test which UITextField is receiving input
 int whichTextField=0; 
@@ -48,8 +62,12 @@ int whichTextField=0;
         }
     } 
     else if ([keyletters.titleLabel.text isEqualToString:@"C"] ) {
-          functionText.text=@"";
-          yTextfield.text=@"";
+        if ( whichTextField == 1 ){ y1TextField.text =@"" ;}
+        else if ( whichTextField == 2 ){ y2TextField.text =@"" ;}
+        else if ( whichTextField == 3 ){ y3TextField.text =@"" ;}
+        else if ( whichTextField == 4 ){ y4TextField.text =@"" ;}
+        else if ( whichTextField == 5 ){ y5TextField.text =@"" ;}
+        else if ( whichTextField == 6 ){ y6TextField.text =@"" ;}
     }
     else if ([keyletters.titleLabel.text isEqualToString:@"v"] ) {
         
@@ -58,22 +76,57 @@ int whichTextField=0;
     //implement character rubout 
     else if ([keyletters.titleLabel.text isEqualToString:@"xx"] ) {
         if (whichTextField ==1 ) { 
-                 if (functionText.text.length < 1) { }
-                 else functionText.text = [functionText.text substringToIndex:functionText.text.length-1];
-                    }
-        else {
-            if (yTextfield.text.length < 1) { }
-            else  yTextfield.text = [yTextfield.text substringToIndex:yTextfield.text.length-1];
-            }
+                 if (y1TextField.text.length < 1) { }
+                 else y1TextField.text = [y1TextField.text substringToIndex:y1TextField.text.length-1];
+                }
+        else if (whichTextField ==2 ) { 
+            if (y2TextField.text.length < 1) { }
+            else y2TextField.text = [y2TextField.text substringToIndex:y2TextField.text.length-1];
+        }
+        else if (whichTextField ==3 ) { 
+            if (y3TextField.text.length < 1) { }
+            else y3TextField.text = [y3TextField.text substringToIndex:y3TextField.text.length-1];
+        }
+        else if (whichTextField ==4 ) { 
+            if (y4TextField.text.length < 1) { }
+            else y4TextField.text = [y4TextField.text substringToIndex:y4TextField.text.length-1];
+        }
+        else if (whichTextField ==5 ) { 
+            if (y5TextField.text.length < 1) { }
+            else y5TextField.text = [y5TextField.text substringToIndex:y5TextField.text.length-1];
+        }
+        else if (whichTextField ==6 ) { 
+            if (y6TextField.text.length < 1) { }
+            else y6TextField.text = [y6TextField.text substringToIndex:y6TextField.text.length-1];
+        }
     }
     else {
         //All other characters just add them to the string 
-        if ( whichTextField == 2 ){
-            yTextfield.text = [yTextfield.text stringByAppendingString:NSLocalizedString(keyletters.titleLabel.text, nil)];
-                NSLog(@"ytext%@",yTextfield.text);
+        if ( whichTextField == 1 ){
+            y1TextField.text = [y1TextField.text stringByAppendingString:NSLocalizedString(keyletters.titleLabel.text, nil)];
+              
         } 
-        else {functionText.text = [functionText.text  stringByAppendingString:NSLocalizedString(keyletters.titleLabel.text, nil)]; 
-        NSLog(@"functionText%@",functionText.text);}
+        else if ( whichTextField == 2 ){
+            y2TextField.text = [y2TextField.text stringByAppendingString:NSLocalizedString(keyletters.titleLabel.text, nil)];
+            
+        }
+        else if ( whichTextField == 3 ){
+            y3TextField.text = [y3TextField.text stringByAppendingString:NSLocalizedString(keyletters.titleLabel.text, nil)];
+            
+        }
+        else if ( whichTextField == 4 ){
+            y4TextField.text = [y4TextField.text stringByAppendingString:NSLocalizedString(keyletters.titleLabel.text, nil)];
+            
+        }
+        else if ( whichTextField == 5 ){
+            y5TextField.text = [y5TextField.text stringByAppendingString:NSLocalizedString(keyletters.titleLabel.text, nil)];
+            
+        }
+        else if ( whichTextField == 6 ){
+            y6TextField.text = [y6TextField.text stringByAppendingString:NSLocalizedString(keyletters.titleLabel.text, nil)];
+            
+        }
+       
     }
 } //keyPressed
 
@@ -108,16 +161,44 @@ int whichTextField=0;
         functionText.inputView = self.keyboardView;
         [functionText resignFirstResponder];
         [self keyboardShow];
-        whichTextField = 1;
+        whichTextField = 0;
     }
     else {
-        yTextfield.inputView = self.keyboardView;
-        [yTextfield resignFirstResponder];
+        if (textField ==  y1TextField) { 
+            whichTextField = 1; 
+            y1TextField.inputView = self.keyboardView;
+            [y1TextField resignFirstResponder];
+            } 
+        else if (textField ==  y2TextField) {
+            whichTextField = 2; 
+            y2TextField.inputView = self.keyboardView;
+            [y2TextField resignFirstResponder];
+            }
+        else if (textField ==  y3TextField) { 
+            whichTextField = 3; 
+            y3TextField.inputView = self.keyboardView; 
+            [y3TextField resignFirstResponder];
+             }
+        else if (textField ==  y4TextField) { 
+            whichTextField = 4;
+            y4TextField.inputView = self.keyboardView;
+            [y4TextField resignFirstResponder];
+             }
+        else if (textField ==  y5TextField) { 
+            whichTextField = 5; 
+            y5TextField.inputView = self.keyboardView;
+            [y5TextField resignFirstResponder];
+            }
+        else if (textField ==  y6TextField) { whichTextField = 6;
+            y6TextField.inputView = self.keyboardView;
+            [y6TextField resignFirstResponder];
+            }
         [self keyboardShow];
-        whichTextField = 2;
+    
     } 
-    return NO;  // Hide both keyboard and blinking cursor.
+    return NO;  // Hide both defalt keyboard and blinking cursor.
 }
+
 
 
 
@@ -148,39 +229,200 @@ int whichTextField=0;
     //Localize the numbers being displayed
     CalcLocalize *myCalcLocalize = [[CalcLocalize alloc] init];
     
+    [x1label     setHidden:TRUE];
+    [x2label     setHidden:TRUE];
+    [x3label     setHidden:TRUE];
+    [x4label     setHidden:TRUE];
+    [x5label     setHidden:TRUE];
+    [x6label     setHidden:TRUE];
+    [y1TextField setHidden:TRUE ];
+    [y2TextField setHidden:TRUE ];
+    [y3TextField setHidden:TRUE ];
+    [y4TextField setHidden:TRUE ];
+    [y5TextField setHidden:TRUE ];
+    [y6TextField setHidden:TRUE ];
+    
     inputFormula.text = [equations objectAtIndex:row];
     //inputFormula.text=[myCalcLocalize convertLocalToEngNumbers:(NSString *) inputFormula.text] ;
         
     switch (row) {
-        case 1:
-        case 2:
-        case 3:
-        case 4:
-        case 5:
-        case 6:
-        case 7:
-        case 8:
-        case 9:
-        case 10:
-            {
-             UILabel *xlabel = [[[UILabel alloc] initWithFrame:CGRectMake(4, 4, 26, 17)] autorelease];
-             xlabel.text = @"X=";
-             xlabel.backgroundColor =[UIColor blackColor];
-             xlabel.textColor = [UIColor whiteColor];
-             xlabel.font = [UIFont fontWithName:@"Arial-BoldMT" size:14];           
-             //NOw add it to the parent view 
-             [self.view addSubview:xlabel];
-             UITextField *xTextField = [[[UITextField alloc] initWithFrame:CGRectMake(20, 0, 40, 25)] autorelease];
-             xTextField.text = @"0";
-             xTextField.backgroundColor =[UIColor darkGrayColor];
-             xTextField.textColor = [UIColor yellowColor];
-             xTextField.font = [UIFont fontWithName:@"Arial-BoldMT" size:14];
-             xTextField.inputView = self.keyboardView;
-             //NOw add it to the parent view 
-             [self.view addSubview:xTextField];
-            }
+        case 0: {// y=ax+b
+            x1label.text = @"X=";
+            x2label.text = @"a=";
+            x3label.text = @"b=";
             
+            [x1label     setHidden:FALSE];
+            [x2label     setHidden:FALSE];
+            [x3label     setHidden:FALSE];
+            [y1TextField setHidden:FALSE ];
+            [y2TextField setHidden:FALSE ];
+            [y3TextField setHidden:FALSE ];
+            
+        }    
             break;
+        case 1: { // sqr(x)
+             x1label.text = @"X=";
+            [x1label     setHidden:FALSE];
+            [y1TextField setHidden:FALSE ];
+            }
+            break;
+        case 2: { // X**3
+            x1label.text = @"X=";
+            [x1label     setHidden:FALSE];
+            [y1TextField setHidden:FALSE ];
+            
+        }
+            break;
+        case 3: { // cos(x)
+             x1label.text = @"X=";
+            [x1label     setHidden:FALSE];
+            [y1TextField setHidden:FALSE ];
+        }
+            break;
+        case 4: { // sin(x)
+            x1label.text = @"X=";
+            [x1label     setHidden:FALSE];
+            [y1TextField setHidden:FALSE ];
+        }
+            break;
+        case 5: { // tan(x)
+            x1label.text = @"X=";
+            [x1label     setHidden:FALSE];
+            [y1TextField setHidden:FALSE ];
+        }
+            break;
+        case 6: { // sec(x)
+            x1label.text = @"X=";
+            [x1label     setHidden:FALSE];
+            [y1TextField setHidden:FALSE ];
+        }
+            break;
+        case 7: { // |x|
+            x1label.text = @"X=";
+            [x1label     setHidden:FALSE];
+            [y1TextField setHidden:FALSE ];
+        }
+            break;
+        case 8: { // e**x
+            x1label.text = @"X=";
+            [x1label     setHidden:FALSE];
+            [y1TextField setHidden:FALSE ];
+        } 
+            break;
+        case 9: { // e**-x
+            x1label.text = @"X=";
+            [x1label     setHidden:FALSE];
+            [y1TextField setHidden:FALSE ];
+        }
+            break;
+        case 10: { // ln(x)
+            x1label.text = @"X=";
+            [x1label     setHidden:FALSE];
+            [y1TextField setHidden:FALSE ];
+        }
+            break;
+        case 11: { // ax**2+bx+c
+            x1label.text = @"X=";
+            [x1label     setHidden:FALSE];
+            [y1TextField setHidden:FALSE ];
+            
+            x2label.text = @"a=";
+            [x2label     setHidden:FALSE];
+            [y2TextField setHidden:FALSE ];
+            
+            x3label.text = @"b=";
+            [x3label     setHidden:FALSE];
+            [y3TextField setHidden:FALSE ];
+            
+            x4label.text = @"c=";
+            [x4label     setHidden:FALSE];
+            [y4TextField setHidden:FALSE ];
+            
+        }
+            break;
+        case 12: { // (x-h)**2+(y-k)**2=r**2
+            x1label.text = @"x=";
+            [x1label     setHidden:FALSE];
+            [y1TextField setHidden:FALSE ];
+            
+            x2label.text = @"h=";
+            [x2label     setHidden:FALSE];
+            [y2TextField setHidden:FALSE ];
+            
+            x3label.text = @"y=";
+            [x3label     setHidden:FALSE];
+            [y3TextField setHidden:FALSE ];
+            
+            x4label.text = @"k=";
+            [x4label     setHidden:FALSE];
+            [y4TextField setHidden:FALSE ];
+            
+            x5label.text = @"r=";
+            [x5label     setHidden:FALSE];
+            [y5TextField setHidden:FALSE ];
+            
+        }
+            break;    
+            
+            
+        case 13: { // (x-h)**2/a**2+(y-k)**2/b**2=1
+            
+            x1label.text = @"x=";
+            [x1label     setHidden:FALSE];
+            [y1TextField setHidden:FALSE ];
+            
+            x2label.text = @"h=";
+            [x2label     setHidden:FALSE];
+            [y2TextField setHidden:FALSE ];
+            
+            x3label.text = @"a=";
+            [x3label     setHidden:FALSE];
+            [y3TextField setHidden:FALSE ];
+            
+            x4label.text = @"y=";
+            [x4label     setHidden:FALSE];
+            [y4TextField setHidden:FALSE ];
+            
+            x5label.text = @"k=";
+            [x5label     setHidden:FALSE];
+            [y5TextField setHidden:FALSE ];
+            
+            x6label.text = @"b=";
+            [x6label     setHidden:FALSE];
+            [y6TextField setHidden:FALSE ];
+    
+        }
+            break;
+            
+        case 14: { // (x-h)**2/a**2 - (y-k)**2/b**2=1
+                        
+            x1label.text = @"x=";
+            [x1label     setHidden:FALSE];
+            [y1TextField setHidden:FALSE ];
+            
+            x2label.text = @"h=";
+            [x2label     setHidden:FALSE];
+            [y2TextField setHidden:FALSE ];
+            
+            x3label.text = @"a=";
+            [x3label     setHidden:FALSE];
+            [y3TextField setHidden:FALSE ];
+            
+            x4label.text = @"y=";
+            [x4label     setHidden:FALSE];
+            [y4TextField setHidden:FALSE ];
+            
+            x5label.text = @"k=";
+            [x5label     setHidden:FALSE];
+            [y5TextField setHidden:FALSE ];
+            
+            x6label.text = @"b=";
+            [x6label     setHidden:FALSE];
+            [y6TextField setHidden:FALSE ];
+            
+            
+        }
+            break;     
             
         default:
             break;
@@ -242,6 +484,7 @@ int whichTextField=0;
     int sectionHight = 40;
     return sectionHight;
 }
+
 
 
 #pragma mark - View lifecycle
@@ -414,9 +657,137 @@ int whichTextField=0;
                                                  name:@"TestNotification"
                                                object:nil];
     
+    // create Lable and text field for equation vairables
+    x1label = [[[UILabel alloc] initWithFrame:CGRectMake(1, 4, 26, 17)] autorelease];
+    x1label.text = @"X=";
+    x1label.backgroundColor =[UIColor blackColor];
+    x1label.textColor = [UIColor whiteColor];
+    x1label.font = [UIFont fontWithName:@"Arial-BoldMT" size:14];           
+    //Now add it to the parent view 
+    [self.view addSubview:x1label];
+    
+    
+    y1TextField = [[[UITextField alloc] initWithFrame:CGRectMake(20, 0, 38, 24)] autorelease];
+    y1TextField.text = @"";
+    y1TextField.backgroundColor =[UIColor darkGrayColor];
+    y1TextField.textColor = [UIColor yellowColor];
+    y1TextField.font = [UIFont fontWithName:@"Arial-BoldMT" size:14];
+    y1TextField.inputView = self.keyboardView;
+    y1TextField.delegate = self ;
+    //NOw add it to the parent view 
+    [self.view addSubview:y1TextField];
+    [y1TextField setHidden:FALSE ];
+    
+    // create Lable and text field for equation vairables
+    x2label = [[[UILabel alloc] initWithFrame:CGRectMake(1, 23, 26, 17)] autorelease];
+    x2label.text = @"Y=";
+    x2label.backgroundColor =[UIColor blackColor];
+    x2label.textColor = [UIColor whiteColor];
+    x2label.font = [UIFont fontWithName:@"Arial-BoldMT" size:14];           
+    //Now add it to the parent view 
+    [self.view addSubview:x2label];
+    
+    
+    y2TextField = [[[UITextField alloc] initWithFrame:CGRectMake(20, 25, 38, 24)] autorelease];
+    y2TextField.text = @"";
+    y2TextField.backgroundColor =[UIColor darkGrayColor];
+    y2TextField.textColor = [UIColor yellowColor];
+    y2TextField.font = [UIFont fontWithName:@"Arial-BoldMT" size:14];
+    y2TextField.inputView = self.keyboardView;
+    y2TextField.delegate = self ;
+    //NOw add it to the parent view 
+    [self.view addSubview:y2TextField];
+    [y2TextField setHidden:FALSE ];
+    
+    
+    // create Lable and text field for equation vairables
+    x3label = [[[UILabel alloc] initWithFrame:CGRectMake(1, 49, 26, 17)] autorelease];
+    x3label.text = @"a=";
+    x3label.backgroundColor =[UIColor blackColor];
+    x3label.textColor = [UIColor whiteColor];
+    x3label.font = [UIFont fontWithName:@"Arial-BoldMT" size:14];           
+    //Now add it to the parent view 
+    [self.view addSubview:x3label];
+    
+    
+    y3TextField = [[[UITextField alloc] initWithFrame:CGRectMake(20, 50, 38, 24)] autorelease];
+    y3TextField.text = @"";
+    y3TextField.backgroundColor =[UIColor darkGrayColor];
+    y3TextField.textColor = [UIColor yellowColor];
+    y3TextField.font = [UIFont fontWithName:@"Arial-BoldMT" size:14];
+    y3TextField.inputView = self.keyboardView;
+    y3TextField.delegate = self ;
+    //NOw add it to the parent view 
+    [self.view addSubview:y3TextField];
+    [y3TextField setHidden:FALSE ];
+    
+    
+    // create Lable and text field for equation vairables
+    x4label = [[[UILabel alloc] initWithFrame:CGRectMake(1, 72, 17, 23)] autorelease];
+    x4label.text = @"b=";
+    x4label.backgroundColor =[UIColor blackColor];
+    x4label.textColor = [UIColor whiteColor];
+    x4label.font = [UIFont fontWithName:@"Arial-BoldMT" size:14];           
+    //Now add it to the parent view 
+    [self.view addSubview:x4label];
+    
+    
+    y4TextField = [[[UITextField alloc] initWithFrame:CGRectMake(20, 75, 38, 24)] autorelease];
+    y4TextField.text = @"";
+    y4TextField.backgroundColor =[UIColor darkGrayColor];
+    y4TextField.textColor = [UIColor yellowColor];
+    y4TextField.font = [UIFont fontWithName:@"Arial-BoldMT" size:14];
+    y4TextField.inputView = self.keyboardView;
+    y4TextField.delegate = self ;
+    //NOw add it to the parent view 
+    [self.view addSubview:y4TextField];
+    [y4TextField setHidden:FALSE ];
+    
+    
+    // create Lable and text field for equation vairables
+    x5label = [[[UILabel alloc] initWithFrame:CGRectMake(1, 96, 17, 23)] autorelease];
+    x5label.text = @"c=";
+    x5label.backgroundColor =[UIColor blackColor];
+    x5label.textColor = [UIColor whiteColor];
+    x5label.font = [UIFont fontWithName:@"Arial-BoldMT" size:14];           
+    //Now add it to the parent view 
+    [self.view addSubview:x5label];
+    
+    
+    y5TextField = [[[UITextField alloc] initWithFrame:CGRectMake(20, 100, 38, 24)] autorelease];
+    y5TextField.text = @"";
+    y5TextField.backgroundColor =[UIColor darkGrayColor];
+    y5TextField.textColor = [UIColor yellowColor];
+    y5TextField.font = [UIFont fontWithName:@"Arial-BoldMT" size:14];
+    y5TextField.inputView = self.keyboardView;
+    y5TextField.delegate = self ;
+    //NOw add it to the parent view 
+    [self.view addSubview:y5TextField];
+    [y5TextField setHidden:FALSE ];
+    
+    // create Lable and text field for equation vairables
+    x6label = [[[UILabel alloc] initWithFrame:CGRectMake(1, 120, 17, 23)] autorelease];
+    x6label.text = @"d=";
+    x6label.backgroundColor =[UIColor blackColor];
+    x6label.textColor = [UIColor whiteColor];
+    x6label.font = [UIFont fontWithName:@"Arial-BoldMT" size:14];           
+    //Now add it to the parent view 
+    [self.view addSubview:x6label];
+    
+    y6TextField = [[[UITextField alloc] initWithFrame:CGRectMake(20, 125, 38, 24)] autorelease];
+    y6TextField.text = @"";
+    y6TextField.backgroundColor =[UIColor darkGrayColor];
+    y6TextField.textColor = [UIColor yellowColor];
+    y6TextField.font = [UIFont fontWithName:@"Arial-BoldMT" size:14];
+    y6TextField.inputView = self.keyboardView;
+    y6TextField.delegate = self ;
+    //NOw add it to the parent view 
+    [self.view addSubview:y6TextField];
+    [y6TextField setHidden:FALSE ];
+
+    
     //Localize any strings on the views
     [LocalizationHelper localizeView:self.view];
-    [myPickerView release];
     
 } // viewDidLoad
 
@@ -450,6 +821,13 @@ int whichTextField=0;
     [equations release];
     [inputFormula release];
     
+    
+}
+
+- (void) dealloc
+{
+    [myPickerView release];
+    [super dealloc];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

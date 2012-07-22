@@ -70,6 +70,12 @@
      */
 }
 
+- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
+{
+
+
+}
+
 - (void)dealloc
 {
     //[viewController release];
