@@ -31,7 +31,8 @@
 
 bool soundFlag;
 // flag to test which UITextField is receiving input
-int whichTextField=0; 
+int whichTextField=0;
+int rowSelected =0;
 
 /*
 // Insert a string into a UITextField at the cursor position
@@ -52,12 +53,94 @@ int whichTextField=0;
     UIButton  *keyletters = (UIButton*)sender ;
     
     if ([keyletters.titleLabel.text isEqualToString:@"="] ) {
-        if ([functionText.text length] < 1) {
+        if ([y1TextField.text length] < 1) {
             
             // Do nothing, user has pressed without any numbers
         }
         else {
-            //Call the function to calculate Unit conversion 
+            //Test which fucntion is selected and then calculate teh result  
+            if (rowSelected ==0 )  // y=ax+b
+            {
+                double myresult ;
+                myresult = [y1TextField.text doubleValue]  * [y2TextField.text doubleValue] + [y3TextField.text doubleValue];
+                inputFormula.text =  [NSString stringWithFormat:@"%f",myresult ] ; 
+            }
+            else if(rowSelected ==1) 
+            {
+                double myresult ;
+                myresult = sqrt([y1TextField.text doubleValue]) ;
+                NSLog(@"y1%@",y1TextField.text);
+                //inputFormula.text =  [NSString stringWithFormat:@"%d",(int)myresult ] ; 
+                inputFormula.text =  [NSString stringWithFormat:@"%f",myresult ] ;
+            }
+            else if(rowSelected ==2) 
+            {
+                double myresult ;
+                myresult = pow([y1TextField.text doubleValue],3) ;
+                inputFormula.text =  [NSString stringWithFormat:@"%f",myresult ] ; 
+            }
+            else if(rowSelected ==3) 
+            {
+                double myresult ;
+                myresult = cos([y1TextField.text doubleValue]) ;
+                inputFormula.text =  [NSString stringWithFormat:@"%f",myresult ] ; 
+            }
+            else if(rowSelected ==4) 
+            {
+                double myresult ;
+                myresult = sin([y1TextField.text doubleValue]) ;
+                inputFormula.text =  [NSString stringWithFormat:@"%f",myresult ] ; 
+            }
+            else if(rowSelected ==5) 
+            {
+                double myresult ;
+                myresult = tan([y1TextField.text doubleValue]) ;
+                inputFormula.text =  [NSString stringWithFormat:@"%f",myresult ] ; 
+            }
+            else if(rowSelected ==6) 
+            {
+                double myresult ;
+                myresult =  1/cos([y1TextField.text doubleValue]) ;
+                inputFormula.text =  [NSString stringWithFormat:@"%f",myresult ] ; 
+            }
+            else if(rowSelected ==7) 
+            {
+                double myresult ;
+                myresult = abs([y1TextField.text doubleValue]) ;
+                inputFormula.text =  [NSString stringWithFormat:@"%f",myresult ] ; 
+            }
+            else if(rowSelected ==7) 
+            {
+                double myresult ;
+                myresult = pow(2.71828182845904523536028747135266250,[y1TextField.text doubleValue]) ;
+                inputFormula.text =  [NSString stringWithFormat:@"%f",myresult ] ; 
+            }
+            else if(rowSelected ==8) 
+            {
+                double myresult ;
+                myresult = 1/ pow(2.71828182845904523536028747135266250,[y1TextField.text doubleValue]) ;
+                inputFormula.text =  [NSString stringWithFormat:@"%f",myresult ] ; 
+            }
+            else if(rowSelected ==9) 
+            {
+                double myresult ;
+                myresult = log ([y1TextField.text doubleValue]) ;
+                inputFormula.text =  [NSString stringWithFormat:@"%f",myresult ] ; 
+            }
+            else if(rowSelected ==10) 
+            {
+                double myresult ;
+                myresult = [y2TextField.text doubleValue] * pow([y1TextField.text doubleValue],2) + ([y3TextField.text doubleValue] * [y2TextField.text doubleValue]) + [y4TextField.text doubleValue] ;
+                inputFormula.text =  [NSString stringWithFormat:@"%f",myresult ] ; 
+            }
+            else if(rowSelected ==11) 
+            {
+                double myresult ;
+                myresult = pow(([y1TextField.text doubleValue]-[y2TextField.text doubleValue] ),2) + pow(([y3TextField.text doubleValue]-[y4TextField.text doubleValue] ),2) ;
+                inputFormula.text =  [NSString stringWithFormat:@"%f",myresult ] ; 
+            }
+            
+            
             [self equalKey];
         }
     } 
@@ -244,6 +327,8 @@ int whichTextField=0;
     
     inputFormula.text = [equations objectAtIndex:row];
     //inputFormula.text=[myCalcLocalize convertLocalToEngNumbers:(NSString *) inputFormula.text] ;
+    
+    rowSelected = row;  // which picker is selected, to be used in formula calcualtion. 
         
     switch (row) {
         case 0: {// y=ax+b
@@ -680,7 +765,7 @@ int whichTextField=0;
     
     // create Lable and text field for equation vairables
     x2label = [[[UILabel alloc] initWithFrame:CGRectMake(1, 23, 26, 17)] autorelease];
-    x2label.text = @"Y=";
+    x2label.text = @"a=";
     x2label.backgroundColor =[UIColor blackColor];
     x2label.textColor = [UIColor whiteColor];
     x2label.font = [UIFont fontWithName:@"Arial-BoldMT" size:14];           
@@ -702,7 +787,7 @@ int whichTextField=0;
     
     // create Lable and text field for equation vairables
     x3label = [[[UILabel alloc] initWithFrame:CGRectMake(1, 49, 26, 17)] autorelease];
-    x3label.text = @"a=";
+    x3label.text = @"b=";
     x3label.backgroundColor =[UIColor blackColor];
     x3label.textColor = [UIColor whiteColor];
     x3label.font = [UIFont fontWithName:@"Arial-BoldMT" size:14];           
@@ -730,6 +815,7 @@ int whichTextField=0;
     x4label.font = [UIFont fontWithName:@"Arial-BoldMT" size:14];           
     //Now add it to the parent view 
     [self.view addSubview:x4label];
+    [x4label setHidden:TRUE ];
     
     
     y4TextField = [[[UITextField alloc] initWithFrame:CGRectMake(20, 75, 38, 24)] autorelease];
@@ -741,7 +827,7 @@ int whichTextField=0;
     y4TextField.delegate = self ;
     //NOw add it to the parent view 
     [self.view addSubview:y4TextField];
-    [y4TextField setHidden:FALSE ];
+    [y4TextField setHidden:TRUE ];
     
     
     // create Lable and text field for equation vairables
@@ -752,6 +838,7 @@ int whichTextField=0;
     x5label.font = [UIFont fontWithName:@"Arial-BoldMT" size:14];           
     //Now add it to the parent view 
     [self.view addSubview:x5label];
+    [x5label setHidden:TRUE ];
     
     
     y5TextField = [[[UITextField alloc] initWithFrame:CGRectMake(20, 100, 38, 24)] autorelease];
@@ -763,7 +850,7 @@ int whichTextField=0;
     y5TextField.delegate = self ;
     //NOw add it to the parent view 
     [self.view addSubview:y5TextField];
-    [y5TextField setHidden:FALSE ];
+    [y5TextField setHidden:TRUE ];
     
     // create Lable and text field for equation vairables
     x6label = [[[UILabel alloc] initWithFrame:CGRectMake(1, 120, 17, 23)] autorelease];
@@ -773,6 +860,7 @@ int whichTextField=0;
     x6label.font = [UIFont fontWithName:@"Arial-BoldMT" size:14];           
     //Now add it to the parent view 
     [self.view addSubview:x6label];
+    [x6label setHidden:TRUE ];
     
     y6TextField = [[[UITextField alloc] initWithFrame:CGRectMake(20, 125, 38, 24)] autorelease];
     y6TextField.text = @"";
@@ -783,7 +871,7 @@ int whichTextField=0;
     y6TextField.delegate = self ;
     //NOw add it to the parent view 
     [self.view addSubview:y6TextField];
-    [y6TextField setHidden:FALSE ];
+    [y6TextField setHidden:TRUE ];
 
     
     //Localize any strings on the views
@@ -791,6 +879,30 @@ int whichTextField=0;
     
 } // viewDidLoad
 
+-(IBAction) plotFormula{
+    NSLog(@"plot the given formula");
+}
+
+-(NSUInteger)numberOfRecordsForPlot:(CPTPlot *)plot {
+    return 51;
+}
+
+-(NSNumber *)numberForPlot:(CPTPlot *)plot
+                     field:(NSUInteger)fieldEnum
+               recordIndex:(NSUInteger)index
+{
+    double val = (index/5.0)-5;
+    
+    if(fieldEnum == CPTScatterPlotFieldX)
+    { return [NSNumber numberWithDouble:val]; }
+    else
+    {
+        if(plot.identifier == @"X Squared Plot")
+        { return [NSNumber numberWithDouble:val*val]; }
+        else
+        { return [NSNumber numberWithDouble:1/val]; }
+    }
+}
 
 - (void) receiveTestNotification:(NSNotification *) notification
 {
@@ -805,9 +917,7 @@ int whichTextField=0;
     }
 }
 
--(IBAction) plotFormula{
-    NSLog(@"plot the given formula");
-}
+
 
 
 - (void)viewDidUnload
@@ -878,26 +988,6 @@ int whichTextField=0;
 }
 
 
--(NSUInteger)numberOfRecordsForPlot:(CPTPlot *)plot {
-    return 51;
-}
-
--(NSNumber *)numberForPlot:(CPTPlot *)plot
-                     field:(NSUInteger)fieldEnum
-               recordIndex:(NSUInteger)index
-{
-    double val = (index/5.0)-5;
-    
-    if(fieldEnum == CPTScatterPlotFieldX)
-    { return [NSNumber numberWithDouble:val]; }
-    else
-    {
-        if(plot.identifier == @"X Squared Plot")
-        { return [NSNumber numberWithDouble:val*val]; }
-        else
-        { return [NSNumber numberWithDouble:1/val]; }
-    }
-}
 
 
 @end
