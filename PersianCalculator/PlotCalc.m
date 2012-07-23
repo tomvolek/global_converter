@@ -55,11 +55,7 @@ int rowSelected =0;
     UIButton  *keyletters = (UIButton*)sender ;
     
     if ([keyletters.titleLabel.text isEqualToString:@"="] ) {
-        if ([y1TextField.text length] < 1) {
-            
-            // Do nothing, user has pressed without any numbers
-        }
-        else {
+       
             //Test which fucntion is selected and then calculate teh result  
             if (rowSelected ==0 )  // y=ax+b
             {
@@ -144,7 +140,7 @@ int rowSelected =0;
             
             
             [self equalKey];
-        }
+        
     } 
     else if ([keyletters.titleLabel.text isEqualToString:@"C"] ) {
         if ( whichTextField == 1 ){ y1TextField.text =@"" ;}
@@ -198,6 +194,7 @@ int rowSelected =0;
         else if ( whichTextField == 3 ){
             y3TextField.text = [y3TextField.text stringByAppendingString:NSLocalizedString(keyletters.titleLabel.text, nil)];
             
+            
         }
         else if ( whichTextField == 4 ){
             y4TextField.text = [y4TextField.text stringByAppendingString:NSLocalizedString(keyletters.titleLabel.text, nil)];
@@ -217,6 +214,15 @@ int rowSelected =0;
 
 -(void)equalKey{
     NSString *graphName;
+    if (rowSelected == 0){ 
+        graphName = @"X ax+b Plot";
+        if (currentPlot) {
+            [graph removePlot:currentPlot];
+            currentPlot = nil;
+        }
+        else {}
+    }
+    
     if (rowSelected == 1){ 
         graphName = @"X Sqr Plot";
         if (currentPlot) {
@@ -427,16 +433,17 @@ int rowSelected =0;
         
     switch (row) {
         case 0: {// y=ax+b
-            x1label.text = @"X=";
+            //x1label.text = @"X=";
             x2label.text = @"a=";
             x3label.text = @"b=";
             
-            [x1label     setHidden:FALSE];
+            //[x1label     setHidden:FALSE];
             [x2label     setHidden:FALSE];
             [x3label     setHidden:FALSE];
-            [y1TextField setHidden:FALSE ];
+            //[y1TextField setHidden:FALSE ];
             [y2TextField setHidden:FALSE ];
             [y3TextField setHidden:FALSE ];
+            [self equalKey];
             
         }    
             break;
@@ -1007,7 +1014,7 @@ int rowSelected =0;
 }
 
 -(NSUInteger)numberOfRecordsForPlot:(CPTPlot *)plot {
-    return 51;
+    return 61;
 }
 
 -(NSNumber *)numberForPlot:(CPTPlot *)plot
@@ -1017,12 +1024,21 @@ int rowSelected =0;
     double val = (index/5.0)-5;
     
     if(fieldEnum == CPTScatterPlotFieldX)
-    { return [NSNumber numberWithDouble:val]; }
+    { 
+        if(plot.identifier == @"X ax+b Plot")
+        {  return [NSNumber numberWithDouble:val+val]; }
+        
+        else {return [NSNumber numberWithDouble:val]; }
+    
+    }
     else
     {
         if(plot.identifier == @"X Squared Plot")
-        { return [NSNumber numberWithDouble:val*val]; }
-        
+        { return [NSNumber numberWithDouble:val*val]; } //
+        else if(plot.identifier == @"X ax+b Plot")
+        {  return [NSNumber numberWithDouble:val * [y2TextField.text doubleValue]+[y3TextField.text doubleValue]]; 
+         //return [NSNumber numberWithDouble:val + [y3TextField.text doubleValue]];
+        }
         else if(plot.identifier == @"X Sqr Plot")
         {  return [NSNumber numberWithDouble:sqrt(val)]; }
         else if(plot.identifier == @"X Cube Plot")
