@@ -11,6 +11,8 @@
 @implementation PlotCalc
 
 @synthesize functionText,
+            graph,
+            currentPlot,
             yTextfield,
             inputFormula,
             keyboardView,
@@ -214,6 +216,99 @@ int rowSelected =0;
 } //keyPressed
 
 -(void)equalKey{
+    NSString *graphName;
+    if (rowSelected == 1){ 
+        graphName = @"X Sqr Plot";
+        if (currentPlot) {
+            [graph removePlot:currentPlot];
+            currentPlot = nil;
+        }
+        else {}
+    }
+    if (rowSelected == 2){ 
+        graphName = @"X Cube Plot";
+        if (currentPlot) {
+            [graph removePlot:currentPlot];
+            currentPlot = nil;
+        }
+        else {}
+    } 
+    if (rowSelected == 3){ 
+        graphName = @"X Cos Plot";
+        if (currentPlot) {
+            [graph removePlot:currentPlot];
+            currentPlot = nil;
+        }
+        else {}
+    }
+    if (rowSelected == 4){ 
+        graphName = @"X Sin Plot";
+        if (currentPlot) {
+            [graph removePlot:currentPlot];
+            currentPlot = nil;
+        }
+        else {}
+    }
+    if (rowSelected == 5){ 
+        graphName = @"X Tan Plot";
+        if (currentPlot) {
+            [graph removePlot:currentPlot];
+            currentPlot = nil;
+        }
+        else {}
+    }
+    if (rowSelected == 6){ 
+        graphName = @"X Sec Plot";
+        if (currentPlot) {
+            [graph removePlot:currentPlot];
+            currentPlot = nil;
+        }
+        else {}
+    }
+    if (rowSelected == 7){ 
+        graphName = @"X Abs Plot";
+        if (currentPlot) {
+            [graph removePlot:currentPlot];
+            currentPlot = nil;
+        }
+        else {}
+    } 
+    if (rowSelected == 8){ 
+        graphName = @"X E**x Plot";
+        if (currentPlot) {
+            [graph removePlot:currentPlot];
+            currentPlot = nil;
+        }
+        else {}
+    }
+    if (rowSelected == 9){ 
+        graphName = @"X E**-x Plot";
+        if (currentPlot) {
+            [graph removePlot:currentPlot];
+            currentPlot = nil;
+        }
+        else {}
+    }
+    if (rowSelected == 10){ 
+        graphName = @"X Ln(x) Plot";
+        if (currentPlot) {
+            [graph removePlot:currentPlot];
+            currentPlot = nil;
+        }
+        else {}
+    }
+    
+    
+    CPTScatterPlot *squarePlot = [[[CPTScatterPlot alloc] initWithFrame:graph.defaultPlotSpace.accessibilityFrame] autorelease];
+    self.currentPlot = squarePlot ;
+    currentPlot.identifier = graphName;
+    CPTMutableLineStyle *ls2 = [CPTMutableLineStyle lineStyle];
+    ls2.lineWidth = 4.0f;
+    ls2.lineColor = [CPTColor blueColor];
+    currentPlot.dataLineStyle = ls2;
+    currentPlot.dataSource = self;
+    [graph addPlot:currentPlot];
+    
     CalcLocalize *myCalcLocalized = [[CalcLocalize alloc] init];
     functionText.text=[myCalcLocalized convertLocalToEngNumbers:functionText.text];
     functionText.text=[myCalcLocalized convertEngToLocalNumbers:functionText.text];
@@ -346,64 +441,75 @@ int rowSelected =0;
         }    
             break;
         case 1: { // sqr(x)
-             x1label.text = @"X=";
-            [x1label     setHidden:FALSE];
-            [y1TextField setHidden:FALSE ];
+            // x1label.text = @"X=";
+            //[x1label     setHidden:FALSE];
+            //[y1TextField setHidden:FALSE ];
+            [self equalKey];
+            
             }
             break;
         case 2: { // X**3
-            x1label.text = @"X=";
-            [x1label     setHidden:FALSE];
-            [y1TextField setHidden:FALSE ];
+            //x1label.text = @"X=";
+            //[x1label     setHidden:FALSE];
+            //[y1TextField setHidden:FALSE ];
+             [self equalKey];
             
         }
             break;
         case 3: { // cos(x)
-             x1label.text = @"X=";
-            [x1label     setHidden:FALSE];
-            [y1TextField setHidden:FALSE ];
+             //x1label.text = @"X=";
+            //[x1label     setHidden:FALSE];
+            //[y1TextField setHidden:FALSE ];
+            [self equalKey];
         }
             break;
         case 4: { // sin(x)
-            x1label.text = @"X=";
-            [x1label     setHidden:FALSE];
-            [y1TextField setHidden:FALSE ];
+            //x1label.text = @"X=";
+            //[x1label     setHidden:FALSE];
+            //[y1TextField setHidden:FALSE ];
+            [self equalKey];
         }
             break;
         case 5: { // tan(x)
-            x1label.text = @"X=";
-            [x1label     setHidden:FALSE];
-            [y1TextField setHidden:FALSE ];
+            //x1label.text = @"X=";
+            //[x1label     setHidden:FALSE];
+            //[y1TextField setHidden:FALSE ];
+            [self equalKey];
         }
             break;
         case 6: { // sec(x)
-            x1label.text = @"X=";
-            [x1label     setHidden:FALSE];
-            [y1TextField setHidden:FALSE ];
+            //x1label.text = @"X=";
+            //[x1label     setHidden:FALSE];
+            //[y1TextField setHidden:FALSE ];
+            [self equalKey];
         }
             break;
         case 7: { // |x|
-            x1label.text = @"X=";
-            [x1label     setHidden:FALSE];
-            [y1TextField setHidden:FALSE ];
+            //x1label.text = @"X=";
+            //[x1label     setHidden:FALSE];
+            //[y1TextField setHidden:FALSE ];
+            [self equalKey];
         }
             break;
         case 8: { // e**x
-            x1label.text = @"X=";
-            [x1label     setHidden:FALSE];
-            [y1TextField setHidden:FALSE ];
+            //x1label.text = @"X=";
+           // [x1label     setHidden:FALSE];
+            //[y1TextField setHidden:FALSE ];
+            [self equalKey];
         } 
             break;
         case 9: { // e**-x
-            x1label.text = @"X=";
-            [x1label     setHidden:FALSE];
-            [y1TextField setHidden:FALSE ];
+            //x1label.text = @"X=";
+            //[x1label     setHidden:FALSE];
+            //[y1TextField setHidden:FALSE ];
+            [self equalKey];
         }
             break;
         case 10: { // ln(x)
-            x1label.text = @"X=";
-            [x1label     setHidden:FALSE];
-            [y1TextField setHidden:FALSE ];
+            //x1label.text = @"X=";
+            //[x1label     setHidden:FALSE];
+           // [y1TextField setHidden:FALSE ];
+            [self equalKey];
         }
             break;
         case 11: { // ax**2+bx+c
@@ -624,18 +730,25 @@ int rowSelected =0;
    
     // Do any additional setup after loading the view from its nib.
     // graph = [[CPTXYGraph alloc] initWithFrame: self.view.bounds];
-    graph = [[CPTXYGraph alloc] initWithFrame: CGRectMake(0, 0, 320, 294)];
+   // graph = [[CPTXYGraph alloc] initWithFrame: CGRectMake(0, 0, 320, 294)];
+    [self setGraph: [[CPTXYGraph alloc] initWithFrame: CGRectMake(0, 0, 320, 294)]];
     
     CPTGraphHostingView *hostingView = (CPTGraphHostingView *)[self.view viewWithTag:88];
     hostingView.hostedGraph = graph;
     
     hostingView.backgroundColor = [UIColor blackColor];
-    graph.paddingLeft = 1.0;
-    graph.paddingTop = 2.0;
-    graph.paddingRight = 1.0;
-    graph.paddingBottom = 2.0;
-    graph.plotAreaFrame.paddingLeft = 5.0;
-    graph.plotAreaFrame.paddingBottom = 5.0;
+    [graph setPaddingLeft:1.0];
+    [graph setPaddingTop:2.0];
+    [graph setPaddingRight: 1.0];
+    [graph setPaddingBottom:2.0];
+    [[graph plotAreaFrame] setPaddingLeft:5.0];
+    [[graph plotAreaFrame] setPaddingBottom:5.0];
+    //graph.paddingLeft = 1.0;
+    //graph.paddingTop = 2.0;
+    //graph.paddingRight = 1.0;
+    //graph.paddingBottom = 2.0;
+    //graph.plotAreaFrame.paddingLeft = 5.0;
+    //graph.plotAreaFrame.paddingBottom = 5.0;
 
     [graph applyTheme:[CPTTheme themeNamed:kCPTDarkGradientTheme]];
    
@@ -701,10 +814,10 @@ int rowSelected =0;
     axisSet.yAxis.labelOffset = 3.0f;
     axisSet.yAxis.titleTextStyle = textStyle;
     axisSet.yAxis.labelTextStyle = textStyle;
-  //  axisSet.yAxis.majorGridLineStyle = majorGridLineStyle;
+   //axisSet.yAxis.majorGridLineStyle = majorGridLineStyle;
     axisSet.yAxis.minorGridLineStyle = minorGridLineStyle;
 
-    
+   /* 
     CPTScatterPlot *xSquaredPlot = [[[CPTScatterPlot alloc] initWithFrame:graph.defaultPlotSpace.accessibilityFrame] autorelease];
     xSquaredPlot.identifier = @"X Squared Plot";
     CPTMutableLineStyle *ls1 = [CPTMutableLineStyle lineStyle];
@@ -719,6 +832,7 @@ int rowSelected =0;
     greenCirclePlotSymbol.size = CGSizeMake(2.0, 2.0);
     xSquaredPlot.plotSymbol = greenCirclePlotSymbol;  
     
+    
     CPTScatterPlot *xInversePlot = [[[CPTScatterPlot alloc] initWithFrame:graph.defaultPlotSpace.accessibilityFrame] autorelease];
     
     xInversePlot.identifier = @"X Inverse Plot";
@@ -728,6 +842,15 @@ int rowSelected =0;
     xInversePlot.dataLineStyle = ls2;
     xInversePlot.dataSource = self;
     [graph addPlot:xInversePlot];
+    
+    */
+    
+    
+    
+    
+    
+    
+    
     
     //setup custom keyboard
     self.keyboardView = [[CustomKeyboard alloc] initWithFrame:CGRectMake(0, 440, 320, 140)];
@@ -899,10 +1022,35 @@ int rowSelected =0;
     {
         if(plot.identifier == @"X Squared Plot")
         { return [NSNumber numberWithDouble:val*val]; }
+        
+        else if(plot.identifier == @"X Sqr Plot")
+        {  return [NSNumber numberWithDouble:sqrt(val)]; }
+        else if(plot.identifier == @"X Cube Plot")
+        {  return [NSNumber numberWithDouble:val*val*val]; }
+        else if(plot.identifier == @"X Cos Plot")
+        {  return [NSNumber numberWithDouble:cos(val)]; }
+        else if(plot.identifier == @"X Sin Plot")
+        {  return [NSNumber numberWithDouble:sin(val)]; }
+        else if(plot.identifier == @"X Tan Plot")
+        {  return [NSNumber numberWithDouble:tan(val)]; }
+        else if(plot.identifier == @"X Sec Plot")
+        {  return [NSNumber numberWithDouble:1/cos(val)]; }
+        else if(plot.identifier == @"X Abs Plot")
+        {  return [NSNumber numberWithDouble:abs(val)]; }
+        else if(plot.identifier == @"X E**x Plot")
+        {  return [NSNumber numberWithDouble:pow(2.71828182845904523536028747135266250,val)]; }
+        else if(plot.identifier == @"X E**-x Plot")
+        {  return [NSNumber numberWithDouble:1/pow(2.71828182845904523536028747135266250,val)]; }
+        else if(plot.identifier == @"X Ln(x) Plot")
+        {  return [NSNumber numberWithDouble:log(val)]; }
         else
         { return [NSNumber numberWithDouble:1/val]; }
     }
 }
+
+
+
+
 
 - (void) receiveTestNotification:(NSNotification *) notification
 {
@@ -953,7 +1101,7 @@ int rowSelected =0;
     //NSLog(@"What is the orientation: %i", toInterfaceOrientation);
     if ( (toInterfaceOrientation == UIInterfaceOrientationLandscapeLeft) ||(toInterfaceOrientation == UIInterfaceOrientationLandscapeRight) )
     {
-        NSLog(@"What is the orientation: %i", toInterfaceOrientation);
+
         
         PersianCalculatorLandscape *myOwnController = [[[[PersianCalculatorLandscape alloc] init]  initWithNibName:@"PersianCalculatorLandscape" bundle:nil whichTab:1]autorelease];
         NSMutableArray* newArray = [NSMutableArray arrayWithArray:self.tabBarController.viewControllers];

@@ -16,6 +16,7 @@
 @interface PlotCalc : UIViewController <CPTPlotDataSource,CPTPlotSpaceDelegate,UIGestureRecognizerDelegate,UIInputViewAudioFeedback,UITextFieldDelegate,UIPickerViewDelegate, UIPickerViewDataSource>
 {
     CPTXYGraph *graph;
+    CPTScatterPlot *currentPlot;
     UIPickerView *myPickerView;
     NSArray             *equations; 
     CustomKeyboard      *keyboardView;
@@ -28,6 +29,8 @@
     
     
 }
+@property (nonatomic,retain )  CPTXYGraph *graph;
+@property (nonatomic, retain)  CPTScatterPlot *currentPlot;
 
 @property (nonatomic, retain)  UITextField *functionText;
 @property (nonatomic, retain)  UITextField *yTextfield;
