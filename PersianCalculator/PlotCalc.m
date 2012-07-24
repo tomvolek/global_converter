@@ -303,6 +303,38 @@ int rowSelected =0;
         }
         else {}
     }
+    if (rowSelected == 11){ 
+        graphName = @"X ax**2+bx+c Plot";
+        if (currentPlot) {
+            [graph removePlot:currentPlot];
+            currentPlot = nil;
+        }
+        else {}
+    }
+    if (rowSelected == 12){ 
+        graphName = @"X (x-h)**2+(y-k)**2 Plot";
+        if (currentPlot) {
+            [graph removePlot:currentPlot];
+            currentPlot = nil;
+        }
+        else {}
+    }
+    if (rowSelected == 13){ 
+        graphName = @"X (x-h)**2/a**2+(y-k)**2/b**2 Plot";
+        if (currentPlot) {
+            [graph removePlot:currentPlot];
+            currentPlot = nil;
+        }
+        else {}
+    }
+    if (rowSelected == 14){ 
+        graphName = @"X (x-h)**2/a**2-(y-k)**2/b**2 Plot";
+        if (currentPlot) {
+            [graph removePlot:currentPlot];
+            currentPlot = nil;
+        }
+        else {}
+    }
     
     
     CPTScatterPlot *squarePlot = [[[CPTScatterPlot alloc] initWithFrame:graph.defaultPlotSpace.accessibilityFrame] autorelease];
@@ -433,16 +465,16 @@ int rowSelected =0;
         
     switch (row) {
         case 0: {// y=ax+b
-            //x1label.text = @"X=";
-            x2label.text = @"a=";
-            x3label.text = @"b=";
+            x1label.text = @"a=";
+            x2label.text = @"b=";
+            //x3label.text = @"c=";
             
-            //[x1label     setHidden:FALSE];
+            [x1label     setHidden:FALSE];
             [x2label     setHidden:FALSE];
-            [x3label     setHidden:FALSE];
-            //[y1TextField setHidden:FALSE ];
+            //[x3label     setHidden:FALSE];
+            [y1TextField setHidden:FALSE ];
             [y2TextField setHidden:FALSE ];
-            [y3TextField setHidden:FALSE ];
+            //[y3TextField setHidden:FALSE ];
             [self equalKey];
             
         }    
@@ -520,44 +552,44 @@ int rowSelected =0;
         }
             break;
         case 11: { // ax**2+bx+c
-            x1label.text = @"X=";
+            x1label.text = @"a=";
             [x1label     setHidden:FALSE];
             [y1TextField setHidden:FALSE ];
             
-            x2label.text = @"a=";
+            x2label.text = @"b=";
             [x2label     setHidden:FALSE];
             [y2TextField setHidden:FALSE ];
             
-            x3label.text = @"b=";
+            x3label.text = @"c=";
             [x3label     setHidden:FALSE];
             [y3TextField setHidden:FALSE ];
             
-            x4label.text = @"c=";
-            [x4label     setHidden:FALSE];
-            [y4TextField setHidden:FALSE ];
+            //x4label.text = @"c=";
+            //[x4label     setHidden:FALSE];
+            //[y4TextField setHidden:FALSE ];
             
         }
             break;
         case 12: { // (x-h)**2+(y-k)**2=r**2
-            x1label.text = @"x=";
+            x1label.text = @"h=";
             [x1label     setHidden:FALSE];
             [y1TextField setHidden:FALSE ];
             
-            x2label.text = @"h=";
+            x2label.text = @"k=";
             [x2label     setHidden:FALSE];
             [y2TextField setHidden:FALSE ];
             
-            x3label.text = @"y=";
+            x3label.text = @"r=";
             [x3label     setHidden:FALSE];
             [y3TextField setHidden:FALSE ];
             
-            x4label.text = @"k=";
-            [x4label     setHidden:FALSE];
-            [y4TextField setHidden:FALSE ];
+            //x4label.text = @"k=";
+            //[x4label     setHidden:FALSE];
+            //[y4TextField setHidden:FALSE ];
             
-            x5label.text = @"r=";
-            [x5label     setHidden:FALSE];
-            [y5TextField setHidden:FALSE ];
+            //x5label.text = @"r=";
+            //[x5label     setHidden:FALSE];
+            //[y5TextField setHidden:FALSE ];
             
         }
             break;    
@@ -565,58 +597,58 @@ int rowSelected =0;
             
         case 13: { // (x-h)**2/a**2+(y-k)**2/b**2=1
             
-            x1label.text = @"x=";
+            x1label.text = @"h=";
             [x1label     setHidden:FALSE];
             [y1TextField setHidden:FALSE ];
             
-            x2label.text = @"h=";
+            x2label.text = @"a=";
             [x2label     setHidden:FALSE];
             [y2TextField setHidden:FALSE ];
             
-            x3label.text = @"a=";
+            x3label.text = @"k=";
             [x3label     setHidden:FALSE];
             [y3TextField setHidden:FALSE ];
             
-            x4label.text = @"y=";
+            x4label.text = @"b=";
             [x4label     setHidden:FALSE];
             [y4TextField setHidden:FALSE ];
             
-            x5label.text = @"k=";
-            [x5label     setHidden:FALSE];
-            [y5TextField setHidden:FALSE ];
+            //x5label.text = @"k=";
+            //[x5label     setHidden:FALSE];
+            //[y5TextField setHidden:FALSE ];
             
-            x6label.text = @"b=";
-            [x6label     setHidden:FALSE];
-            [y6TextField setHidden:FALSE ];
+            //x6label.text = @"b=";
+            //[x6label     setHidden:FALSE];
+            //[y6TextField setHidden:FALSE ];
     
         }
             break;
             
         case 14: { // (x-h)**2/a**2 - (y-k)**2/b**2=1
                         
-            x1label.text = @"x=";
+            x1label.text = @"h=";
             [x1label     setHidden:FALSE];
             [y1TextField setHidden:FALSE ];
             
-            x2label.text = @"h=";
+            x2label.text = @"a=";
             [x2label     setHidden:FALSE];
             [y2TextField setHidden:FALSE ];
             
-            x3label.text = @"a=";
+            x3label.text = @"k=";
             [x3label     setHidden:FALSE];
             [y3TextField setHidden:FALSE ];
             
-            x4label.text = @"y=";
+            x4label.text = @"b=";
             [x4label     setHidden:FALSE];
             [y4TextField setHidden:FALSE ];
             
-            x5label.text = @"k=";
-            [x5label     setHidden:FALSE];
-            [y5TextField setHidden:FALSE ];
+            //x5label.text = @"k=";
+            //[x5label     setHidden:FALSE];
+            //[y5TextField setHidden:FALSE ];
             
-            x6label.text = @"b=";
-            [x6label     setHidden:FALSE];
-            [y6TextField setHidden:FALSE ];
+            //x6label.text = @"b=";
+            //[x6label     setHidden:FALSE];
+            //[y6TextField setHidden:FALSE ];
             
             
         }
@@ -706,9 +738,9 @@ int rowSelected =0;
                @" f(x) = e**-x",
                @" f(x) = ln(x)",
                @" f(x)=ax**2+bx+c",
-               @" (x-h)**2+(y-k)**2=r**2",
-               @" (x-h)**2/a**2+(y-k)**2/b**2=1",
-               @" (x-h)**2/a**2-(y-k)**2/b**2=1",
+               @" (x-h)**2+(y-k)**2",
+               @" (x-h)**2/a**2+(y-k)**2/b**2",
+               @" (x-h)**2/a**2-(y-k)**2/b**2",
                nil];
     
     myPickerView=[[UIPickerView alloc] initWithFrame:CGRectMake(60.0, -10.0, 268.0,120.0)];
@@ -719,6 +751,7 @@ int rowSelected =0;
     //[(UIView*)[[myPickerView subviews] objectAtIndex:0] setHidden:YES];
     //[(UIView*)[[myPickerView subviews] objectAtIndex:10] setHidden:YES];
     // Create the textfeild to fill the 
+    /*
     inputFormula = [[UITextField alloc] initWithFrame:CGRectMake(60,136, 260,30)];
     inputFormula.borderStyle = UITextBorderStyleNone ;
     inputFormula.textColor = [UIColor yellowColor];
@@ -733,7 +766,7 @@ int rowSelected =0;
     inputFormula.delegate = self;
     inputFormula.text = [equations objectAtIndex:0];
     [self.view addSubview:inputFormula];
-    
+    */
    
     // Do any additional setup after loading the view from its nib.
     // graph = [[CPTXYGraph alloc] initWithFrame: self.view.bounds];
@@ -874,7 +907,7 @@ int rowSelected =0;
     
     // create Lable and text field for equation vairables
     x1label = [[[UILabel alloc] initWithFrame:CGRectMake(1, 4, 26, 17)] autorelease];
-    x1label.text = @"X=";
+    x1label.text = @"a=";
     x1label.backgroundColor =[UIColor blackColor];
     x1label.textColor = [UIColor whiteColor];
     x1label.font = [UIFont fontWithName:@"Arial-BoldMT" size:14];           
@@ -895,7 +928,7 @@ int rowSelected =0;
     
     // create Lable and text field for equation vairables
     x2label = [[[UILabel alloc] initWithFrame:CGRectMake(1, 23, 26, 17)] autorelease];
-    x2label.text = @"a=";
+    x2label.text = @"b=";
     x2label.backgroundColor =[UIColor blackColor];
     x2label.textColor = [UIColor whiteColor];
     x2label.font = [UIFont fontWithName:@"Arial-BoldMT" size:14];           
@@ -917,12 +950,13 @@ int rowSelected =0;
     
     // create Lable and text field for equation vairables
     x3label = [[[UILabel alloc] initWithFrame:CGRectMake(1, 49, 26, 17)] autorelease];
-    x3label.text = @"b=";
+    x3label.text = @"c=";
     x3label.backgroundColor =[UIColor blackColor];
     x3label.textColor = [UIColor whiteColor];
     x3label.font = [UIFont fontWithName:@"Arial-BoldMT" size:14];           
     //Now add it to the parent view 
     [self.view addSubview:x3label];
+    [x3label setHidden:TRUE ];
     
     
     y3TextField = [[[UITextField alloc] initWithFrame:CGRectMake(20, 50, 38, 24)] autorelease];
@@ -934,12 +968,12 @@ int rowSelected =0;
     y3TextField.delegate = self ;
     //NOw add it to the parent view 
     [self.view addSubview:y3TextField];
-    [y3TextField setHidden:FALSE ];
+    [y3TextField setHidden:TRUE ];
     
     
     // create Lable and text field for equation vairables
     x4label = [[[UILabel alloc] initWithFrame:CGRectMake(1, 72, 17, 23)] autorelease];
-    x4label.text = @"b=";
+    x4label.text = @"k=";
     x4label.backgroundColor =[UIColor blackColor];
     x4label.textColor = [UIColor whiteColor];
     x4label.font = [UIFont fontWithName:@"Arial-BoldMT" size:14];           
@@ -962,7 +996,7 @@ int rowSelected =0;
     
     // create Lable and text field for equation vairables
     x5label = [[[UILabel alloc] initWithFrame:CGRectMake(1, 96, 17, 23)] autorelease];
-    x5label.text = @"c=";
+    x5label.text = @"h=";
     x5label.backgroundColor =[UIColor blackColor];
     x5label.textColor = [UIColor whiteColor];
     x5label.font = [UIFont fontWithName:@"Arial-BoldMT" size:14];           
@@ -984,7 +1018,7 @@ int rowSelected =0;
     
     // create Lable and text field for equation vairables
     x6label = [[[UILabel alloc] initWithFrame:CGRectMake(1, 120, 17, 23)] autorelease];
-    x6label.text = @"d=";
+    x6label.text = @"r=";
     x6label.backgroundColor =[UIColor blackColor];
     x6label.textColor = [UIColor whiteColor];
     x6label.font = [UIFont fontWithName:@"Arial-BoldMT" size:14];           
@@ -1036,7 +1070,7 @@ int rowSelected =0;
         if(plot.identifier == @"X Squared Plot")
         { return [NSNumber numberWithDouble:val*val]; } //
         else if(plot.identifier == @"X ax+b Plot")
-        {  return [NSNumber numberWithDouble:val * [y2TextField.text doubleValue]+[y3TextField.text doubleValue]]; 
+        {  return [NSNumber numberWithDouble:val * [y1TextField.text doubleValue]+[y2TextField.text doubleValue]]; 
          //return [NSNumber numberWithDouble:val + [y3TextField.text doubleValue]];
         }
         else if(plot.identifier == @"X Sqr Plot")
@@ -1059,6 +1093,16 @@ int rowSelected =0;
         {  return [NSNumber numberWithDouble:1/pow(2.71828182845904523536028747135266250,val)]; }
         else if(plot.identifier == @"X Ln(x) Plot")
         {  return [NSNumber numberWithDouble:log(val)]; }
+        else if(plot.identifier == @"X ax**2+bx+c Plot")
+        {  return [NSNumber numberWithDouble:pow(val,2)* [y1TextField.text doubleValue] + [y2TextField.text doubleValue] + [y3TextField.text doubleValue]   ]; }
+        // we use value of y=1 since I dont know what will the y be 
+        else if(plot.identifier == @"X (x-h)**2+(y-k)**2 Plot")
+        {  return [NSNumber numberWithDouble: pow((val -[y1TextField.text doubleValue]),2) + pow((1 -[y2TextField.text doubleValue]),2)   ]; }
+        else if(plot.identifier == @"X (x-h)**2/a**2+(y-k)**2/b**2 Plot")
+        {  return [NSNumber numberWithDouble: (pow((val -[y1TextField.text doubleValue]),2)/pow([y2TextField.text doubleValue],2)) +  (pow((1 -[y3TextField.text doubleValue]),2)/pow([y4TextField.text doubleValue],2)) ]; }
+        else if(plot.identifier == @"X (x-h)**2/a**2-(y-k)**2/b**2 Plot")
+        {  return [NSNumber numberWithDouble: (pow((val -[y1TextField.text doubleValue]),2)/pow([y2TextField.text doubleValue],2)) -  (pow((1 -[y3TextField.text doubleValue]),2)/pow([y4TextField.text doubleValue],2)) ]; }
+        
         else
         { return [NSNumber numberWithDouble:1/val]; }
     }
