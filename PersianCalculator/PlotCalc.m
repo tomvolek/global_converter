@@ -1098,8 +1098,10 @@ int rowSelected =0;
         // we use value of y=1 since I dont know what will the y be 
         else if(plot.identifier == @"X (x-h)**2+(y-k)**2 Plot")
         {  return [NSNumber numberWithDouble: pow((val -[y1TextField.text doubleValue]),2) + pow((1 -[y2TextField.text doubleValue]),2)   ]; }
+        // we use value of y=1 since I dont know what will the y be 
         else if(plot.identifier == @"X (x-h)**2/a**2+(y-k)**2/b**2 Plot")
         {  return [NSNumber numberWithDouble: (pow((val -[y1TextField.text doubleValue]),2)/pow([y2TextField.text doubleValue],2)) +  (pow((1 -[y3TextField.text doubleValue]),2)/pow([y4TextField.text doubleValue],2)) ]; }
+        // we use value of y=1 since I dont know what will the y be 
         else if(plot.identifier == @"X (x-h)**2/a**2-(y-k)**2/b**2 Plot")
         {  return [NSNumber numberWithDouble: (pow((val -[y1TextField.text doubleValue]),2)/pow([y2TextField.text doubleValue],2)) -  (pow((1 -[y3TextField.text doubleValue]),2)/pow([y4TextField.text doubleValue],2)) ]; }
         
