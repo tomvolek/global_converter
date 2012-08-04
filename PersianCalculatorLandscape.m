@@ -422,7 +422,7 @@ NSString *fractionValue;
             if(eval_error==nil) {}
             else {
                 NSString * ErrorCode = @"errorcode" ;
-                ErrorCode = [ErrorCode stringByAppendingFormat:[NSString stringWithFormat:@"%d", eval_error.code]];
+                ErrorCode = [ErrorCode stringByAppendingString:[NSString stringWithFormat:@"%d", eval_error.code]];
                 
                 display.text =[display.text stringByAppendingFormat:@"="];
                 display.text = [self convertUSToLocalizedNumbers:display.text];

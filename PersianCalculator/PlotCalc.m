@@ -693,7 +693,7 @@ int rowSelected =0;
 
     //setup label for each row wiht a formula name 
     textLabel.text = [equations objectAtIndex:row];
-    textLabel.textAlignment = UITextAlignmentLeft;
+    textLabel.textAlignment = UITextAlignmentCenter;
     textLabel.font = [UIFont fontWithName:@"Arial-BoldMT" size:18];
     textLabel.backgroundColor = [UIColor clearColor];
     textLabel.textColor = [UIColor blueColor];
@@ -726,7 +726,7 @@ int rowSelected =0;
     //myPickerView = [[UIPickerView alloc] init];
     //myPickerView.frame = CGRectMake(65,-10, 264,162);
     equations=[[NSArray alloc]initWithObjects:
-               @" y=ax+b",
+               @" y = ax+b",
                @" y = sqr(x)",
                @" y = x**3",
                @" y = cos(x)",
@@ -1056,6 +1056,7 @@ int rowSelected =0;
                recordIndex:(NSUInteger)index
 {
     double val = (index/5.0)-5;
+    double y_value = (index/20.0)-5;
     
     if(fieldEnum == CPTScatterPlotFieldX)
     { 
@@ -1103,7 +1104,7 @@ int rowSelected =0;
         {  return [NSNumber numberWithDouble: (pow((val -[y1TextField.text doubleValue]),2)/pow([y2TextField.text doubleValue],2)) +  (pow((1 -[y3TextField.text doubleValue]),2)/pow([y4TextField.text doubleValue],2)) ]; }
         // we use value of y=1 since I dont know what will the y be 
         else if(plot.identifier == @"X (x-h)**2/a**2-(y-k)**2/b**2 Plot")
-        {  return [NSNumber numberWithDouble: (pow((val -[y1TextField.text doubleValue]),2)/pow([y2TextField.text doubleValue],2)) -  (pow((1 -[y3TextField.text doubleValue]),2)/pow([y4TextField.text doubleValue],2)) ]; }
+        {  return [NSNumber numberWithDouble: (pow((val -[y1TextField.text doubleValue]),2)/pow([y2TextField.text doubleValue],2)) -  (pow((y_value -[y3TextField.text doubleValue]),2)/pow([y4TextField.text doubleValue],2)) ]; }
         
         else
         { return [NSNumber numberWithDouble:1/val]; }

@@ -1846,7 +1846,7 @@
 		5A473E1A1348521000F8CB13 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0440;
 			};
 			buildConfigurationList = 5A473E1D1348521000F8CB13 /* Build configuration list for PBXProject "PersianCalculatorPro" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -2535,6 +2535,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PersianCalculatorTests/PersianCalculatorProTests-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "PersianCalculatorTests/PersianCalculatorProTests-Info.plist";
 				OTHER_LDFLAGS = (
 					"-framework",
@@ -2557,6 +2558,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PersianCalculatorTests/PersianCalculatorProTests-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "PersianCalculatorTests/PersianCalculatorProTests-Info.plist";
 				OTHER_LDFLAGS = (
 					"-framework",

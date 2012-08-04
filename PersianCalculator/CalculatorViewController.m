@@ -70,9 +70,12 @@ NSInteger counter =0;
                  DLog(@"result=%@",formulaAnswer);
                  DLog(@"resultin = keypress:%@",[self convertUSToLocalizedNumbers:formulaAnswer]);  
                 
-                label.text = [label.text stringByAppendingFormat:formulaDisplay.text];
+            
+                 
+                 label.text = [label.text stringByAppendingString:formulaDisplay.text];
+                 
                 label.text = [label.text stringByAppendingFormat:@"="];
-                label.text = [label.text stringByAppendingFormat:formulaAnswer];       
+                label.text = [label.text stringByAppendingString:formulaAnswer];
                 label.text = [self convertUSToLocalizedNumbers:label.text];
                 label.text = [label.text stringByAppendingString:@"\n"];
                   
@@ -85,7 +88,7 @@ NSInteger counter =0;
                 label.selectedRange = NSMakeRange(label.text.length - 1, 0);
             }
             else {
-                label.text = [label.text stringByAppendingFormat:formulaDisplay.text];
+                label.text = [label.text stringByAppendingString:formulaDisplay.text];
                 label.text =[label.text stringByAppendingFormat:@"="];
                 
                 label.text = [self convertUSToLocalizedNumbers:label.text];
@@ -96,7 +99,7 @@ NSInteger counter =0;
                 else {
                     // check error message for the error and call localization
                     NSString * ErrorCode = @"errorcode" ;
-                    ErrorCode = [ErrorCode stringByAppendingFormat:[NSString stringWithFormat:@"%d", error.code]];
+                    ErrorCode = [ErrorCode stringByAppendingString:[NSString stringWithFormat:@"%d", error.code]];
         
                     
                     label.text = [label.text stringByAppendingString:NSLocalizedString(ErrorCode, nill)];
@@ -223,7 +226,7 @@ NSInteger counter =0;
 	if ([MFMailComposeViewController canSendMail]) {		
 		
 		NSString *emailMessage = @"Calculator Results:\n==============\n";
-        emailMessage = [emailMessage stringByAppendingFormat: label.text];
+        emailMessage = [emailMessage stringByAppendingString: label.text];
         
 		[composer setToRecipients:[NSArray arrayWithObjects:@"tomvolek@yahoo.com",nil ]]; 
 		[composer setSubject:@"Calculator Results: "];

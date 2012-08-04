@@ -18,11 +18,18 @@
             AllCountryFlagImage,
             currencySymbol,
             currencyList,
+            countryCurrancyList,
+            currentCurrancylist,
             favorites,
-            keyboardView;
+            keyboardView,
+            resultLabel,lastupdated, dollarText,
+            minusFavorite,
+            plusFavorite
+            ;
 
-@synthesize resultLabel,lastupdated, dollarText;
+
 bool soundFlag;
+bool isFavorite;
 
 #pragma mark -
 #pragma mark PickerView DataSource
@@ -34,7 +41,8 @@ bool soundFlag;
 - (NSInteger)pickerView:(UIPickerView *)pickerView
 numberOfRowsInComponent:(NSInteger)component
 {
-    return [countryNames count];
+    
+    return [currentCurrancylist count];
 }
 
 - (CGFloat)pickerView:(UIPickerView *)pickerView
@@ -54,21 +62,21 @@ rowHeightForComponent:(NSInteger)component {
     NSLog(@"viewForRow called ");
 
     //UIImageView *temp = [[UIImageView alloc] initWithImage:[self.countryFlagImage objectAtIndex:row]];
-    UIImageView *temp = [[UIImageView alloc] initWithImage:[[countryCurrancyList objectAtIndex:row] imageFlag]];
+    UIImageView *temp = [[UIImageView alloc] initWithImage:[[currentCurrancylist objectAtIndex:row] imageFlag]];
     temp.frame = CGRectMake(0,0,58,58);
     
     //setup lable for Currency abbreviation
     UILabel *channelLabel = [[UILabel alloc] initWithFrame:CGRectMake(60, -10, 58, 58)];
    // channelLabel.text = [countryNames objectAtIndex:row];
-    channelLabel.text = [[countryCurrancyList objectAtIndex:row] countryABR];
+    channelLabel.text = [[currentCurrancylist objectAtIndex:row] countryABR];
     channelLabel.textAlignment = UITextAlignmentLeft;
     channelLabel.font = [UIFont fontWithName:@"Arial-BoldMT" size:14];
     channelLabel.backgroundColor = [UIColor clearColor];
     
-    //setup label fo country name
+    //setup label for country name
     UILabel *countryNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(60, 10, 95, 58)];
     //countryNameLabel.text = [DDCurrencyUnitConverter nameOfCurrencyUnit:row];
-    countryNameLabel.text = [[countryCurrancyList objectAtIndex:row] countryName];
+    countryNameLabel.text = [[currentCurrancylist objectAtIndex:row] countryName];
     
     countryNameLabel.textAlignment = UITextAlignmentLeft;
     countryNameLabel.font = [UIFont fontWithName:@"Arial-BoldMT" size:12];
@@ -109,6 +117,8 @@ rowHeightForComponent:(NSInteger)component {
             imageView = (UIImageView *) subView;
         }
     }
+     
+    
     //Localize the numbers being displayed
     CalcLocalize *myCalcLocalize = [[CalcLocalize alloc] init];
     resultLabel.text=[myCalcLocalize convertLocalToEngNumbers:(NSString *) resultLabel.text] ;
@@ -143,11 +153,12 @@ rowHeightForComponent:(NSInteger)component {
 
 
 -(IBAction) listAll{
-    [countryNames removeAllObjects];
-    [countryNames addObjectsFromArray:AllCountryNames];
-    [countryFlagImage removeAllObjects];
-    [countryFlagImage addObjectsFromArray:AllCountryFlagImage];
     
+    [currentCurrancylist removeAllObjects];
+    [minusFavorite setEnabled:NO  ];
+    [plusFavorite setEnabled:YES  ];
+    
+    [currentCurrancylist addObjectsFromArray:countryCurrancyList];
     [pickerFrom reloadAllComponents];
     [pickerFrom selectRow:0 inComponent:0 animated:YES];
     [pickerFrom selectRow:0 inComponent:1 animated:YES];
@@ -158,13 +169,17 @@ rowHeightForComponent:(NSInteger)component {
 -(IBAction) listFavorite{
     component0Position = 0 ; 
     component1Position = 0 ;
+    [plusFavorite setEnabled:NO  ];
+    [minusFavorite setEnabled:YES  ];
     if ([favorites count]  < 1 ) {
-       [countryNames removeAllObjects];
+       [currentCurrancylist removeAllObjects];
        //self.countryNames = [favorites mutableCopy];
        [pickerFrom reloadAllComponents]; 
     }
     else {
-        [countryNames removeAllObjects];
+        [currentCurrancylist removeAllObjects];
+        [currentCurrancylist addObjectsFromArray:favorites];
+       /*
         for (int i= 0; i < [favorites count] ; i++) {
             for(NSNumber *item in [favorites objectAtIndex:i]) {
                 //need to load UiPicker from favorite list. 
@@ -172,6 +187,7 @@ rowHeightForComponent:(NSInteger)component {
             }
         }
         self.countryNames = [self.favorites mutableCopy];
+       */
         [pickerFrom reloadAllComponents];
         [pickerFrom selectRow:0 inComponent:0 animated:YES];
         [pickerFrom selectRow:0 inComponent:1 animated:YES];
@@ -181,13 +197,34 @@ rowHeightForComponent:(NSInteger)component {
 
 
 -(IBAction) addtoFavorite{
+    
     NSLog(@"compnet0Postion= %i",component0Position);
     NSLog(@"compnet1Postion= %i",component1Position);
+
+    if ([favorites count] < 1) {
+        [favorites addObject:[countryCurrancyList objectAtIndex:component0Position]];
+        [favorites addObject:[countryCurrancyList objectAtIndex:component1Position]];
+    }
+    else {
+        for (id item in self.favorites) {
+            NSLog(@"abreev name %@",[countryCurrancyList objectAtIndex:component0Position]);
+        if ([countryCurrancyList objectAtIndex:component0Position] != item || [countryCurrancyList objectAtIndex:component1Position] != item  )
+            [favorites addObject:item];
+            
+        }
+
     
-    [favorites addObject:[NSArray arrayWithObjects:[NSNumber numberWithInt:component0Position],[NSNumber numberWithInt:component1Position],nil]] ;
-    //[countryFlagImage addObject:<#(id)#>
+    }
+    
+   // [favorites addObject:[countryCurrancyList objectAtIndex:component0Position]];
+   // [favorites addObject:[countryCurrancyList objectAtIndex:component1Position]];
+    //[favorites addObject:[NSArray arrayWithObjects:[NSNumber numberWithInt:component0Position],[NSNumber numberWithInt:component1Position],nil]] ;
+
      
 }
+
+
+
 
 -(IBAction)removeFromFavorite{
     int i;
@@ -401,6 +438,9 @@ rowHeightForComponent:(NSInteger)component {
     component0Position = 0 ;
     component1Position = 0 ;
     
+    // set initial display to ALL_CURRENTY_LIST
+    isFavorite = FALSE ;
+    
     dollarText.text = NSLocalizedString(dollarText.text, nil);
     dollarText.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed: @"middleRowSelected.png"]];
     resultLabel.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed: @"middleRowSelected.png"]];
@@ -408,13 +448,15 @@ rowHeightForComponent:(NSInteger)component {
     self.navigationController.navigationBarHidden = NO;
     
     self.favorites = [[[NSMutableArray alloc] initWithCapacity:100]autorelease];
+    
      
     // setup dictionary  for countries currency index
     self.currencyList = [[[NSMutableDictionary alloc] initWithCapacity:100]autorelease];
     
     
     // First crate objects for each country  Needs to be implemented bellow Tom
-    countryCurrancyList = [[NSMutableArray alloc] initWithCapacity:55];
+    countryCurrancyList = [[NSMutableArray alloc] initWithCapacity:55] ;
+    currentCurrancylist = [[NSMutableArray alloc] initWithCapacity:55] ;
     
     //setup each countries Object
     Currency *EUR = [[Currency alloc] init];
@@ -792,6 +834,7 @@ rowHeightForComponent:(NSInteger)component {
     [countryCurrancyList addObject:SDR];
 
     
+    [currentCurrancylist addObjectsFromArray:countryCurrancyList];
     
    /* 
     [currencyList setObject: [NSNumber numberWithInt:DDCurrencyUnitEuro] forKey: @"EUR"];
@@ -1095,7 +1138,7 @@ rowHeightForComponent:(NSInteger)component {
     // self.keyboardView.center = CGPointMake( self.view.center.x, self.view.center.y +480);
     [self.view addSubview:keyboardView];
     self.keyboardView.center = CGPointMake( self.view.center.x, self.view.center.y +480);
-    
+ 
    
     
     //setup NSNotification for receving key stroks from customKeyboard class
@@ -1157,6 +1200,7 @@ rowHeightForComponent:(NSInteger)component {
     [countryFlagImage release];
     [AllCountryFlagImage release];
     [currencyList release];
+    [currentCurrancylist release];
     [favorites release];
     [CustomKeyboard release];
     
