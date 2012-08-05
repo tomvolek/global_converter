@@ -1291,7 +1291,6 @@
 		5A473E181348521000F8CB13 = {
 			isa = PBXGroup;
 			children = (
-				5AACC37415B66102000FCE6C /* MapKit.framework */,
 				5AC15B9214AAC23700E50890 /* DDUnitConverter */,
 				5A1D560E147A2AFF007EF07E /* DDMathParser */,
 				5A473E841348546300F8CB13 /* Resource */,
@@ -1314,6 +1313,7 @@
 		5A473E261348521100F8CB13 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5AACC37415B66102000FCE6C /* MapKit.framework */,
 				5A084F2A14952A6700D79390 /* libCorePlot-CocoaTouch.a */,
 				5A28F7041451867400EDD475 /* CoreText.framework */,
 				5A6C573A1456992000793A3F /* AVFoundation.framework */,

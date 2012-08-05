@@ -58,8 +58,6 @@ rowHeightForComponent:(NSInteger)component {
 
 -(UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row
          forComponent:(NSInteger)component reusingView:(UIView *)view {
-    
-    NSLog(@"viewForRow called ");
 
     //UIImageView *temp = [[UIImageView alloc] initWithImage:[self.countryFlagImage objectAtIndex:row]];
     UIImageView *temp = [[UIImageView alloc] initWithImage:[[currentCurrancylist objectAtIndex:row] imageFlag]];
@@ -117,7 +115,6 @@ rowHeightForComponent:(NSInteger)component {
             imageView = (UIImageView *) subView;
         }
     }
-     
     
     //Localize the numbers being displayed
     CalcLocalize *myCalcLocalize = [[CalcLocalize alloc] init];
@@ -173,21 +170,11 @@ rowHeightForComponent:(NSInteger)component {
     [minusFavorite setEnabled:YES  ];
     if ([favorites count]  < 1 ) {
        [currentCurrancylist removeAllObjects];
-       //self.countryNames = [favorites mutableCopy];
        [pickerFrom reloadAllComponents]; 
     }
     else {
         [currentCurrancylist removeAllObjects];
         [currentCurrancylist addObjectsFromArray:favorites];
-       /*
-        for (int i= 0; i < [favorites count] ; i++) {
-            for(NSNumber *item in [favorites objectAtIndex:i]) {
-                //need to load UiPicker from favorite list. 
-                NSLog(@"fav=%@",item);
-            }
-        }
-        self.countryNames = [self.favorites mutableCopy];
-       */
         [pickerFrom reloadAllComponents];
         [pickerFrom selectRow:0 inComponent:0 animated:YES];
         [pickerFrom selectRow:0 inComponent:1 animated:YES];
@@ -198,54 +185,58 @@ rowHeightForComponent:(NSInteger)component {
 
 -(IBAction) addtoFavorite{
     
-    NSLog(@"compnet0Postion= %i",component0Position);
-    NSLog(@"compnet1Postion= %i",component1Position);
-
-    if ([favorites count] < 1) {
+    BOOL found=FALSE;
+   
+    // check to see if the selected item in componnet0 in picker exists in our faviort list 
+    for (int i =0; i < self.favorites.count; ++i) {
+        if ([[countryCurrancyList objectAtIndex:component0Position] countryABR] == [[favorites objectAtIndex:i] countryABR ]){
+            found = TRUE ;
+        }
+    }
+    if (!found){
         [favorites addObject:[countryCurrancyList objectAtIndex:component0Position]];
+    }
+
+    // check to see if the selected item in componnet1 in picker exists in our faviort list
+    for (int i =0; i < self.favorites.count; ++i) {
+        if ([[countryCurrancyList objectAtIndex:component1Position] countryABR] == [[favorites objectAtIndex:i] countryABR ]){
+            found = TRUE ;
+        }
+    }
+    if (!found){
         [favorites addObject:[countryCurrancyList objectAtIndex:component1Position]];
     }
-    else {
-        for (id item in self.favorites) {
-            NSLog(@"abreev name %@",[countryCurrancyList objectAtIndex:component0Position]);
-        if ([countryCurrancyList objectAtIndex:component0Position] != item || [countryCurrancyList objectAtIndex:component1Position] != item  )
-            [favorites addObject:item];
-            
-        }
-
-    
-    }
-    
-   // [favorites addObject:[countryCurrancyList objectAtIndex:component0Position]];
-   // [favorites addObject:[countryCurrancyList objectAtIndex:component1Position]];
-    //[favorites addObject:[NSArray arrayWithObjects:[NSNumber numberWithInt:component0Position],[NSNumber numberWithInt:component1Position],nil]] ;
-
-     
 }
 
 
 
 
 -(IBAction)removeFromFavorite{
-    int i;
+    
+    BOOL found=FALSE;
     if ([favorites count] > 0 ) {
-        NSLog(@"favorites count = %i",[favorites count]);
-        for (i= 0; i < [favorites count]; i++) {
-            BOOL item1;
-            for(NSNumber *item in [favorites objectAtIndex:i]) {
-                if ([item intValue]  == component0Position ) 
-                {item1 = YES;
-                    NSLog(@"item1= %i",item1);}
-                    else if ( ([item intValue] == component1Position) && item1 ==YES )
-                        { 
-                            NSLog(@"item2= %i",item1);
-                            [favorites removeObjectAtIndex: i]; //we have a match remove from favorite list
-                        }      
-                }
-            item1= NO;
         
+        // check to see if the selected item in componnet0 in picker exists in our faviort list
+        for (int i =0; i < self.favorites.count; ++i) {
+            if ([[currentCurrancylist objectAtIndex:component0Position] countryABR] == [[favorites objectAtIndex:i] countryABR ]){
+                found = TRUE ;
+                [favorites removeObjectAtIndex: i];
+            }
+        }
+        
+        // check to see if the selected item in componnet1 in picker exists in our faviort list
+        for (int i =0; i < self.favorites.count; ++i) {
+            if ([[currentCurrancylist objectAtIndex:component1Position] countryABR] == [[favorites objectAtIndex:i] countryABR ]){
+                found = TRUE ;
+                [favorites removeObjectAtIndex: i];
+            }
         }
     }
+    [currentCurrancylist removeAllObjects];
+    [currentCurrancylist addObjectsFromArray:favorites];
+    [pickerFrom reloadAllComponents];
+    [pickerFrom selectRow:0 inComponent:0 animated:YES];
+    [pickerFrom selectRow:0 inComponent:1 animated:YES];
 
 }//removefromFavorite
 
