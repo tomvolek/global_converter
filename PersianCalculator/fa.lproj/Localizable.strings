@@ -68,6 +68,7 @@
 "2^x"="۲^x";
 "2**"="۲**";
 "random(0,1000)"="random(۰,۱۰۰۰)";
+"Calculator Results:"="نتیجه ماشین حساب";
 "errorcode1"="قادر به ایجاد بیان از اصطلاح نیست";
 "errorcode2"="یک اپراتور معتبر نیست";
 "errorcode3"="ناتوان از تجزیه شناسه";
@@ -126,4 +127,73 @@
 "Feet"="فوت";
 "Galileos"="گالیلئو";
 "GForce"="نیروی G";
+"Kilometers"="کیلومتر";
+"Meters"="متر";
+"Miles"="مایلز";
+"Circles"="دایرهها";
+"Degrees"="درجه";
+"Grades"="درجات";
+"Minutes"="دقیقه";
+
+
+
+
+
 "Euro"="یورو";
+"Japan"="ژاپن";
+"England"="انگلستان";
+"USA"="ایالات متحده";
+"Algeria"="الجزایر";
+"Argantina"="آرژانتین";
+"Australia"="استرالیا";
+"Bahrain"="بحرین";
+"Botswana"="بوتسوانا";
+"Brazil"="برزیل";
+"Brunei"="برونئی";
+"Canada"="کانادا";
+"Chile"="شیلی";
+"China"="چین";
+"Colombia"="کلمبیا";
+"Denmark"="دانمارک";
+"Check republic"="چک جمهوری";
+"Hungary"="مجارستان";
+"Iceland"="ایسلند";
+"India"="هندوستان";
+"Indonesia"="اندونزی";
+"Iran"="ایران";
+"Israel"="اسرائيل";
+"Kazakhstan"="قزاقستان";
+"Korea"="کره";
+"Kuwait"="کویت";
+"Libya"="لیبی";
+"Malaysia"="مالزی";
+"Mauritania"="موریتانی";
+"Mexico"="مکزیک";
+"Nepal"="نپال";
+"New Zeland"="جدید نیوزیلندی";
+"Norway"="نروژ";
+"Oman"="عمان";
+"Pakistan"="پاکستان";
+"Peru"="پرو";
+"Philippine"="فیلیپین";
+"Poland"="لهستان";
+"Gatar"="قطر";
+"Russia"="روسیه";
+"Saudi Arabia"="عربستان سعودی";
+"Singapore"="سنگاپور";
+"South Africa"="آفریقای جنوبی";
+"Sri lanka"="سری لانکا";
+"Sweden"="سوئد";
+"Swiss"="سوئیس";
+"Thailand"="تایلند";
+"Trinidad"="ترینیداد";
+"Tunisia"="تونس";
+"United Arab Emirates"="امارات متحده عربی";
+"Uruguay"="اروگوئه";
+"Bolivia"="بولیوی";
+"Spain"="اسپانیا";
+
+
+
+
+

@@ -459,7 +459,7 @@ NSString *fractionValue;
         emailMessage = [emailMessage stringByAppendingString:@"\n"];
         		
 		[composer setToRecipients:[NSArray arrayWithObjects:@"tomvolek@yahoo.com",nil ]]; 
-		[composer setSubject:@"Calculator Results: "];
+		[composer setSubject:NSLocalizedString(@"Calculator Results:",nil)];
 		[composer setMessageBody:emailMessage isHTML:NO];
         
 		[self presentModalViewController:composer animated:YES];

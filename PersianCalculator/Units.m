@@ -21,8 +21,60 @@
 
 bool soundFlag;
 
+-(void)equalKey{
+    if (soundFlag) {
+        [theAudio play];
+    }
+  
+NSString *component0Name = [[unitDataArray objectAtIndex:component0Position]  objectAtIndex:0 ];
 
--(void) keyPressed: (id)sender{	
+NSString *UnitConverterMethodName ;
+UnitConverterMethodName =  [NSString stringWithFormat:@"%@UnitConverter",component0Name] ;
+UnitConverterMethodName = [UnitConverterMethodName stringByReplacingCharactersInRange:NSMakeRange(0,1) withString:[[UnitConverterMethodName substringToIndex:1] lowercaseString]];
+
+//construct the second dialer string to be passed into calcualtion method
+NSMutableString *component1Name  = [[NSMutableString alloc]  init] ;
+[component1Name appendString:@"DD"];
+[component1Name appendString: [[unitDataArray objectAtIndex:component0Position]  objectAtIndex:0 ]  ];
+[component1Name appendString:@"Unit"];
+[component1Name appendString:[ fromUnit objectAtIndex:component1Position]];
+
+NSLog(@"component1Name = %@",[component1Name stringByTrimmingCharactersInSet:
+                              [NSCharacterSet whitespaceCharacterSet]]);
+
+CalcLocalize *myCalcLocalize = [[CalcLocalize alloc] init];
+fromTextView.text=[myCalcLocalize convertLocalToEngNumbers:(NSString *) fromTextView.text] ;
+
+DDUnitConverter *myconverter =  [DDUnitConverter performSelector:NSSelectorFromString(UnitConverterMethodName)] ;
+NSLog(@"UnitConverterMethodName=%@",UnitConverterMethodName);
+
+
+NSNumber * value =  [myconverter
+                     convertNumber:[NSNumber numberWithInt:[fromTextView.text integerValue]]
+                     fromUnit:component1Position
+                     toUnit:component2Position];
+
+
+NSLog(@"value from DDUnit=%@",value);
+
+NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+[formatter setRoundingMode:NSNumberFormatterRoundHalfUp];
+[formatter setMaximumFractionDigits:2]; //round to 2 decimal
+
+toTextView.text =  [formatter  stringFromNumber:value];
+toTextView.text=[myCalcLocalize convertEngToLocalNumbers:(NSString *) toTextView.text] ;
+fromTextView.text=[myCalcLocalize convertEngToLocalNumbers:(NSString *) fromTextView.text] ;
+[formatter release];
+
+[myCalcLocalize release ];
+
+
+
+    
+}//equalKey
+
+
+-(void) keyPressed: (id)sender{
     UIButton  *keyletters = (UIButton*)sender ;
     
     
@@ -32,7 +84,7 @@ bool soundFlag;
         }
         else {
                 //Call the function to calculate Unit conversion 
-                fromTextView.selectedRange = NSMakeRange(fromTextView.text.length - 1, 0);
+            [self equalKey];
             }
         } 
     else if ([keyletters.titleLabel.text isEqualToString:@"C"] ) {
@@ -229,6 +281,7 @@ bool soundFlag;
         
         toTextView.text =  [formatter  stringFromNumber:value];       
         toTextView.text=[myCalcLocalize convertEngToLocalNumbers:(NSString *) toTextView.text] ;
+        fromTextView.text=[myCalcLocalize convertEngToLocalNumbers:(NSString *) fromTextView.text] ;
         [formatter release];
 
         [myCalcLocalize release ];
@@ -272,6 +325,7 @@ bool soundFlag;
         
         toTextView.text =  [formatter  stringFromNumber:value];       
         toTextView.text=[myCalcLocalize convertEngToLocalNumbers:(NSString *) toTextView.text] ;
+        fromTextView.text=[myCalcLocalize convertEngToLocalNumbers:(NSString *) fromTextView.text] ;
         [formatter release];
         [myCalcLocalize release ];
     }
@@ -353,8 +407,6 @@ rowHeightForComponent:(NSInteger)component {
     [unitConverter reloadComponent:0];
     [unitConverter reloadComponent:1];
 
-    
-    
 }
 
 
@@ -455,8 +507,6 @@ rowHeightForComponent:(NSInteger)component {
         i++;
     }
    
-    
-    
     //setup keyboard
     self.keyboardView = [[CustomKeyboard alloc] initWithFrame:CGRectMake(0, 440, 320, 140)];
     self.keyboardView.transform = CGAffineTransformMakeTranslation(0, self.keyboardView.bounds.size.height);

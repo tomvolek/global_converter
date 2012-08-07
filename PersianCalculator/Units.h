@@ -50,6 +50,7 @@
 -(IBAction) keyboardHide;
 
 -(void) keyPressed: (id)sender;
+-(void) equalKey;
 
 @end
 

@@ -235,7 +235,7 @@
     [self.listOfLanguages addObject:data];
     
     
-    self.languageTableView = [[UITableView alloc] initWithFrame:CGRectMake(15, 115, 280, 240) style:UITableViewStyleGrouped];
+    self.languageTableView = [[UITableView alloc] initWithFrame:CGRectMake(15, 115, 280, 190) style:UITableViewStyleGrouped];
     
     languageTableView.delegate = self;
     languageTableView.dataSource = self;

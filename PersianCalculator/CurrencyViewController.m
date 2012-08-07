@@ -58,6 +58,8 @@ rowHeightForComponent:(NSInteger)component {
 
 -(UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row
          forComponent:(NSInteger)component reusingView:(UIView *)view {
+    
+    
 
     //UIImageView *temp = [[UIImageView alloc] initWithImage:[self.countryFlagImage objectAtIndex:row]];
     UIImageView *temp = [[UIImageView alloc] initWithImage:[[currentCurrancylist objectAtIndex:row] imageFlag]];
@@ -116,6 +118,8 @@ rowHeightForComponent:(NSInteger)component {
         }
     }
     
+    [pickerFrom layoutIfNeeded];
+    
     //Localize the numbers being displayed
     CalcLocalize *myCalcLocalize = [[CalcLocalize alloc] init];
     resultLabel.text=[myCalcLocalize convertLocalToEngNumbers:(NSString *) resultLabel.text] ;
@@ -156,6 +160,9 @@ rowHeightForComponent:(NSInteger)component {
     [plusFavorite setEnabled:YES  ];
     
     [currentCurrancylist addObjectsFromArray:countryCurrancyList];
+    
+    //[pickerFrom layoutIfNeeded];
+    
     [pickerFrom reloadAllComponents];
     [pickerFrom selectRow:0 inComponent:0 animated:YES];
     [pickerFrom selectRow:0 inComponent:1 animated:YES];
@@ -558,7 +565,7 @@ rowHeightForComponent:(NSInteger)component {
     
     Currency *CZK = [[Currency alloc] init];
     CZK.positionRelatedToTheClass = DDCurrencyUnitCzechKoruna;
-    CZK.countryName = @"Colombia";
+    CZK.countryName = @"Check republic";
     CZK.countryABR = @"CZK";
     CZK.imageFlag = [UIImage imageNamed:@"Czech-Republic-Flag-64.png"];
     [countryCurrancyList addObject:CZK];
@@ -579,7 +586,7 @@ rowHeightForComponent:(NSInteger)component {
     
     Currency *ISK = [[Currency alloc] init];
     ISK.positionRelatedToTheClass = DDCurrencyUnitIcelandicKrona;
-    ISK.countryName = @"Island";
+    ISK.countryName = @"Iceland";
     ISK.countryABR = @"ISK";
     ISK.imageFlag = [UIImage imageNamed:@"Iceland-Flag-64.png"];
     [countryCurrancyList addObject:ISK];
@@ -650,7 +657,7 @@ rowHeightForComponent:(NSInteger)component {
     
     Currency *MUR = [[Currency alloc] init];
     MUR.positionRelatedToTheClass = DDCurrencyUnitMauritianRupee;
-    MUR.countryName = @"Mauritani";
+    MUR.countryName = @"Mauritania";
     MUR.countryABR = @"MUR";
     MUR.imageFlag =[UIImage imageNamed:@"Mauritania-Flag-64.png"];
     [countryCurrancyList addObject:MUR];
@@ -671,14 +678,14 @@ rowHeightForComponent:(NSInteger)component {
     
     Currency *NZD = [[Currency alloc] init];
     NZD.positionRelatedToTheClass = DDCurrencyUnitNewZealandDollar;
-    NZD.countryName = @"New Zealand";
+    NZD.countryName = @"New Zeland";
     NZD.countryABR = @"NZD";
     NZD.imageFlag = [UIImage imageNamed:@"New-Zealand-Flag-64.png"];
     [countryCurrancyList addObject:NZD];
     
     Currency *NOK = [[Currency alloc] init];
     NOK.positionRelatedToTheClass = DDCurrencyUnitNorwegianKrone;
-    NOK.countryName = @"Norwegian";
+    NOK.countryName = @"Norway";
     NOK.countryABR = @"NOK";
     NOK.imageFlag = [UIImage imageNamed:@"Norway-Flag-64.png"];
     [countryCurrancyList addObject:NOK];
@@ -734,7 +741,7 @@ rowHeightForComponent:(NSInteger)component {
     
     Currency *SAR = [[Currency alloc] init];
     SAR.positionRelatedToTheClass = DDCurrencyUnitSaudiArabianRiyal;
-    SAR.countryName = @"Saudia Arabia";
+    SAR.countryName = @"Saudi Arabia";
     SAR.countryABR = @"SAR";
     SAR.imageFlag =  [UIImage imageNamed:@"Saudi-Arabia-Flag-64.png"];
     [countryCurrancyList addObject:SAR];
@@ -755,14 +762,14 @@ rowHeightForComponent:(NSInteger)component {
     
     Currency *LKR = [[Currency alloc] init];
     LKR.positionRelatedToTheClass = DDCurrencyUnitSriLankaRupee;
-    LKR.countryName = @"Srilanka";
+    LKR.countryName = @"Sri lanka";
     LKR.countryABR = @"LKR";
     LKR.imageFlag =[UIImage imageNamed:@"Sri-Lanka-Flag-64.png"];
     [countryCurrancyList addObject:LKR];
     
     Currency *SEK = [[Currency alloc] init];
     SEK.positionRelatedToTheClass = DDCurrencyUnitSwedishKrona;
-    SEK.countryName = @"Sweeden";
+    SEK.countryName = @"Sweden";
     SEK.countryABR = @"SEK";
     SEK.imageFlag = [UIImage imageNamed:@"Sweden-Flag-64.png"];
     [countryCurrancyList addObject:SEK];
@@ -805,7 +812,7 @@ rowHeightForComponent:(NSInteger)component {
     
     Currency *UYU = [[Currency alloc] init];
     UYU.positionRelatedToTheClass = DDCurrencyUnitPesoUruguayo;
-    UYU.countryName = @"Urugua";
+    UYU.countryName = @"Uruguay";
     UYU.countryABR = @"UYU";
     UYU.imageFlag = [UIImage imageNamed:@"Uruguay-Flag-64.png"];
     [countryCurrancyList addObject:UYU];
