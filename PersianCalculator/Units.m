@@ -460,7 +460,7 @@ rowHeightForComponent:(NSInteger)component {
     
     [unitDataArray insertObject:[NSMutableArray arrayWithObjects:@"Area",@"Acres",@"Barns",@"Hectares",@"Roods",@"Centimeters",@"Decimeters",@"Feet",@"Inches",@"Kilometers",@"Meters",@"Miles",@"Millimeters",@"Rods",@"Yards",nil] atIndex:2];
     
-    [unitDataArray insertObject:[NSMutableArray arrayWithObjects:@"Data",@"Byte",@"Bit",@"Crumb",@"Nibble",@"Byte",@"Decabit",@"Hectobit",@"Kilobit",@"Megabit",@"Gigabit",@"Terabit",@"Petabit",@"Exabit",@"Zettabit",@"Yottabit",@"Decabyte",@"Hectobyte",@"Kilobyte",@"Megabyte",@"Gigabyte",@"Terabyte",@"Petabyte",@"Exabyte",@"Zettabyte",@"Yottabyte",@"Kibibit",@"Mebibit",@"Gibibit",@"Tebibit",@"Pebibit",@"Exbibit",@"Kibibyte",@"Mebibyte",@"Gibibyte",@"Tebibyte",@"Pebibyte",@"Exbibyte",nil] atIndex:3];
+    [unitDataArray insertObject:[NSMutableArray arrayWithObjects:@"Byte",@"Bit",@"Crumb",@"Nibble",@"Byte",@"Decabit",@"Hectobit",@"Kilobit",@"Megabit",@"Gigabit",@"Terabit",@"Petabit",@"Exabit",@"Zettabit",@"Yottabit",@"Decabyte",@"Hectobyte",@"Kilobyte",@"Megabyte",@"Gigabyte",@"Terabyte",@"Petabyte",@"Exabyte",@"Zettabyte",@"Yottabyte",@"Kibibit",@"Mebibit",@"Gibibit",@"Tebibit",@"Pebibit",@"Exbibit",@"Kibibyte",@"Mebibyte",@"Gibibyte",@"Tebibyte",@"Pebibyte",@"Exbibyte",nil] atIndex:3];
     
     [unitDataArray insertObject:[NSMutableArray arrayWithObjects:@"Current",@"Amperes",@"Electromagnetic",@"Milliamperes",nil] atIndex:4];
     
