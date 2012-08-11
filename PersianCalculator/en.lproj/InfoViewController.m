@@ -222,7 +222,7 @@
     data = [NSArray arrayWithObjects:NSLocalizedString(@"English", @"English Language"), @"United-States-Flag-64.png", @"en", nil];
     [self.listOfLanguages addObject:data];
     
-    data = [NSArray arrayWithObjects:NSLocalizedString(@"Japanese", @"Japanese Lanhuage"), @"Japan-Flag-64.png", @"ja", nil];
+    data = [NSArray arrayWithObjects:NSLocalizedString(@"Japanese", @"Japanese Language"), @"Japan-Flag-64.png", @"ja", nil];
     [self.listOfLanguages addObject:data];
     
     data = [NSArray arrayWithObjects:NSLocalizedString(@"Spanish", @"Spanish Language"), @"Spain-Flag-64.png", @"es", nil];

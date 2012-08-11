@@ -14,6 +14,7 @@
 
 @interface EmergencyViewController : UIViewController<MKMapViewDelegate>{
     BOOL _doneInitialZoom;
+    
     NSMutableArray *cityAnnotations;
     NSArray *capitalCity;
 }

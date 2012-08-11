@@ -19,8 +19,9 @@
 }
 
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
-    NSString *phoneNo = view.annotation.subtitle;
-    NSString *telString = [NSString stringWithFormat:@"tel://%@", phoneNo];
+    //NSString *phoneNo = view.annotation.subtitle;
+   // NSString *telString = [NSString stringWithFormat:@"telprompt://%@", phoneNo];
+    NSString *telString = [NSString stringWithFormat:@"telprompt://16509611964"];
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:telString]];
 }
 
@@ -188,7 +189,7 @@
           nil],
         [NSDictionary dictionaryWithObjectsAndKeys:
             @"United States", @"country",
-            @"911", @"phone",
+            @"16509611964", @"phone",
             [NSNumber numberWithInt: 38.895000], @"lat",
             [NSNumber numberWithInt: -77.036667], @"long",
             nil],
@@ -230,8 +231,6 @@
     // 4
     [_mapView setRegion:adjustedRegion animated:YES];
     
-    
-    
     //Add anotations for capital of each country and show the emergancy number 
     CLLocationCoordinate2D annotationCoord;
     
@@ -250,9 +249,7 @@
     
         //[cityAnnotations addObject:annotationPoint];
         [annotationPoint release];
-
     }
-    
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
