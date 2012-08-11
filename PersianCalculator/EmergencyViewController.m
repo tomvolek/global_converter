@@ -18,19 +18,39 @@
     return [[UIApplication sharedApplication] canOpenURL: url];
 }
 
-- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
+- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view
+calloutAccessoryControlTapped:(UIControl *)control {
     //NSString *phoneNo = view.annotation.subtitle;
    // NSString *telString = [NSString stringWithFormat:@"telprompt://%@", phoneNo];
-    NSString *telString = [NSString stringWithFormat:@"telprompt://16509611964"];
+    NSString *telString = [NSString stringWithFormat:@"tel://16509611964"];
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:telString]];
 }
 
+- (MKAnnotationView *)mapView:(MKMapView *)sender viewForAnnotation:(id < MKAnnotation >)annotation
+{
+    static NSString *reuseId = @"StandardPin";
+    
+    MKPinAnnotationView *aView = (MKPinAnnotationView *)[sender
+                                                         dequeueReusableAnnotationViewWithIdentifier:reuseId];
+    if (aView == nil)
+    {
+        aView = [[[MKPinAnnotationView alloc] initWithAnnotation:annotation
+                                                 reuseIdentifier:reuseId] autorelease];
+        aView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+        aView.canShowCallout = YES;
+    }
+    
+    aView.annotation = annotation;
+    
+    return aView;   
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        //_mapView.delegate = self;
     }
     return self;
 }
@@ -245,8 +265,8 @@
         annotationPoint.coordinate = annotationCoord;
         annotationPoint.title = [[capitalCity objectAtIndex:i] objectForKey:@"country"];
         annotationPoint.subtitle = [[capitalCity objectAtIndex:i] objectForKey:@"phone"];
+        
         [_mapView addAnnotation:annotationPoint];
-    
         //[cityAnnotations addObject:annotationPoint];
         [annotationPoint release];
     }
