@@ -202,10 +202,107 @@
 "NewtonMeters"="نیوتن متر";
 "Therms"="ترمس";
 "WattHours"="وات سا عت";
-
-
-
-
+"Dynes"="دینس";
+"KilogramForces"="کیلوگرم نیرو";
+"Newtons"="نیوتون";
+"Poundals"="پاندالس";
+"PoundForces"="پاند نیرو";
+"Sthenes"="استنهس";
+"FootCandles"="فووت کندل";
+"Lumens/Centimeter"="لومنس سانتیمتر";
+"Lumens/SquareFoot"="لومنس اسکور فووت";
+"Lumens/SquareMeter"="لومنس اسکور متر";
+"Nox"="ناکس";
+"Phots"="فاتس";
+"ClearDaySun"="کلیردی سان";
+"Electromagnetic"="الکترومغناطیس";
+"Electrostatic"="الکترواستاتیکی";
+"Henrys"="هانری";
+"Millihenrys"="میلی هانری";
+"Microhenrys"="ماکرو هانری";
+"Astronomic"="نجومی";
+"Centimeters"="سانتی متر";
+"Chains"="زنجیر";
+"Inches"="اینچ";
+"Fathoms"="فاتوماس";
+"Feet"="پا";
+"Furlongs"="فرلونگز";
+"Kilometers"="کیلومتر";
+"Lightyears"="سال نوری";
+"Meters"="متر";
+"Millimeters"="میلی متر";
+"Miles"="مایلز";
+"InternationalNauticalMiles"="بین المللی مایل دریایی";
+"NauticalMiles"="مایل دریایی";
+"Parsecs"="پارسک";
+"Yards"="محوطه";
+"Angstroms"="آنگستروم";
+"Yocto"="یوکتو";
+"Zepto"="زپتو";
+"Atto"="اتتو";
+"Femto"="فمتو";
+"Pico"="پیکو";
+"Nano"="نانو";
+"Micro"="میکرو";
+"Milli"="میلی";
+"Centi"="سنتی";
+"Deci"="دسی";
+"Normal"="نورمال";
+"Deka"="دکا";
+"Hecto"="هکتو";
+"Kilo"="کیلو";
+"Mega"="مگا";
+"Giga"="گیگا";
+"Tera"="ترا";
+"Peta"="پتا";
+"Exa"="اگزا";
+"Zetta"="زتتا";
+"Yotta"="یوتتا";
+"AtomicMassUnits"="واحد جرم اتمی";
+"Drachms"="دراچمس";
+"Drams"="درامس";
+"Grains"="دانه";
+"Grams"="گرم";
+"HundredWeights"="صد وزن";
+"Kilograms"="کیلوگرم";
+"Milligrams"="میلی گرم";
+"TroyOunces"="تروی اونس";
+"USOunces"="اونس ایالات متحده";
+"Pennyweights"="وزن لئامت";
+"TroyPounds"="پوند تروی";
+"USPounds"="پوند ایالات متحده";
+"Quarters"="یک چهارم";
+"Scruples"="اسکروپل";
+"ShortHundredWeights"="کوتاه صد وزن";
+"ShortTons"="تن کوتاه";
+"Slugs"="راب";
+"Stones"="سنگ";
+"UKTons"="تن انگلس";
+"Tonnes"="تن";
+"Firkins"="فیرکینس";
+"Foot/Pound"="پا / پوند";
+"UnitHorsepower"="اسب بخار واحد";
+"MetricHorsepower"="اسب بخار متریک";
+"JoulesPerSecond"="ژول در هر ثانیه";
+"KilogramForceMeters"="کیلوگرم نیروسنج";
+"Watts"="وات";
+"Atmospheres"="جو";
+"Bars"="میله";
+"InchesOfMercury"="اینچ جیوه";
+"InchesOfWater"="اینچ از آب";
+"MillimetersOfMercury"="میلی متر جیوه";
+"Newtons/SquareMeter"="نیوتون / متر مربع";
+"Pascals"="پاسکال";
+"PoundForces/SquareFoot"="نیروی پوند / فوت مربع";
+"PoundForces/SquareInch"="نیروی پوند / اینچ مربع";
+"Torrs"="تورس";
+"Becquerels"="بکقوهرهلس";
+"Curies"="کوریهس";
+"Celcius"="سلسیوس";
+"Farenheit"="فارنهایت";
+"Kelvin"="کلوین";
+"Reaumur"="راومور";
+"Rankine"="رنکین";
 
 
 "Clear"="پاک";
@@ -267,8 +364,3 @@
 "Uruguay"="اروگوئه";
 "Bolivia"="بولیوی";
 "Spain"="اسپانیا";
-
-
-
-
-

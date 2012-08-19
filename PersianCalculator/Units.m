@@ -468,7 +468,7 @@ rowHeightForComponent:(NSInteger)component {
     
     [unitDataArray insertObject:[NSMutableArray arrayWithObjects:@"Force",@"Dynes",@"KilogramForces",@"Newtons",@"Poundals",@"PoundForces",@"Sthenes",nil] atIndex:6];
 
-    [unitDataArray insertObject:[NSMutableArray arrayWithObjects:@"Illumination",@"FootCandles",@"Lumens/Centimeter",@"Lumens/SquareFoot",@"Lumens/SquareMeter,",@"Nox",@"Phots",@"ClearDaySun",nil] atIndex:7];
+    [unitDataArray insertObject:[NSMutableArray arrayWithObjects:@"Illumination",@"FootCandles",@"Lumens/Centimeter",@"Lumens/SquareFoot",@"Lumens/SquareMeter",@"Nox",@"Phots",@"ClearDaySun",nil] atIndex:7];
     
     [unitDataArray insertObject:[NSMutableArray arrayWithObjects:@"Inductance",@"Electromagnetic",@"Electrostatic",@"Henrys",@"Millihenrys",@"Microhenrys",nil] atIndex:8];
     
