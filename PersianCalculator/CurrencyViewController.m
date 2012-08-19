@@ -153,7 +153,7 @@ rowHeightForComponent:(NSInteger)component {
 }
 
 
--(IBAction) listAll{
+-(void) listAllme:(id)sender{
     
     [currentCurrancylist removeAllObjects];
     [minusFavorite setEnabled:NO  ];
@@ -169,15 +169,14 @@ rowHeightForComponent:(NSInteger)component {
 }
 
 
-
--(IBAction) listFavorite{
-    component0Position = 0 ; 
+-(void) listFavoriteme:(id) sender{
+    component0Position = 0 ;
     component1Position = 0 ;
     [plusFavorite setEnabled:NO  ];
     [minusFavorite setEnabled:YES  ];
     if ([favorites count]  < 1 ) {
-       [currentCurrancylist removeAllObjects];
-       [pickerFrom reloadAllComponents]; 
+        [currentCurrancylist removeAllObjects];
+        [pickerFrom reloadAllComponents];
     }
     else {
         [currentCurrancylist removeAllObjects];
@@ -185,12 +184,12 @@ rowHeightForComponent:(NSInteger)component {
         [pickerFrom reloadAllComponents];
         [pickerFrom selectRow:0 inComponent:0 animated:YES];
         [pickerFrom selectRow:0 inComponent:1 animated:YES];
-    } 
+    }
     
 }
 
 
--(IBAction) addtoFavorite{
+-(void) addtoFavorite:(id) sender{
     
     BOOL found=FALSE;
    
@@ -218,7 +217,7 @@ rowHeightForComponent:(NSInteger)component {
 
 
 
--(IBAction)removeFromFavorite{
+-(void)removeFromFavorite: (id) sender{
     
     BOOL found=FALSE;
     if ([favorites count] > 0 ) {
@@ -261,7 +260,7 @@ rowHeightForComponent:(NSInteger)component {
             [self equalKey];
         }
     } 
-    else if ([keyletters.titleLabel.text isEqualToString:@"C"] ) {
+    else if ([keyletters.titleLabel.text isEqualToString:NSLocalizedString(@"Clean",nil) ] ) {
         
         dollarText.text=@"";
     }
@@ -327,7 +326,7 @@ rowHeightForComponent:(NSInteger)component {
     // Set the dateFormatter format
     //[dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     // or this format to show day of the week Sat,11-12-2011 23:27:09
-    [dateFormatter setDateFormat:@"EEE ,MM-dd-yyyy HH:mm:ss"];
+    [dateFormatter setDateFormat:@"EEE,MM-dd-yyyy HH:mm:ss"];
     // Get the date time in NSString
     NSString *dateInStringFormated = [dateFormatter stringFromDate:currentDateTime];
     [lastupdated setText:dateInStringFormated];
@@ -427,6 +426,71 @@ rowHeightForComponent:(NSInteger)component {
    /* int Index =[[userDefaults objectForKey:@"currencyFromRow"] intValue];
     [pickerFrom selectRow:Index inComponent:0 animated:YES];
    */ 
+    UILabel *rateUpdate = [[UILabel alloc] initWithFrame:CGRectMake(6, 58, 104, 22)];
+    
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    [button addTarget:self
+               action:@selector(listAllme:)
+     forControlEvents:UIControlEventTouchDown];
+    [button setTitle:NSLocalizedString(@"List All",nil) forState:UIControlStateNormal];
+     button.frame = CGRectMake(0.0, 5.0, 75.0, 35.0);
+    UIImage *buttonImage = [UIImage imageNamed:@"blue_button_gloss.png"];
+    [button setBackgroundImage:buttonImage forState:UIControlStateNormal];
+    [self.view addSubview:button];
+    [button release];
+    [buttonImage release];
+    
+    UIButton *buttonFavorite = [UIButton buttonWithType:UIButtonTypeCustom];
+    [buttonFavorite addTarget:self
+               action:@selector(listFavoriteme:)
+     forControlEvents:UIControlEventTouchDown];
+    [buttonFavorite setTitle:NSLocalizedString(@"Favorites",nil) forState:UIControlStateNormal];
+    buttonFavorite.titleLabel.font = [UIFont systemFontOfSize:14];
+    //buttonFavorite.titleLabel.adjustsFontSizeToFitWidth = YES;
+    buttonFavorite.frame = CGRectMake(232, 5, 87, 35);
+    UIImage *buttonImageFavorite = [UIImage imageNamed:@"blue_button_gloss.png"];
+    [buttonFavorite setBackgroundImage:buttonImageFavorite forState:UIControlStateNormal];
+    [self.view addSubview:buttonFavorite];
+    [buttonFavorite release];
+    [buttonImageFavorite release];
+    
+    
+    plusFavorite = [UIButton buttonWithType:UIButtonTypeCustom];
+    [plusFavorite addTarget:self
+                            action:@selector(addtoFavorite:)
+                  forControlEvents:UIControlEventTouchDown];
+    [plusFavorite setTitle:NSLocalizedString(@"+Favorit",nil) forState:UIControlStateNormal];
+    plusFavorite.frame = CGRectMake(75, 5, 87, 35);
+    UIImage *buttonImageFavoritePlus = [UIImage imageNamed:@"green_button_gloss.png"];
+    [plusFavorite setBackgroundImage:buttonImageFavoritePlus forState:UIControlStateNormal];
+    [self.view addSubview:plusFavorite];
+    [plusFavorite release];
+    [buttonImageFavoritePlus release];
+    
+    
+    
+    minusFavorite = [UIButton buttonWithType:UIButtonTypeCustom];
+    [minusFavorite addTarget:self
+               action:@selector(removeFromFavorite:)
+     forControlEvents:UIControlEventTouchDown];
+    [minusFavorite setTitle:NSLocalizedString(@"-Favorit",nil) forState:UIControlStateNormal];
+    minusFavorite.frame = CGRectMake(153, 5, 87, 35);
+    UIImage *buttonImageFavoriteMinus = [UIImage imageNamed:@"green_button_gloss.png"];
+    [minusFavorite setBackgroundImage:buttonImageFavoriteMinus forState:UIControlStateNormal];
+    [self.view addSubview:minusFavorite];
+    [minusFavorite release];
+    [buttonImageFavoriteMinus release];
+    
+    
+    
+    
+    
+
+	rateUpdate.text = NSLocalizedString(@"Rates Updated:",nil);
+    rateUpdate.backgroundColor = [UIColor clearColor];
+    rateUpdate.textColor = [UIColor blackColor];
+    rateUpdate.font = [UIFont fontWithName:@"Helvetica" size: 14.0];
+    [self.view addSubview:rateUpdate];
     
     //setup initial exchange rate 
     currencyFromRate = 1;
@@ -1001,8 +1065,6 @@ rowHeightForComponent:(NSInteger)component {
     [AllCountryFlagImage addObject:[UIImage imageNamed:@"Bolivia-Flag-64.png"]];
     [AllCountryFlagImage addObject:[UIImage imageNamed:@"Spain-Flag-64.png"]];
                               
-                              
-                           
 
     self.countryNames = [[[NSMutableArray alloc] initWithCapacity:100] autorelease];
     [countryNames addObject:@"EUR"];
@@ -1122,14 +1184,10 @@ rowHeightForComponent:(NSInteger)component {
     //initialize picker to a currency previously decided by user. 
     component0Position =[[userDefaults objectForKey:@"currencyFromRow"] intValue];
     component1Position = [[userDefaults objectForKey:@"currencyToRow"] intValue];
-    NSLog(@"currency index=%i",component0Position);
-    NSLog(@"currency index2=%i",component1Position);
     
     [pickerFrom selectRow:component0Position inComponent:0 animated:NO];
     [pickerFrom selectRow:component1Position inComponent:1 animated:NO];
 
-   
-    
     //setup custom keyboard
     self.keyboardView = [[CustomKeyboard alloc] initWithFrame:CGRectMake(0, 440, 320, 140)];
     self.keyboardView.transform = CGAffineTransformMakeTranslation(0, self.keyboardView.bounds.size.height);
@@ -1137,8 +1195,6 @@ rowHeightForComponent:(NSInteger)component {
     [self.view addSubview:keyboardView];
     self.keyboardView.center = CGPointMake( self.view.center.x, self.view.center.y +480);
  
-   
-    
     //setup NSNotification for receving key stroks from customKeyboard class
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(receiveTestNotification:) 
@@ -1152,7 +1208,7 @@ rowHeightForComponent:(NSInteger)component {
     
     //add our custom keyboard to the fromTextView inputview
     self.dollarText.inputView = self.keyboardView; 
-     NSLog(@"countryNames Count viewdidLoad=%i",[countryNames  count]);
+    
     
 }
 

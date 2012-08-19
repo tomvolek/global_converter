@@ -423,6 +423,7 @@ NSInteger counter =0;
     for (UITabBarItem *tabBarItem in self.tabBarController.tabBar.items )
     {
         tabBarItem.title = NSLocalizedString(tabBarItem.title,nil);
+        //NSLog(@"CalculatorViewController tabbar item%@",tabBarItem.title);
     }
 }
 

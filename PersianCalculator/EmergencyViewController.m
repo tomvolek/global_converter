@@ -10,7 +10,10 @@
 
 @implementation EmergencyViewController
 
-@synthesize  _mapView;
+@synthesize  _mapView,
+             locationManager,
+             currentLocation;
+
 
 -(BOOL) checkIfPhoneCanOpenAppUrlScheme:(NSString *) aCustomURLScheme
 {
@@ -22,7 +25,7 @@
 calloutAccessoryControlTapped:(UIControl *)control {
     //NSString *phoneNo = view.annotation.subtitle;
    // NSString *telString = [NSString stringWithFormat:@"telprompt://%@", phoneNo];
-    NSString *telString = [NSString stringWithFormat:@"tel://16509611964"];
+    NSString *telString = [NSString stringWithFormat:@"telprompt://16509611964"];
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:telString]];
 }
 
@@ -63,6 +66,8 @@ calloutAccessoryControlTapped:(UIControl *)control {
     // Release any cached data, images, etc that aren't in use.
 }
 
+
+
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad
@@ -81,6 +86,14 @@ calloutAccessoryControlTapped:(UIControl *)control {
     
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    // setup the CoreLocation 
+    self.locationManager = [[CLLocationManager alloc]init];
+
+    [locationManager setDistanceFilter:kCLDistanceFilterNone];
+    [locationManager setDesiredAccuracy:kCLLocationAccuracyBest];
+    [locationManager setDelegate:self];
+    [locationManager startUpdatingLocation];
+    //[locationManager release]; released in dealloc
     
     cityAnnotations = [[NSMutableArray  alloc ]initWithCapacity:40];
     //NSURL *URL = [NSURL URLWithString:@"tel://900-3440-567"];
@@ -226,24 +239,61 @@ calloutAccessoryControlTapped:(UIControl *)control {
              [NSNumber numberWithInt: -99.133208], @"long",
              nil],
        nil];
-
+    
+    
 }
 
 - (void)viewDidUnload
 {
+    [locationManager stopUpdatingLocation];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+    self.locationManager = nil;
 }
+
+
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
+    // NSLog(@”this is %f, %f”,newLocation.coordinate.latitude,newLocation.coordinate.longitude);
+    self.currentLocation = newLocation;
+    if(newLocation.horizontalAccuracy <= 100.0f) { [locationManager stopUpdatingLocation]; }
+}
+
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
+    if(error.code == kCLErrorDenied) {
+        [locationManager stopUpdatingLocation];
+    } else if(error.code == kCLErrorLocationUnknown) {
+        // retry
+    } else {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error retrieving location"
+                                              message:[error description]
+                                              delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+        }
+
+    }
+
 
 - (void)viewWillAppear:(BOOL)animated {  
     // 1
+    
     CLLocationCoordinate2D zoomLocation;
     //zoomLocation.latitude = 39.281516;
     //zoomLocation.longitude= -76.580806;
     
-    zoomLocation.latitude = 38.895000;
-    zoomLocation.longitude= -77.036667;
+  
+    zoomLocation.latitude = 53.709807;
+    zoomLocation.longitude= 32.953389;
+    NSLog(@"lat%f",self.currentLocation.coordinate.latitude);
+    NSLog(@"long%f",currentLocation.coordinate.longitude);
+    
+    //zoomLocation.latitude =  currentLocation.coordinate.latitude ;
+;
+    //zoomLocation.longitude=  currentLocation.coordinate.longitude;
+
     // 2
     MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(zoomLocation, 2500.5*METERS_PER_MILE, 2500.5*METERS_PER_MILE);
     // 3
@@ -283,6 +333,7 @@ calloutAccessoryControlTapped:(UIControl *)control {
 -(void)dealloc{
     //[title release];
     [super dealloc];
+    [locationManager release];
 }
 
 @end

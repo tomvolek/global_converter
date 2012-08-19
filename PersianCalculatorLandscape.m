@@ -428,8 +428,7 @@ NSString *fractionValue;
                 display.text = [self convertUSToLocalizedNumbers:display.text];
                 display.text = [display.text stringByAppendingString:NSLocalizedString(ErrorCode, nill)];
                 display.text = [display.text stringByAppendingString:@"\n"];
-                NSLog(@"Error code %d", eval_error.code);
-                NSLog(@"Error domain %@", eval_error.domain);
+                
                 }
             }
         display.selectedRange = NSMakeRange(display.text.length - 1, 0);
@@ -651,10 +650,8 @@ NSString *fractionValue;
     UIImage *magniferImage = [UIImage imageNamed:@"keysymbol.png"];
     self.magnifiedLetter = [[ UIImageView alloc ] initWithFrame:CGRectMake(0.0, 0.0, magniferImage.size.width, magniferImage.size.height)];
     
-    NSLog(@"Magwidthe: %f",magniferImage.size.width);
-    NSLog(@"Magheigh: %f",magniferImage.size.height);
     
-    magnifiedLetter.image = magniferImage;
+    self.magnifiedLetter.image = magniferImage;
     self.magnifiedLetter.tag = 2000 ;
     // opaque for better performance  
     self.magnifiedLetter.opaque = YES;  
@@ -667,7 +664,9 @@ NSString *fractionValue;
     magnifiedLetterRubOut = [[ UIImageView alloc ] initWithFrame:CGRectMake(0.0, 0.0, magniferImage.size.width, magniferImage.size.height)];
     magnifiedLetterRubOut.image = magniferImageRubOut;
     self.magnifiedLetterRubOut.tag = 2001 ;
-    self.magnifiedLetterRubOut.opaque = YES; 
+    self.magnifiedLetterRubOut.opaque = YES;
+    [magnifiedLetter release];
+    
     
 }  
 

@@ -45,6 +45,8 @@
     CustomKeyboard      *keyboardView;
     NSInteger           component0Position;
     NSInteger           component1Position;
+    UIButton            *plusFavorite;
+    UIButton            *minusFavorite;
     
 }
 
@@ -52,8 +54,8 @@
 @property (nonatomic,retain)  IBOutlet UILabel *resultLabel;
 @property (nonatomic,retain)  IBOutlet UILabel *lastupdated;
 @property (nonatomic,retain)  IBOutlet UITextField *dollarText;
-@property (nonatomic,retain)  IBOutlet UIButton *plusFavorite;
-@property (nonatomic,retain)  IBOutlet UIButton *minusFavorite;
+@property (nonatomic,retain)  UIButton *plusFavorite;
+@property (nonatomic,retain)  UIButton *minusFavorite;
 
 @property (nonatomic,retain)  NSMutableArray *countryNames;
 @property (nonatomic,retain)  NSMutableArray *AllCountryNames;
@@ -77,13 +79,15 @@
 -(IBAction) lastUpdated;
 -(IBAction) keyboardShow;
 -(IBAction) keyboardHide;
--(IBAction) addtoFavorite;
--(IBAction) removeFromFavorite;
--(IBAction) listFavorite;
--(IBAction) listAll;
+//-(IBAction) addtoFavorite;
+//-(IBAction) removeFromFavorite;
+//-(IBAction) listFavorite;
+//-(IBAction) listAll;
 
-
+-(void) listAllme:(id)sender;
 -(void) keyPressed: (id)sender;
+-(void) addtoFavorite:(id) sender;
+-(void) removeFromFavorite:(id) sender;
 -(void) equalKey;
 
 

@@ -87,7 +87,7 @@ fromTextView.text=[myCalcLocalize convertEngToLocalNumbers:(NSString *) fromText
             [self equalKey];
             }
         } 
-    else if ([keyletters.titleLabel.text isEqualToString:@"C"] ) {
+    else if ([keyletters.titleLabel.text isEqualToString:NSLocalizedString(@"Clean",nil) ]  ) {
         
         fromTextView.text=@"";
         toTextView.text=@"";

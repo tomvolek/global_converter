@@ -372,6 +372,7 @@
 		5A6C57391456984B00793A3F /* button5.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5A6C57381456984B00793A3F /* button5.wav */; };
 		5A6C573B1456992100793A3F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A6C573A1456992000793A3F /* AVFoundation.framework */; };
 		5A6C573D14569B8500793A3F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A6C573C14569B8500793A3F /* AudioToolbox.framework */; };
+		5A7499FC15DB5A7900C1B4AC /* CapitalCities.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5A7499FB15DB5A7900C1B4AC /* CapitalCities.plist */; };
 		5A74A9F7147DE812002C6B84 /* CurrencyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A74A9F9147DE812002C6B84 /* CurrencyView.xib */; };
 		5A74AA02147E06D5002C6B84 /* Japan-Flag-64.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A74AA01147E06D5002C6B84 /* Japan-Flag-64.png */; };
 		5A74AA04147E07AE002C6B84 /* saudi_arabia_flag_64.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A74AA03147E07AE002C6B84 /* saudi_arabia_flag_64.png */; };
@@ -395,6 +396,7 @@
 		5A90DD0414633C2B002EA4B2 /* InfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A90DD0614633C2B002EA4B2 /* InfoView.xib */; };
 		5A90DD0814633C44002EA4B2 /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A90DD0A14633C44002EA4B2 /* InfoViewController.m */; };
 		5A924DBB1462829F00D0B9DF /* US_Flag.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A924DBA1462829F00D0B9DF /* US_Flag.png */; };
+		5A97645015DB0FC600DA1B8D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A97644F15DB0FC600DA1B8D /* CoreLocation.framework */; };
 		5AA22000144E5C0A00D7F4E6 /* PersianCalculatorAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AA21FFF144E5C0A00D7F4E6 /* PersianCalculatorAppDelegate.m */; };
 		5AA614FA14A7E02A0073B2C6 /* Argentina-Flag-64.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AA614F914A7E02A0073B2C6 /* Argentina-Flag-64.png */; };
 		5AACC37215B65D17000FCE6C /* EmergencyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AACC37015B65D17000FCE6C /* EmergencyViewController.m */; };
@@ -941,6 +943,7 @@
 		5A6C57381456984B00793A3F /* button5.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = button5.wav; sourceTree = "<group>"; };
 		5A6C573A1456992000793A3F /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		5A6C573C14569B8500793A3F /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		5A7499FB15DB5A7900C1B4AC /* CapitalCities.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CapitalCities.plist; sourceTree = "<group>"; };
 		5A74A9F8147DE812002C6B84 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CurrencyView.xib; sourceTree = "<group>"; };
 		5A74AA01147E06D5002C6B84 /* Japan-Flag-64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Japan-Flag-64.png"; sourceTree = "<group>"; };
 		5A74AA03147E07AE002C6B84 /* saudi_arabia_flag_64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = saudi_arabia_flag_64.png; sourceTree = "<group>"; };
@@ -971,6 +974,7 @@
 		5A90DD0B14633C4E002EA4B2 /* en */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = en; path = en.lproj/InfoViewController.h; sourceTree = "<group>"; };
 		5A924DBA1462829F00D0B9DF /* US_Flag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = US_Flag.png; sourceTree = "<group>"; };
 		5A924DBD146282F500D0B9DF /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
+		5A97644F15DB0FC600DA1B8D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		5AA21FFE144E5BEC00D7F4E6 /* PersianCalculatorAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersianCalculatorAppDelegate.h; sourceTree = "<group>"; };
 		5AA21FFF144E5C0A00D7F4E6 /* PersianCalculatorAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersianCalculatorAppDelegate.m; sourceTree = "<group>"; };
 		5AA614F914A7E02A0073B2C6 /* Argentina-Flag-64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Argentina-Flag-64.png"; sourceTree = "<group>"; };
@@ -1063,6 +1067,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A97645015DB0FC600DA1B8D /* CoreLocation.framework in Frameworks */,
 				5AACC37515B66102000FCE6C /* MapKit.framework in Frameworks */,
 				5A6C573D14569B8500793A3F /* AudioToolbox.framework in Frameworks */,
 				5A6C573B1456992100793A3F /* AVFoundation.framework in Frameworks */,
@@ -1313,8 +1318,9 @@
 		5A473E261348521100F8CB13 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				5AACC37415B66102000FCE6C /* MapKit.framework */,
 				5A084F2A14952A6700D79390 /* libCorePlot-CocoaTouch.a */,
+				5A97644F15DB0FC600DA1B8D /* CoreLocation.framework */,
+				5AACC37415B66102000FCE6C /* MapKit.framework */,
 				5A28F7041451867400EDD475 /* CoreText.framework */,
 				5A6C573A1456992000793A3F /* AVFoundation.framework */,
 				5A6C573C14569B8500793A3F /* AudioToolbox.framework */,
@@ -1347,6 +1353,7 @@
 				5A473E331348521100F8CB13 /* PersianCalculatorPro-Prefix.pch */,
 				5A76493E14626C3C0012084B /* Localizable.strings */,
 				5A473E341348521100F8CB13 /* main.m */,
+				5A7499FB15DB5A7900C1B4AC /* CapitalCities.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -2248,6 +2255,7 @@
 				5AA614FA14A7E02A0073B2C6 /* Argentina-Flag-64.png in Resources */,
 				5AB0102414CD4F04000C91F9 /* 138-scales.png in Resources */,
 				5AACC37315B65D17000FCE6C /* EmergencyViewController.xib in Resources */,
+				5A7499FC15DB5A7900C1B4AC /* CapitalCities.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
