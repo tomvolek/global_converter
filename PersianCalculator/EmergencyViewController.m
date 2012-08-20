@@ -101,6 +101,12 @@ calloutAccessoryControlTapped:(UIControl *)control {
     capitalCity =
         [NSArray arrayWithObjects:
          [NSDictionary dictionaryWithObjectsAndKeys:
+          @"United States", @"country",
+          @"16509611964", @"phone",
+          [NSNumber numberWithInt: 38.895000], @"lat",
+          [NSNumber numberWithInt: -77.036667], @"long",
+          nil],
+         [NSDictionary dictionaryWithObjectsAndKeys:
              @"kabul", @"country",
              @"119", @"phone",
              [NSNumber numberWithInt: 34.528455], @"lat",
@@ -221,23 +227,73 @@ calloutAccessoryControlTapped:(UIControl *)control {
           [NSNumber numberWithInt: 24.684866], @"long",
           nil],
         [NSDictionary dictionaryWithObjectsAndKeys:
-            @"United States", @"country",
-            @"16509611964", @"phone",
-            [NSNumber numberWithInt: 38.895000], @"lat",
-            [NSNumber numberWithInt: -77.036667], @"long",
-            nil],
-        [NSDictionary dictionaryWithObjectsAndKeys:
             @"Canada", @"country",
             @"911", @"phone",
             [NSNumber numberWithInt: 45.4215296], @"lat",
             [NSNumber numberWithInt: -75.6971931], @"long",
             nil],
+         [NSDictionary dictionaryWithObjectsAndKeys:
+          @"Cayman Islands", @"country",
+          @"911", @"phone",
+          [NSNumber numberWithInt: 19.3298095], @"lat",
+          [NSNumber numberWithInt: -81.252337], @"long",
+          nil],
+         [NSDictionary dictionaryWithObjectsAndKeys:
+          @"Chile", @"country",
+          @"133", @"phone",
+          [NSNumber numberWithInt: -35.675147], @"lat",
+          [NSNumber numberWithInt:  -71.542969], @"long",
+          nil],
+         [NSDictionary dictionaryWithObjectsAndKeys:
+          @"China", @"country",
+          @"110", @"phone",
+          [NSNumber numberWithInt: 35.86166], @"lat",
+          [NSNumber numberWithInt:  104.195397], @"long",
+          nil],
+         [NSDictionary dictionaryWithObjectsAndKeys:
+          @"Costa Rica", @"country",
+          @"911", @"phone",
+          [NSNumber numberWithInt: 9.748917], @"lat",
+          [NSNumber numberWithInt:  -83.753428], @"long",
+          nil],
+         [NSDictionary dictionaryWithObjectsAndKeys:
+          @"Croatia", @"country",
+          @"192", @"phone",
+          [NSNumber numberWithInt: 45.7533427], @"lat",
+          [NSNumber numberWithInt:  15.9891256], @"long",
+          nil],
+         [NSDictionary dictionaryWithObjectsAndKeys:
+          @"Cuba", @"country",
+          @"26811", @"phone",
+          [NSNumber numberWithInt: 21.521757], @"lat",
+          [NSNumber numberWithInt:  -77.781167], @"long",
+          nil],
+
         [NSDictionary dictionaryWithObjectsAndKeys:
              @"Mexico", @"country",
              @"911", @"phone",
              [NSNumber numberWithInt: 19.4326077], @"lat",
              [NSNumber numberWithInt: -99.133208], @"long",
              nil],
+         [NSDictionary dictionaryWithObjectsAndKeys:
+          @"Iran", @"country",
+          @"110", @"phone",
+          [NSNumber numberWithInt: 32.427908], @"lat",
+          [NSNumber numberWithInt: 53.688046], @"long",
+          nil],
+         [NSDictionary dictionaryWithObjectsAndKeys:
+         @"Egypt", @"country",
+         @"110", @"phone",
+         [NSNumber numberWithInt: 26.820553], @"lat",
+         [NSNumber numberWithInt: 30.802498], @"long",
+         nil],
+         [NSDictionary dictionaryWithObjectsAndKeys:
+          @"Egypt", @"country",
+          @"110", @"phone",
+          [NSNumber numberWithInt: 26.820553], @"lat",
+          [NSNumber numberWithInt: 30.802498], @"long",
+          nil],
+         
        nil];
     
     
