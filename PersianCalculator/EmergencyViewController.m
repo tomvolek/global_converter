@@ -87,7 +87,7 @@ calloutAccessoryControlTapped:(UIControl *)control {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     // setup the CoreLocation 
-    self.locationManager = [[CLLocationManager alloc]init];
+    self.locationManager = [[CLLocationManager alloc] init];
 
     [locationManager setDistanceFilter:kCLDistanceFilterNone];
     [locationManager setDesiredAccuracy:kCLLocationAccuracyBest];
@@ -99,7 +99,7 @@ calloutAccessoryControlTapped:(UIControl *)control {
     //NSURL *URL = [NSURL URLWithString:@"tel://900-3440-567"];
     
     capitalCity =
-        [NSArray arrayWithObjects:
+        [[NSArray arrayWithObjects:
          [NSDictionary dictionaryWithObjectsAndKeys:
           @"United States", @"country",
           @"16509611964", @"phone",
@@ -294,7 +294,7 @@ calloutAccessoryControlTapped:(UIControl *)control {
           [NSNumber numberWithInt: 30.802498], @"long",
           nil],
          
-       nil];
+       nil] retain];
     
     
 }
@@ -322,11 +322,11 @@ calloutAccessoryControlTapped:(UIControl *)control {
     } else if(error.code == kCLErrorLocationUnknown) {
         // retry
     } else {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error retrieving location"
+        UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:@"Error retrieving location"
                                               message:[error description]
                                               delegate:nil
                                               cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil];
+                                              otherButtonTitles:nil] autorelease];
         [alert show];
         }
 

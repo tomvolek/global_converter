@@ -12,12 +12,16 @@
 
 @synthesize unitConverter,
             fromUnit,
+            localFromUnit,
             toUnit,
+            localToUnit,
             unitDataArray,
+            localUnitDataArray,
             fromTextView,
             toTextView,
             fromTextFeild,
-            keyboardView;
+            keyboardView,
+            conversionLabel;
 
 bool soundFlag;
 
@@ -25,7 +29,8 @@ bool soundFlag;
     if (soundFlag) {
         [theAudio play];
     }
-  
+ 
+
 NSString *component0Name = [[unitDataArray objectAtIndex:component0Position]  objectAtIndex:0 ];
 
 NSString *UnitConverterMethodName ;
@@ -39,8 +44,8 @@ NSMutableString *component1Name  = [[NSMutableString alloc]  init] ;
 [component1Name appendString:@"Unit"];
 [component1Name appendString:[ fromUnit objectAtIndex:component1Position]];
 
-NSLog(@"component1Name = %@",[component1Name stringByTrimmingCharactersInSet:
-                              [NSCharacterSet whitespaceCharacterSet]]);
+//NSLog(@"component1Name = %@",[component1Name stringByTrimmingCharactersInSet:
+//                              [NSCharacterSet whitespaceCharacterSet]]);
 
 CalcLocalize *myCalcLocalize = [[CalcLocalize alloc] init];
 fromTextView.text=[myCalcLocalize convertLocalToEngNumbers:(NSString *) fromTextView.text] ;
@@ -87,7 +92,7 @@ fromTextView.text=[myCalcLocalize convertEngToLocalNumbers:(NSString *) fromText
             [self equalKey];
             }
         } 
-    else if ([keyletters.titleLabel.text isEqualToString:NSLocalizedString(@"Clean",nil) ]  ) {
+    else if ([keyletters.titleLabel.text isEqualToString:NSLocalizedString(@"Clear",nil) ]  ) {
         
         fromTextView.text=@"";
         toTextView.text=@"";
@@ -173,23 +178,21 @@ fromTextView.text=[myCalcLocalize convertEngToLocalNumbers:(NSString *) fromText
     retval.textColor = [UIColor blueColor];
 
    // retval.backgroundColor= [UIColor groupTableViewBackgroundColor ];
-    
    // [UIColor colorWithRed:E5 green:E5F0 blue:0.0 alpha:1.0];
-    //[UIColor colorWithRed: 231/255 green: 0/255 blue: 141/255 alpha:1.0];
-    
+   // [UIColor colorWithRed: 231/255 green: 0/255 blue: 141/255 alpha:1.0];
 
     switch (component) 
     {
         case 0:
            // retval.text =  [unitCategory objectAtIndex:row];
-           retval.text =  [[unitDataArray objectAtIndex:row] objectAtIndex:0];
+           retval.text =  NSLocalizedString([[unitDataArray objectAtIndex:row] objectAtIndex:0],nil);
             
             break;
         case 1:
-            retval.text = [fromUnit objectAtIndex:row];
+            retval.text = NSLocalizedString([fromUnit objectAtIndex:row],nil);
             break;
         case 2: 
-            retval.text = [toUnit objectAtIndex:row];
+            retval.text = NSLocalizedString([toUnit objectAtIndex:row],nil);
             break;
     }
     //Localize any strings on the views
@@ -205,6 +208,10 @@ fromTextView.text=[myCalcLocalize convertEngToLocalNumbers:(NSString *) fromText
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row
       inComponent:(NSInteger)component
 {
+    
+    
+    //NSBundle *bundle = [NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:@"en" ofType:@"lproj"]];
+    
     /*
     UIImageView *imageView = nil;
     UILabel *label = nil;    
@@ -239,16 +246,21 @@ fromTextView.text=[myCalcLocalize convertEngToLocalNumbers:(NSString *) fromText
         [pickerView reloadComponent:2];
         [pickerView selectRow:0 inComponent:1 animated:YES];
         [pickerView selectRow:0 inComponent:2 animated:YES];
+        
                 
     }
     else if (component == 1){
         component1Position = row;
         
         NSString *component0Name = [[unitDataArray objectAtIndex:component0Position]  objectAtIndex:0 ];
-      
+        NSLog(@"component0Name %@",component0Name);
+        
+        
         NSString *UnitConverterMethodName ;
         UnitConverterMethodName =  [NSString stringWithFormat:@"%@UnitConverter",component0Name] ;
         UnitConverterMethodName = [UnitConverterMethodName stringByReplacingCharactersInRange:NSMakeRange(0,1) withString:[[UnitConverterMethodName substringToIndex:1] lowercaseString]];
+       // NSLocalizedStringFromTableInBundle(@"Testing", @"Localizable", bundle, nil)
+       // UnitConverterMethodName = UnitConverterMethodName
         
         //construct the second dialer string to be passed into calcualtion method
         NSMutableString *component1Name  = [[NSMutableString alloc]  init] ;
@@ -257,8 +269,8 @@ fromTextView.text=[myCalcLocalize convertEngToLocalNumbers:(NSString *) fromText
         [component1Name appendString:@"Unit"];
         [component1Name appendString:[ fromUnit objectAtIndex:row]];
         
-        NSLog(@"component1Name = %@",[component1Name stringByTrimmingCharactersInSet:
-                                 [NSCharacterSet whitespaceCharacterSet]]);
+        //NSLog(@"component1Name = %@",[component1Name stringByTrimmingCharactersInSet:
+                                 //[NSCharacterSet whitespaceCharacterSet]]);
                 
         CalcLocalize *myCalcLocalize = [[CalcLocalize alloc] init];
         fromTextView.text=[myCalcLocalize convertLocalToEngNumbers:(NSString *) fromTextView.text] ;
@@ -283,7 +295,8 @@ fromTextView.text=[myCalcLocalize convertEngToLocalNumbers:(NSString *) fromText
         toTextView.text=[myCalcLocalize convertEngToLocalNumbers:(NSString *) toTextView.text] ;
         fromTextView.text=[myCalcLocalize convertEngToLocalNumbers:(NSString *) fromTextView.text] ;
         [formatter release];
-
+        
+        
         [myCalcLocalize release ];
     }
     else if (component == 2){
@@ -292,7 +305,7 @@ fromTextView.text=[myCalcLocalize convertEngToLocalNumbers:(NSString *) fromText
         
         NSString *UnitConverterMethodName ;
         UnitConverterMethodName =  [NSString stringWithFormat:@"%@UnitConverter",component0Name] ;
-        UnitConverterMethodName = [UnitConverterMethodName stringByReplacingCharactersInRange:NSMakeRange(0,1) withString:[[UnitConverterMethodName substringToIndex:1] lowercaseString]];
+        UnitConverterMethodName =  [UnitConverterMethodName stringByReplacingCharactersInRange:NSMakeRange(0,1) withString:[[UnitConverterMethodName substringToIndex:1] lowercaseString]];
         
         //construct the third dialer string to be passed into calcualtion method
         NSMutableString *component2Name  = [[NSMutableString alloc]  init] ;
@@ -301,8 +314,8 @@ fromTextView.text=[myCalcLocalize convertEngToLocalNumbers:(NSString *) fromText
         [component2Name appendString:@"Unit"];
         [component2Name appendString:[ toUnit objectAtIndex:row]];
         
-        NSLog(@"component2Name = %@",[component2Name stringByTrimmingCharactersInSet:
-                                      [NSCharacterSet whitespaceCharacterSet]]);
+        //NSLog(@"component2Name = %@",[component2Name stringByTrimmingCharactersInSet:
+          //                            [NSCharacterSet whitespaceCharacterSet]]);
         
         CalcLocalize *myCalcLocalize = [[CalcLocalize alloc] init];
         toTextView.text=[myCalcLocalize convertLocalToEngNumbers:(NSString *) toTextView.text] ;
@@ -329,6 +342,18 @@ fromTextView.text=[myCalcLocalize convertEngToLocalNumbers:(NSString *) fromText
         [formatter release];
         [myCalcLocalize release ];
     }
+    
+    
+    // setup and display the conversion units on the Label field
+    NSMutableString *labelName  =      [[NSMutableString alloc]  init] ;
+    [labelName appendString: NSLocalizedString( [ fromUnit objectAtIndex:component1Position],nil) ];
+    [labelName appendString:@" => "];
+    [labelName appendString:NSLocalizedString( [ toUnit objectAtIndex:component2Position],nil)];
+    
+    conversionLabel.text =labelName;
+    [labelName release];
+    
+    
 }
 
 
@@ -422,7 +447,7 @@ rowHeightForComponent:(NSInteger)component {
 
     self.navigationController.navigationBarHidden = NO;
     //[[fromTextView layer] setCornerRadius:5];    
-    //[fromTextView setFont:[UIFont fontWithName:@"DBLCDTempBlack" size:22]];
+    [fromTextView setFont:[UIFont fontWithName:@"DBLCDTempBlack" size:22]];
     fromTextView.text = NSLocalizedString(@"1", nil);
     component1Position = 0;   //init dialer 2 position
     component2Position = 0;   //init dialer 3 position
@@ -454,19 +479,19 @@ rowHeightForComponent:(NSInteger)component {
     
     unitDataArray = [[NSMutableArray alloc] initWithCapacity: 20];
     
-    [unitDataArray insertObject:[NSMutableArray arrayWithObjects:@"Acceleration",@"Feet",@"Galileos",@"GForce",@"Kilometers",@"Meters",@"Miles",nil] atIndex:0];
+    [unitDataArray insertObject:[NSMutableArray arrayWithObjects:@"Acceleration",@"Feet/Sec2",@"Galileos",@"GForce",@"Kilometer/sec2",@"Meter/sec2",@"Miles/sec2",nil] atIndex:0];
     
     [unitDataArray insertObject:[NSMutableArray arrayWithObjects:@"Angle",@"Circles",@"Degrees",@"Gons",@"Grades",@"Minutes",@"Mils",@"NauticalRhumbs",@"Quadrants",@"Radians",@"Revolutions",@"Seconds",@"Turns",nil] atIndex:1];
     
-    [unitDataArray insertObject:[NSMutableArray arrayWithObjects:@"Area",@"Acres",@"Barns",@"Hectares",@"Roods",@"Centimeters",@"Decimeters",@"Feet",@"Inches",@"Kilometers",@"Meters",@"Miles",@"Millimeters",@"Rods",@"Yards",nil] atIndex:2];
+    [unitDataArray insertObject:[NSMutableArray arrayWithObjects:@"Area",@"Acre",@"Barn",@"hectare",@"Rood",@"cm2",@"dm2",@"feet2",@"in2",@"km2",@"m2",@"mile2",@"mm2",@"rod2",@"yard2",nil] atIndex:2];
     
     [unitDataArray insertObject:[NSMutableArray arrayWithObjects:@"Byte",@"Bit",@"Crumb",@"Nibble",@"Byte",@"Decabit",@"Hectobit",@"Kilobit",@"Megabit",@"Gigabit",@"Terabit",@"Petabit",@"Exabit",@"Zettabit",@"Yottabit",@"Decabyte",@"Hectobyte",@"Kilobyte",@"Megabyte",@"Gigabyte",@"Terabyte",@"Petabyte",@"Exabyte",@"Zettabyte",@"Yottabyte",@"Kibibit",@"Mebibit",@"Gibibit",@"Tebibit",@"Pebibit",@"Exbibit",@"Kibibyte",@"Mebibyte",@"Gibibyte",@"Tebibyte",@"Pebibyte",@"Exbibyte",nil] atIndex:3];
     
     [unitDataArray insertObject:[NSMutableArray arrayWithObjects:@"Current",@"Amperes",@"Electromagnetic",@"Milliamperes",nil] atIndex:4];
     
-    [unitDataArray insertObject:[NSMutableArray arrayWithObjects:@"Energy",@"BTUs",@"Calories",@"ElectronVolts",@"Ergs",@"FootPoundForces",@"Joules",@"KilogramForceMeters",@"KilowattHours",@"NewtonMeters",@"Therms",@"WattHours",nil] atIndex:5];
+    [unitDataArray insertObject:[NSMutableArray arrayWithObjects:@"Energy",@"BTUs",@"calorie",@"electron volt",@"erg",@"ft.lb",@"joules",@"kgf.m",@"kw.hr",@"Newton.m",@"Therms",@"Watt.hr",nil] atIndex:5];
     
-    [unitDataArray insertObject:[NSMutableArray arrayWithObjects:@"Force",@"Dynes",@"KilogramForces",@"Newtons",@"Poundals",@"PoundForces",@"Sthenes",nil] atIndex:6];
+    [unitDataArray insertObject:[NSMutableArray arrayWithObjects:@"Force",@"Dyne",@"kgf",@"Newton",@"Poundal",@"lbf",@"Sthenes",nil] atIndex:6];
 
     [unitDataArray insertObject:[NSMutableArray arrayWithObjects:@"Illumination",@"FootCandles",@"Lumens/Centimeter",@"Lumens/SquareFoot",@"Lumens/SquareMeter",@"Nox",@"Phots",@"ClearDaySun",nil] atIndex:7];
     
@@ -529,7 +554,20 @@ rowHeightForComponent:(NSInteger)component {
     [unitConverter reloadComponent:1];
     
     //add our custom keyboard to the fromTextView inputview
-    fromTextFeild.inputView = self.keyboardView; 
+    fromTextFeild.inputView = self.keyboardView;
+    
+    // setup and display the conversion units on the Label field
+    NSMutableString *labelName  =      [[NSMutableString alloc]  init] ;
+    [labelName appendString:[ fromUnit objectAtIndex:component1Position]];
+    [labelName appendString:@" => "];
+    [labelName appendString:[ toUnit objectAtIndex:component2Position]];
+    
+    conversionLabel.text =labelName;
+    [labelName release];
+    
+    
+    [unitConverter reloadComponent:1];
+    [unitConverter reloadComponent:2];
     
     } //viewDidLoad
 

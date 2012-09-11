@@ -20,9 +20,13 @@
     IBOutlet UITextView       *fromTextView;
     IBOutlet UITextView       *toTextView;
     IBOutlet UITextField      *fromTextFeild;
+    IBOutlet UILabel          *conversionLabel;
     NSMutableArray            *fromUnit;
+    NSMutableArray            *localFromUnit;
     NSMutableArray            *toUnit;
+    NSMutableArray            *localToUnit;
     NSMutableArray            *unitDataArray;
+    NSMutableArray            *localUnitDataArray;
 
     AVAudioPlayer             *theAudio;
     CustomKeyboard            *keyboardView;
@@ -33,12 +37,16 @@
 }
 
 @property (nonatomic, retain) UIPickerView *unitConverter;
-@property (nonatomic, retain) NSMutableArray *fromUnit; 
-@property (nonatomic, retain) NSMutableArray *toUnit; 
+@property (nonatomic, retain) NSMutableArray *fromUnit;
+@property (nonatomic, retain) NSMutableArray *localFromUnit;
+@property (nonatomic, retain) NSMutableArray *toUnit;
+@property (nonatomic, retain) NSMutableArray *localToUnit;
 @property (nonatomic, retain) NSMutableArray *unitDataArray;
+@property (nonatomic, retain) NSMutableArray *localUnitDataArray;
 
 @property (nonatomic,retain) IBOutlet UITextView *fromTextView;
 @property (nonatomic,retain) IBOutlet UITextView *toTextView;
+@property (nonatomic,retain) IBOutlet UILabel *conversionLabel;
 @property (nonatomic,retain) UITextField *fromTextFeild;
 @property (nonatomic,retain) CustomKeyboard *keyboardView;
 

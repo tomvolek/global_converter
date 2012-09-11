@@ -15,6 +15,7 @@
 #import "LocalizationHelper.h"
 #import "CalcLocalize.h"
 #import "customKeyboard.h"
+#import "PersianCalculatorLandscape.h"
 
 
 @interface CurrencyViewController : UIViewController <UITextFieldDelegate>

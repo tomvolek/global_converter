@@ -88,6 +88,7 @@
 "errorcode17"="بازگشت از تابع نامعتبر نوع";
 "errorcode18"="تابع تصادفی فقط ممکن است تا به 2 آرگومان داشته باشند";
 "errorcode19"="کران بالا تابع تصادفی () باید بزرگتر از کران پایین باشد";
+
 "Acceleration"="شتاب";
 "Angle"="زاویه";
 "Area"="مساحت";
@@ -124,19 +125,20 @@
 "Torque"="گشتاور";
 "Velocity"="سرعت";
 "Volume"="حجم";
-"Feet"="فوت";
+
+"Feet/Sec2"="فوت بر مجذور ثانیه";
 "Galileos"="گالیلئو";
 "GForce"="نیروی G";
-"Kilometers"="کیلومتر";
-"Meters"="متر";
-"Miles"="مایلز";
+"Kilometer/sec2"="کیلومتر";
+"Meter/sec2"="متر";
+"Miles/sec2"="مایلز";
 "Circles"="دایره";
 "Degrees"="درجه";
 "Grades"="درجات";
 "Minutes"="دقیقه";
 "Gons"="گونس";
 "Mils"="میلس";
-"NaticalRhumbs"="ناتیکال رامبس";
+"NauticalRhumbs"="ناتیکال رامبس";
 "Quadrants"="ربع";
 "Radians"="رادیان";
 "Revolutions"="چرخش";

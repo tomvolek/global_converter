@@ -648,10 +648,11 @@ NSString *fractionValue;
 - (void)initMagnifiedLetter { 
     
     UIImage *magniferImage = [UIImage imageNamed:@"keysymbol.png"];
+    
     self.magnifiedLetter = [[ UIImageView alloc ] initWithFrame:CGRectMake(0.0, 0.0, magniferImage.size.width, magniferImage.size.height)];
     
     
-    self.magnifiedLetter.image = magniferImage;
+    magnifiedLetter.image = magniferImage;
     self.magnifiedLetter.tag = 2000 ;
     // opaque for better performance  
     self.magnifiedLetter.opaque = YES;  
@@ -665,7 +666,7 @@ NSString *fractionValue;
     magnifiedLetterRubOut.image = magniferImageRubOut;
     self.magnifiedLetterRubOut.tag = 2001 ;
     self.magnifiedLetterRubOut.opaque = YES;
-    [magnifiedLetter release];
+    //[magnifiedLetter release];
     
     
 }  
@@ -695,7 +696,7 @@ NSString *fractionValue;
     imageView.frame = CGRectMake(0, 0, display.frame.size.width, display.frame.size.height );
     [display addSubview: imageView];
     [display sendSubviewToBack:imageView];
-    //[imageView release];
+    [imageView release];
     
     NSString *path = [[NSBundle mainBundle] pathForResource:@"button5" ofType:@"wav"];
     theAudio=[[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL fileURLWithPath:path] error:NULL];

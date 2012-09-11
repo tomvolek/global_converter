@@ -213,7 +213,7 @@ int rowSelected =0;
 } //keyPressed
 
 -(void)equalKey{
-    NSString *graphName;
+    NSString *graphName = @"X Cube Plot";
     if (rowSelected == 0){ 
         graphName = @"X ax+b Plot";
         if (currentPlot) {

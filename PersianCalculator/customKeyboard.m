@@ -56,27 +56,6 @@ bool soundFlag;
     
 }
 
- - (void)viewDidLoad  {
-     
-     // look for all BUttons on the main view and localize their title string.
-     for(UIView *view in [self subviews]) {
-         if([view isKindOfClass:[UIButton class]]) {
-             UIButton *btn = (UIButton*)view;
-             btn.titleLabel.text = NSLocalizedString(btn.titleLabel.text, nil);
-             [btn  setTitle:NSLocalizedString(btn.titleLabel.text,nil) forState:UIControlStateNormal];
-         }
-         else{}
-     }
-     
-     // call our helper class to localize all strings on a view
-     [LocalizationHelper localizeView:self];
-
-     
-     
-  //  [(UIButton*)[self.subviews  viewWithTag:100] setTitle:NSLocalizedString@"Clean",nil) forState:UIControlStateNormal];
-
-}
- 
 
 
 -(IBAction) keyboardPressed: (id)sender{	
