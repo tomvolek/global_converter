@@ -38,7 +38,7 @@ UnitConverterMethodName =  [NSString stringWithFormat:@"%@UnitConverter",compone
 UnitConverterMethodName = [UnitConverterMethodName stringByReplacingCharactersInRange:NSMakeRange(0,1) withString:[[UnitConverterMethodName substringToIndex:1] lowercaseString]];
 
 //construct the second dialer string to be passed into calcualtion method
-NSMutableString *component1Name  = [[NSMutableString alloc]  init] ;
+NSMutableString *component1Name  = [[[NSMutableString alloc]  init] autorelease];
 [component1Name appendString:@"DD"];
 [component1Name appendString: [[unitDataArray objectAtIndex:component0Position]  objectAtIndex:0 ]  ];
 [component1Name appendString:@"Unit"];
@@ -47,7 +47,7 @@ NSMutableString *component1Name  = [[NSMutableString alloc]  init] ;
 //NSLog(@"component1Name = %@",[component1Name stringByTrimmingCharactersInSet:
 //                              [NSCharacterSet whitespaceCharacterSet]]);
 
-CalcLocalize *myCalcLocalize = [[CalcLocalize alloc] init];
+CalcLocalize *myCalcLocalize = [[[CalcLocalize alloc] init] autorelease];
 fromTextView.text=[myCalcLocalize convertLocalToEngNumbers:(NSString *) fromTextView.text] ;
 
 DDUnitConverter *myconverter =  [DDUnitConverter performSelector:NSSelectorFromString(UnitConverterMethodName)] ;
@@ -69,11 +69,9 @@ NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
 toTextView.text =  [formatter  stringFromNumber:value];
 toTextView.text=[myCalcLocalize convertEngToLocalNumbers:(NSString *) toTextView.text] ;
 fromTextView.text=[myCalcLocalize convertEngToLocalNumbers:(NSString *) fromTextView.text] ;
+    
 [formatter release];
-
-[myCalcLocalize release ];
-
-
+//[myCalcLocalize release ];
 
     
 }//equalKey
@@ -263,7 +261,7 @@ fromTextView.text=[myCalcLocalize convertEngToLocalNumbers:(NSString *) fromText
        // UnitConverterMethodName = UnitConverterMethodName
         
         //construct the second dialer string to be passed into calcualtion method
-        NSMutableString *component1Name  = [[NSMutableString alloc]  init] ;
+        NSMutableString *component1Name  = [[[NSMutableString alloc]  init] autorelease] ;
         [component1Name appendString:@"DD"];
         [component1Name appendString: [[unitDataArray objectAtIndex:component0Position]  objectAtIndex:0 ]  ];
         [component1Name appendString:@"Unit"];
@@ -272,7 +270,7 @@ fromTextView.text=[myCalcLocalize convertEngToLocalNumbers:(NSString *) fromText
         //NSLog(@"component1Name = %@",[component1Name stringByTrimmingCharactersInSet:
                                  //[NSCharacterSet whitespaceCharacterSet]]);
                 
-        CalcLocalize *myCalcLocalize = [[CalcLocalize alloc] init];
+        CalcLocalize *myCalcLocalize = [[[CalcLocalize alloc] init] autorelease];
         fromTextView.text=[myCalcLocalize convertLocalToEngNumbers:(NSString *) fromTextView.text] ;
 
         DDUnitConverter *myconverter =  [DDUnitConverter performSelector:NSSelectorFromString(UnitConverterMethodName)] ; 
@@ -297,7 +295,7 @@ fromTextView.text=[myCalcLocalize convertEngToLocalNumbers:(NSString *) fromText
         [formatter release];
         
         
-        [myCalcLocalize release ];
+        //[myCalcLocalize release ];
     }
     else if (component == 2){
         component2Position = row;
@@ -308,7 +306,7 @@ fromTextView.text=[myCalcLocalize convertEngToLocalNumbers:(NSString *) fromText
         UnitConverterMethodName =  [UnitConverterMethodName stringByReplacingCharactersInRange:NSMakeRange(0,1) withString:[[UnitConverterMethodName substringToIndex:1] lowercaseString]];
         
         //construct the third dialer string to be passed into calcualtion method
-        NSMutableString *component2Name  = [[NSMutableString alloc]  init] ;
+        NSMutableString *component2Name  = [[[NSMutableString alloc]  init] autorelease] ;
         [component2Name appendString:@"DD"];
         [component2Name appendString: [[unitDataArray objectAtIndex:component0Position]  objectAtIndex:0 ]  ];
         [component2Name appendString:@"Unit"];
@@ -317,7 +315,7 @@ fromTextView.text=[myCalcLocalize convertEngToLocalNumbers:(NSString *) fromText
         //NSLog(@"component2Name = %@",[component2Name stringByTrimmingCharactersInSet:
           //                            [NSCharacterSet whitespaceCharacterSet]]);
         
-        CalcLocalize *myCalcLocalize = [[CalcLocalize alloc] init];
+        CalcLocalize *myCalcLocalize = [[[CalcLocalize alloc] init] autorelease];
         toTextView.text=[myCalcLocalize convertLocalToEngNumbers:(NSString *) toTextView.text] ;
         
         DDUnitConverter *myconverter =  [DDUnitConverter performSelector:NSSelectorFromString(UnitConverterMethodName)] ; 
@@ -340,7 +338,7 @@ fromTextView.text=[myCalcLocalize convertEngToLocalNumbers:(NSString *) fromText
         toTextView.text=[myCalcLocalize convertEngToLocalNumbers:(NSString *) toTextView.text] ;
         fromTextView.text=[myCalcLocalize convertEngToLocalNumbers:(NSString *) fromTextView.text] ;
         [formatter release];
-        [myCalcLocalize release ];
+        //[myCalcLocalize release ];
     }
     
     
@@ -533,7 +531,7 @@ rowHeightForComponent:(NSInteger)component {
     }
    
     //setup keyboard
-    self.keyboardView = [[CustomKeyboard alloc] initWithFrame:CGRectMake(0, 440, 320, 140)];
+    self.keyboardView = [[[CustomKeyboard alloc] initWithFrame:CGRectMake(0, 440, 320, 140)] autorelease];
     self.keyboardView.transform = CGAffineTransformMakeTranslation(0, self.keyboardView.bounds.size.height);
    // self.keyboardView.center = CGPointMake( self.view.center.x, self.view.center.y +480);
     [self.view addSubview:keyboardView];
@@ -634,6 +632,47 @@ rowHeightForComponent:(NSInteger)component {
     //return (interfaceOrientation == UIInterfaceOrientationPortrait);
     return YES;
 }
+
+- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+{
+    //NSLog(@"What is the orientation: %i", toInterfaceOrientation);
+    if ( (toInterfaceOrientation == UIInterfaceOrientationLandscapeLeft) ||(toInterfaceOrientation == UIInterfaceOrientationLandscapeRight) )
+    {
+        
+        PersianCalculatorLandscape *myOwnController = [[[[PersianCalculatorLandscape alloc] init]  initWithNibName:@"PersianCalculatorLandscape" bundle:nil whichTab:3]autorelease];
+        NSMutableArray* newArray = [NSMutableArray arrayWithArray:self.tabBarController.viewControllers];
+        [newArray replaceObjectAtIndex:3 withObject:myOwnController];
+        [self.tabBarController setViewControllers:newArray animated:YES];
+    }
+    else
+    {
+        //[self.navigationController setNavigationBarHidden:FALSE animated:FALSE];
+        //[self.navigationController popToRootViewControllerAnimated:NO];
+    }
+}
+
+-(void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
+    //CGRect previousRect = self.view.frame;
+    UIInterfaceOrientation toOrientation = self.interfaceOrientation;
+    
+    if ( self.tabBarController.view.subviews.count >= 2 )
+    {
+        
+        UIView *tabBar = [self.tabBarController.view.subviews objectAtIndex:1];
+        
+        if(toOrientation == UIInterfaceOrientationLandscapeLeft || toOrientation == UIInterfaceOrientationLandscapeRight) {
+            //transView.frame = CGRectMake(0, 0, 480, 320 );
+            tabBar.hidden = TRUE;
+        }
+        else
+        {
+            tabBar.hidden = FALSE;
+        }
+    }
+}
+
+
+
 
 -(void)dealloc
 {

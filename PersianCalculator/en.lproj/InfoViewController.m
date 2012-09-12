@@ -205,9 +205,10 @@
         
     //create a structure to read and hold UserDefaultss
     self.languageSet = [[NSUserDefaults standardUserDefaults] objectForKey:@"AppleLanguages"];
-    self.listOfLanguages = [[NSMutableArray alloc] initWithCapacity:9];
+    self.listOfLanguages = [[[NSMutableArray alloc] initWithCapacity:9] autorelease];
     
-    NSArray *data = [NSArray arrayWithObjects:NSLocalizedString(@"Farsi", @"Farsi Language"), @"Iran-Flag-64.png", @"fa", nil];    
+    NSArray *data = [NSArray arrayWithObjects:NSLocalizedString(@"Farsi", @"Farsi Language"), @"Iran-Flag-64.png", @"fa", nil];
+    
     [self.listOfLanguages addObject:data];
     
     data = [NSArray arrayWithObjects:NSLocalizedString(@"German",  @"German Lanhuage"),  @"Germany-Flag-64.png", @"de", nil];    
@@ -235,7 +236,7 @@
     [self.listOfLanguages addObject:data];
     
     
-    self.languageTableView = [[UITableView alloc] initWithFrame:CGRectMake(15, 115, 280, 190) style:UITableViewStyleGrouped];
+    self.languageTableView = [[[UITableView alloc] initWithFrame:CGRectMake(15, 115, 280, 190) style:UITableViewStyleGrouped] autorelease];
     
     languageTableView.delegate = self;
     languageTableView.dataSource = self;

@@ -105,7 +105,10 @@ rowHeightForComponent:(NSInteger)component {
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row
       inComponent:(NSInteger)component
 {
+    
+     /*
     UIImageView *imageView = nil;
+    
     UILabel *label = nil;        
     UIView *view  = [self pickerView:pickerView viewForRow:row forComponent:component reusingView:nil];
     
@@ -117,6 +120,7 @@ rowHeightForComponent:(NSInteger)component {
             imageView = (UIImageView *) subView;
         }
     }
+    */
     
     [pickerFrom layoutIfNeeded];
     
@@ -129,7 +133,7 @@ rowHeightForComponent:(NSInteger)component {
     DDUnitConverter *converter = [DDUnitConverter currencyUnitConverter];
 
     NSNumber *inputAmount = [NSNumber numberWithInt:[dollarText.text floatValue]];
-    NSNumber *to;
+    NSNumber *to = nil;
 
     if (component == 0 ) {
         component0Position = row;
@@ -219,13 +223,13 @@ rowHeightForComponent:(NSInteger)component {
 
 -(void)removeFromFavorite: (id) sender{
     
-    BOOL found=FALSE;
+    //BOOL found=FALSE;
     if ([favorites count] > 0 ) {
         
         // check to see if the selected item in componnet0 in picker exists in our faviort list
         for (int i =0; i < self.favorites.count; ++i) {
             if ([[currentCurrancylist objectAtIndex:component0Position] countryABR] == [[favorites objectAtIndex:i] countryABR ]){
-                found = TRUE ;
+               // found = TRUE ;
                 [favorites removeObjectAtIndex: i];
             }
         }
@@ -233,7 +237,7 @@ rowHeightForComponent:(NSInteger)component {
         // check to see if the selected item in componnet1 in picker exists in our faviort list
         for (int i =0; i < self.favorites.count; ++i) {
             if ([[currentCurrancylist objectAtIndex:component1Position] countryABR] == [[favorites objectAtIndex:i] countryABR ]){
-                found = TRUE ;
+                //found = TRUE ;
                 [favorites removeObjectAtIndex: i];
             }
         }
@@ -256,13 +260,14 @@ rowHeightForComponent:(NSInteger)component {
             // Do nothing, user has pressed without any numbers
         }
         else {
-            //Call the function to calculate Unit conversion 
+            //Call the function to calculate Unit conversion
             [self equalKey];
         }
     } 
     else if ([keyletters.titleLabel.text isEqualToString:NSLocalizedString(@"Clear",nil) ] ) {
         
         dollarText.text=@"";
+        resultLabel.text=@"";
     }
     else if ([keyletters.titleLabel.text isEqualToString:@"v"] ) {
         
@@ -338,6 +343,7 @@ rowHeightForComponent:(NSInteger)component {
     CalcLocalize *myCalcLocalize = [[CalcLocalize alloc] init];
     lastupdated.text=[myCalcLocalize convertEngToLocalNumbers:(NSString *) lastupdated.text] ;
     [myCalcLocalize release ];
+    [dateFormatter release];
 }
 
 -(void)equalKey{
@@ -426,7 +432,7 @@ rowHeightForComponent:(NSInteger)component {
    /* int Index =[[userDefaults objectForKey:@"currencyFromRow"] intValue];
     [pickerFrom selectRow:Index inComponent:0 animated:YES];
    */ 
-    UILabel *rateUpdate = [[UILabel alloc] initWithFrame:CGRectMake(6, 58, 104, 22)];
+    UILabel *rateUpdate = [[[UILabel alloc] initWithFrame:CGRectMake(6, 58, 104, 22)] autorelease];
     
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     [button addTarget:self
@@ -437,8 +443,8 @@ rowHeightForComponent:(NSInteger)component {
     UIImage *buttonImage = [UIImage imageNamed:@"blue_button_gloss.png"];
     [button setBackgroundImage:buttonImage forState:UIControlStateNormal];
     [self.view addSubview:button];
-    [button release];
-    [buttonImage release];
+    //[button release];
+    //[buttonImage release];
     
     UIButton *buttonFavorite = [UIButton buttonWithType:UIButtonTypeCustom];
     [buttonFavorite addTarget:self
@@ -451,8 +457,8 @@ rowHeightForComponent:(NSInteger)component {
     UIImage *buttonImageFavorite = [UIImage imageNamed:@"blue_button_gloss.png"];
     [buttonFavorite setBackgroundImage:buttonImageFavorite forState:UIControlStateNormal];
     [self.view addSubview:buttonFavorite];
-    [buttonFavorite release];
-    [buttonImageFavorite release];
+   // [buttonFavorite release];
+   //[buttonImageFavorite release];
     
     
     plusFavorite = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -465,7 +471,7 @@ rowHeightForComponent:(NSInteger)component {
     [plusFavorite setBackgroundImage:buttonImageFavoritePlus forState:UIControlStateNormal];
     [self.view addSubview:plusFavorite];
     [plusFavorite release];
-    [buttonImageFavoritePlus release];
+    //[buttonImageFavoritePlus release];
     
     
     
@@ -478,8 +484,8 @@ rowHeightForComponent:(NSInteger)component {
     UIImage *buttonImageFavoriteMinus = [UIImage imageNamed:@"green_button_gloss.png"];
     [minusFavorite setBackgroundImage:buttonImageFavoriteMinus forState:UIControlStateNormal];
     [self.view addSubview:minusFavorite];
-    [minusFavorite release];
-    [buttonImageFavoriteMinus release];
+    //[minusFavorite release];
+   // [buttonImageFavoriteMinus release];
     
     
     
@@ -493,8 +499,8 @@ rowHeightForComponent:(NSInteger)component {
     [self.view addSubview:rateUpdate];
     
     //setup initial exchange rate 
-    currencyFromRate = 1;
-    currencyToRate = 1;
+    //currencyFromRate = 1.0 ;
+    //currencyToRate = 1;
     
     //init dialer positions
     component0Position = 0 ;
@@ -521,91 +527,91 @@ rowHeightForComponent:(NSInteger)component {
     currentCurrancylist = [[NSMutableArray alloc] initWithCapacity:55] ;
     
     //setup each countries Object
-    Currency *EUR = [[Currency alloc] init];
+    Currency *EUR = [[[Currency alloc] init] autorelease];
     EUR.positionRelatedToTheClass = DDCurrencyUnitEuro;
     EUR.countryName =  NSLocalizedString(@"Euro",nil);
     EUR.countryABR = @"EUR";
     EUR.imageFlag = [UIImage imageNamed:@"Euro-Flag-64.png"];
     [countryCurrancyList addObject:EUR];
     
-    Currency *JPY = [[Currency alloc] init];
+    Currency *JPY = [[[Currency alloc] init] autorelease];
     JPY.positionRelatedToTheClass = DDCurrencyUnitJapaneseYen;
     JPY.countryName = NSLocalizedString(@"Japan",nil);
     JPY.countryABR = @"JPY";
     JPY.imageFlag= [UIImage imageNamed:@"Japan-Flag-64.png"];
     [countryCurrancyList addObject:JPY];
     
-    Currency *GBP = [[Currency alloc] init];
+    Currency *GBP = [[[Currency alloc] init] autorelease];
     GBP.positionRelatedToTheClass = DDCurrencyUnitUKPoundSterling;
     GBP.countryName = NSLocalizedString(@"England",nil);
     GBP.countryABR = @"GBP";
     GBP.imageFlag = [UIImage imageNamed:@"England-Flag-64.png"] ;
     [countryCurrancyList addObject:GBP];
     
-    Currency *USD = [[Currency alloc] init];
+    Currency *USD = [[[Currency alloc] init] autorelease];
     USD.positionRelatedToTheClass = DDCurrencyUnitUSDollar;
     USD.countryName = NSLocalizedString(@"USA",nil);
     USD.countryABR = @"USD";
     USD.imageFlag = [UIImage imageNamed:@"United-States-Flag-64.png"] ;
     [countryCurrancyList addObject:USD];
     
-    Currency *DZD = [[Currency alloc] init];
+    Currency *DZD = [[[Currency alloc] init] autorelease ];
     DZD.positionRelatedToTheClass = DDCurrencyUnitAlgerianDinar;
     DZD.countryName = NSLocalizedString(@"Algeria",nil);
     DZD.countryABR = @"DZD";
     DZD.imageFlag = [UIImage imageNamed:@"Algeria-Flag-64.png"] ;
     [countryCurrancyList addObject:DZD];
     
-    Currency *ARS = [[Currency alloc] init];
+    Currency *ARS = [[[Currency alloc] init] autorelease ];
     ARS.positionRelatedToTheClass = DDCurrencyUnitArgentinePeso;
     ARS.countryName = NSLocalizedString(@"Argantina",nil);
     ARS.countryABR = @"ARS";
     ARS.imageFlag = [UIImage imageNamed:@"Argentina-Flag-64.png"] ;
     [countryCurrancyList addObject:ARS];
     
-    Currency *AUD = [[Currency alloc] init];
+    Currency *AUD = [[[Currency alloc] init] autorelease];
     AUD.positionRelatedToTheClass = DDCurrencyUnitAustralianDollar;
     AUD.countryName = NSLocalizedString(@"Australia",nil);
     AUD.countryABR = @"AUD";
     AUD.imageFlag = [UIImage imageNamed:@"Australia-Flag-64.png"];
     [countryCurrancyList addObject:AUD];
     
-    Currency *BHD = [[Currency alloc] init];
+    Currency *BHD = [[[Currency alloc] init] autorelease];
     BHD.positionRelatedToTheClass = DDCurrencyUnitBahrainDinar;
     BHD.countryName = NSLocalizedString(@"Bahrain",nil);
     BHD.countryABR = @"BHD";
     BHD.imageFlag = [UIImage imageNamed:@"Bahrain-Flag-64.png"];
     [countryCurrancyList addObject:BHD];
     
-    Currency *BWP = [[Currency alloc] init];
+    Currency *BWP = [[[Currency alloc] init] autorelease];
     BWP.positionRelatedToTheClass = DDCurrencyUnitBotswanaPula;
     BWP.countryName = NSLocalizedString(@"Botswana",nil);
     BWP.countryABR = @"BWP";
     BWP.imageFlag = [UIImage imageNamed:@"Botswana-Flag-64.png"];
     [countryCurrancyList addObject:BWP];
    
-    Currency *BRL = [[Currency alloc] init];
+    Currency *BRL = [[[Currency alloc] init]autorelease];
     BRL.positionRelatedToTheClass = DDCurrencyUnitBrazilianReal;
     BRL.countryName = NSLocalizedString(@"Brazil",nil);
     BRL.countryABR = @"BRL";
     BRL.imageFlag = [UIImage imageNamed:@"Brazil-Flag-64.png"];
     [countryCurrancyList addObject:BRL];
 
-    Currency *BND = [[Currency alloc] init];
+    Currency *BND = [[[Currency alloc] init] autorelease];
     BND.positionRelatedToTheClass = DDCurrencyUnitBruneiDollar;
     BND.countryName = NSLocalizedString(@"Brunei",nil);
     BND.countryABR = @"BND";
     BND.imageFlag = [UIImage imageNamed:@"Brunei-Flag-64.png"];
     [countryCurrancyList addObject:BND];
     
-    Currency *CAD = [[Currency alloc] init];
+    Currency *CAD = [[[Currency alloc] init] autorelease];
     CAD.positionRelatedToTheClass = DDCurrencyUnitCanadianDollar;
     CAD.countryName = NSLocalizedString(@"Canada",nil);
     CAD.countryABR = @"CAD";
     CAD.imageFlag = [UIImage imageNamed:@"Canada-Flag-64.png"];
     [countryCurrancyList addObject:CAD];
    
-    Currency *CLP = [[Currency alloc] init];
+    Currency *CLP = [[[Currency alloc] init] autorelease];
     CLP.positionRelatedToTheClass = DDCurrencyUnitChileanPeso;
     CLP.countryName = NSLocalizedString(@"Chile",nil);
     CLP.countryABR = @"CLP";
@@ -613,91 +619,91 @@ rowHeightForComponent:(NSInteger)component {
     [countryCurrancyList addObject:CLP];
     
     
-    Currency *CNY = [[Currency alloc] init];
+    Currency *CNY = [[[Currency alloc] init] autorelease];
     CNY.positionRelatedToTheClass = DDCurrencyUnitChineseYuan;
     CNY.countryName = NSLocalizedString(@"China",nil);
     CNY.countryABR = @"CNY";
     CNY.imageFlag = [UIImage imageNamed:@"China-Flag-64.png"];
     [countryCurrancyList addObject:CNY];
     
-    Currency *COP = [[Currency alloc] init];
+    Currency *COP = [[[Currency alloc] init] autorelease];
     COP.positionRelatedToTheClass = DDCurrencyUnitColombianPeso;
     COP.countryName = NSLocalizedString(@"Colombia",nil);
     COP.countryABR = @"COP";
     COP.imageFlag = [UIImage imageNamed:@"Colombia-Flag-64.png"];
     [countryCurrancyList addObject:COP];
     
-    Currency *CZK = [[Currency alloc] init];
+    Currency *CZK = [[[Currency alloc] init] autorelease];
     CZK.positionRelatedToTheClass = DDCurrencyUnitCzechKoruna;
     CZK.countryName = NSLocalizedString(@"Check republic",nil);
     CZK.countryABR = @"CZK";
     CZK.imageFlag = [UIImage imageNamed:@"Czech-Republic-Flag-64.png"];
     [countryCurrancyList addObject:CZK];
     
-    Currency *DKK = [[Currency alloc] init];
+    Currency *DKK = [[[Currency alloc] init] autorelease];
     DKK.positionRelatedToTheClass = DDCurrencyUnitDanishKrone;
     DKK.countryName = NSLocalizedString(@"Denmark",nil);
     DKK.countryABR = @"DKK";
     DKK.imageFlag = [UIImage imageNamed:@"Denmark-Flag-64.png"];
     [countryCurrancyList addObject:DKK];
     
-    Currency *HUF = [[Currency alloc] init];
+    Currency *HUF = [[[Currency alloc] init] autorelease];
     HUF.positionRelatedToTheClass = DDCurrencyUnitHungarianForint;
     HUF.countryName = NSLocalizedString(@"Hungary",nil);
     HUF.countryABR = @"HUF";
     HUF.imageFlag = [UIImage imageNamed:@"Hungary-Flag-64.png"];
     [countryCurrancyList addObject:HUF];
     
-    Currency *ISK = [[Currency alloc] init];
+    Currency *ISK = [[[Currency alloc] init] autorelease];
     ISK.positionRelatedToTheClass = DDCurrencyUnitIcelandicKrona;
     ISK.countryName = NSLocalizedString(@"Iceland",nil);
     ISK.countryABR = @"ISK";
     ISK.imageFlag = [UIImage imageNamed:@"Iceland-Flag-64.png"];
     [countryCurrancyList addObject:ISK];
     
-    Currency *INR = [[Currency alloc] init];
+    Currency *INR = [[[Currency alloc] init] autorelease];
     INR.positionRelatedToTheClass = DDCurrencyUnitIndianRupee;
     INR.countryName = NSLocalizedString(@"India",nil);
     INR.countryABR = @"INR";
     INR.imageFlag = [UIImage imageNamed:@"India-Flag-64.png"];
     [countryCurrancyList addObject:INR];
     
-    Currency *IDR = [[Currency alloc] init];
+    Currency *IDR = [[[Currency alloc] init] autorelease];
     IDR.positionRelatedToTheClass = DDCurrencyUnitIndonesianRupiah;
     IDR.countryName = NSLocalizedString(@"Indonesia",nil);
     IDR.countryABR = @"IDR";
     IDR.imageFlag = [UIImage imageNamed:@"Indonesia-Flag-64.png"];
     [countryCurrancyList addObject:IDR];
     
-    Currency *IRR = [[Currency alloc] init];
+    Currency *IRR = [[[Currency alloc] init] autorelease];
     IRR.positionRelatedToTheClass = DDCurrencyUnitIranianRial;
     IRR.countryName = NSLocalizedString(@"Iran",nil);
     IRR.countryABR = @"IRR";
     IRR.imageFlag = [UIImage imageNamed:@"Iran-Flag-64.png"]; 
     [countryCurrancyList addObject:IRR];
     
-    Currency *ISL = [[Currency alloc] init];
+    Currency *ISL = [[[Currency alloc] init] autorelease];
     ISL.positionRelatedToTheClass = DDCurrencyUnitIsraeliNewSheqel;
     ISL.countryName = NSLocalizedString(@"Israel",nil);
     ISL.countryABR = @"ISL";
     ISL.imageFlag = [UIImage imageNamed:@"Israel-Flag-64.png"];
     [countryCurrancyList addObject:ISL];
     
-    Currency *KGS = [[Currency alloc] init];
+    Currency *KGS = [[[Currency alloc] init] autorelease];
     KGS.positionRelatedToTheClass = DDCurrencyUnitKazakhstaniTenge;
     KGS.countryName = NSLocalizedString(@"Kazakhstan",nil);
     KGS.countryABR = @"KGS";
     KGS.imageFlag =[UIImage imageNamed:@"Kazakhstan-Flag-64.png"];
     [countryCurrancyList addObject:KGS];
     
-    Currency *KRW = [[Currency alloc] init];
+    Currency *KRW = [[[Currency alloc] init] autorelease];
     KRW.positionRelatedToTheClass = DDCurrencyUnitKoreanWon;
     KRW.countryName = NSLocalizedString(@"Korea",nil);
     KRW.countryABR = @"KRW";
     KRW.imageFlag = [UIImage imageNamed:@"Korea-Flag-64.png"];
     [countryCurrancyList addObject:KRW];
     
-    Currency *KWD = [[Currency alloc] init];
+    Currency *KWD = [[[Currency alloc] init] autorelease];
     KWD.positionRelatedToTheClass = DDCurrencyUnitKuwaitiDinar;
     KWD.countryName = NSLocalizedString(@"Kuwait",nil);
     KWD.countryABR = @"KWD";
@@ -705,168 +711,168 @@ rowHeightForComponent:(NSInteger)component {
     [countryCurrancyList addObject:KWD];
     
     
-    Currency *LYD = [[Currency alloc] init];
+    Currency *LYD = [[[Currency alloc] init] autorelease];
     LYD.positionRelatedToTheClass = DDCurrencyUnitLibyanDinar;
     LYD.countryName = NSLocalizedString(@"Libya",nil);
     LYD.countryABR = @"LYD";
     LYD.imageFlag =[UIImage imageNamed:@"Libya-Flag-64.png"];
     [countryCurrancyList addObject:LYD];
     
-    Currency *MYR = [[Currency alloc] init];
+    Currency *MYR = [[[Currency alloc] init] autorelease];
     MYR.positionRelatedToTheClass = DDCurrencyUnitMalaysianRinggit;
     MYR.countryName = NSLocalizedString(@"Malaysia",nil);
     MYR.countryABR = @"MYR";
     MYR.imageFlag = [UIImage imageNamed:@"Malaysia-Flag-64.png"];
     [countryCurrancyList addObject:MYR];
     
-    Currency *MUR = [[Currency alloc] init];
+    Currency *MUR = [[[Currency alloc] init] autorelease];
     MUR.positionRelatedToTheClass = DDCurrencyUnitMauritianRupee;
     MUR.countryName = NSLocalizedString(@"Mauritania",nil);
     MUR.countryABR = @"MUR";
     MUR.imageFlag =[UIImage imageNamed:@"Mauritania-Flag-64.png"];
     [countryCurrancyList addObject:MUR];
     
-    Currency *MXN = [[Currency alloc] init];
+    Currency *MXN = [[[Currency alloc] init] autorelease];
     MXN.positionRelatedToTheClass = DDCurrencyUnitMexicanPeso;
     MXN.countryName = NSLocalizedString(@"Mexico",nil);
     MXN.countryABR = @"MXN";
     MXN.imageFlag =[UIImage imageNamed:@"Mexico-Flag-64.png"];
     [countryCurrancyList addObject:MXN];
     
-    Currency *NPR = [[Currency alloc] init];
+    Currency *NPR = [[[Currency alloc] init] autorelease];
     NPR.positionRelatedToTheClass = DDCurrencyUnitNepaleseRupee;
     NPR.countryName = NSLocalizedString(@"Nepal",nil);
     NPR.countryABR = @"NPR";
     NPR.imageFlag =[UIImage imageNamed:@"Nepal-Flag-64.png"];
     [countryCurrancyList addObject:NPR];
     
-    Currency *NZD = [[Currency alloc] init];
+    Currency *NZD = [[[Currency alloc] init] autorelease];
     NZD.positionRelatedToTheClass = DDCurrencyUnitNewZealandDollar;
     NZD.countryName = NSLocalizedString(@"New Zeland",nil);
     NZD.countryABR = @"NZD";
     NZD.imageFlag = [UIImage imageNamed:@"New-Zealand-Flag-64.png"];
     [countryCurrancyList addObject:NZD];
     
-    Currency *NOK = [[Currency alloc] init];
+    Currency *NOK = [[[Currency alloc] init] autorelease];
     NOK.positionRelatedToTheClass = DDCurrencyUnitNorwegianKrone;
     NOK.countryName = NSLocalizedString(@"Norway",nil);
     NOK.countryABR = @"NOK";
     NOK.imageFlag = [UIImage imageNamed:@"Norway-Flag-64.png"];
     [countryCurrancyList addObject:NOK];
     
-    Currency *OMR = [[Currency alloc] init];
+    Currency *OMR = [[[Currency alloc] init] autorelease];
     OMR.positionRelatedToTheClass = DDCurrencyUnitRialOmani;
     OMR.countryName = NSLocalizedString(@"Oman",nil);
     OMR.countryABR = @"OMR";
     OMR.imageFlag = [UIImage imageNamed:@"Oman-Flag-64.png"];
     [countryCurrancyList addObject:OMR];
     
-    Currency *PKR = [[Currency alloc] init];
+    Currency *PKR = [[[Currency alloc] init] autorelease];
     PKR.positionRelatedToTheClass = DDCurrencyUnitPakistaniRupee;
     PKR.countryName = NSLocalizedString(@"Pakistan",nil);
     PKR.countryABR = @"PKR";
     PKR.imageFlag = [UIImage imageNamed:@"Pakistan-Flag-64.png"];
     [countryCurrancyList addObject:PKR];
     
-    Currency *PEN = [[Currency alloc] init];
+    Currency *PEN = [[[Currency alloc] init] autorelease];
     PEN.positionRelatedToTheClass = DDCurrencyUnitNuevoSol;
     PEN.countryName = NSLocalizedString(@"Peru",nil);
     PEN.countryABR = @"PEN";
     PEN.imageFlag =[UIImage imageNamed:@"Peru-Flag-64.png"];
     [countryCurrancyList addObject:PEN];
     
-    Currency *PHP = [[Currency alloc] init];
+    Currency *PHP = [[[Currency alloc] init] autorelease];
     PHP.positionRelatedToTheClass = DDCurrencyUnitPhilippinePeso;
     PHP.countryName = NSLocalizedString(@"Philippine",nil);
     PHP.countryABR = @"PHP";
     PHP.imageFlag =[UIImage imageNamed:@"Philippines-Flag-64.png"];
     [countryCurrancyList addObject:PHP];
     
-    Currency *PLN = [[Currency alloc] init];
+    Currency *PLN = [[[Currency alloc] init] autorelease];
     PLN.positionRelatedToTheClass = DDCurrencyUnitPolishZloty;
     PLN.countryName = NSLocalizedString(@"Poland",nil);
     PLN.countryABR = @"PLN";
     PLN.imageFlag = [UIImage imageNamed:@"Poland-Flag-64.png"];
     [countryCurrancyList addObject:PLN];
     
-    Currency *QAR = [[Currency alloc] init];
+    Currency *QAR = [[[Currency alloc] init] autorelease];
     QAR.positionRelatedToTheClass = DDCurrencyUnitQatarRiyal;
     QAR.countryName = NSLocalizedString(@"Qatar",nil);
     QAR.countryABR = @"QAR";
     QAR.imageFlag =  [UIImage imageNamed:@"Qatar-Flag-64.png"];
     [countryCurrancyList addObject:QAR];
     
-    Currency *RUB = [[Currency alloc] init];
+    Currency *RUB = [[[Currency alloc] init] autorelease];
     RUB.positionRelatedToTheClass = DDCurrencyUnitRussianRuble;
     RUB.countryName = NSLocalizedString(@"Russia",nil);
     RUB.countryABR = @"RUB";
     RUB.imageFlag =  [UIImage imageNamed:@"Russia-Flag-64.png"];
     [countryCurrancyList addObject:RUB];
     
-    Currency *SAR = [[Currency alloc] init];
+    Currency *SAR = [[[Currency alloc] init] autorelease];
     SAR.positionRelatedToTheClass = DDCurrencyUnitSaudiArabianRiyal;
     SAR.countryName = NSLocalizedString(@"Saudi Arabia",nil);
     SAR.countryABR = @"SAR";
     SAR.imageFlag =  [UIImage imageNamed:@"Saudi-Arabia-Flag-64.png"];
     [countryCurrancyList addObject:SAR];
     
-    Currency *SGD = [[Currency alloc] init];
+    Currency *SGD = [[[Currency alloc] init] autorelease];
     SGD.positionRelatedToTheClass = DDCurrencyUnitSingaporeDollar;
     SGD.countryName = NSLocalizedString(@"Singapore",nil);
     SGD.countryABR = @"SGD";
     SGD.imageFlag = [UIImage imageNamed:@"Singapore-Flag-64.png"];
     [countryCurrancyList addObject:SGD];
     
-    Currency *ZAR = [[Currency alloc] init];
+    Currency *ZAR = [[[Currency alloc] init] autorelease];
     ZAR.positionRelatedToTheClass = DDCurrencyUnitSouthAfricanRand;
     ZAR.countryName = NSLocalizedString(@"South Africa",nil);
     ZAR.countryABR = @"ZAR";
     ZAR.imageFlag =[UIImage imageNamed:@"South-Africa-Flag-64.png"];
     [countryCurrancyList addObject:ZAR];
     
-    Currency *LKR = [[Currency alloc] init];
+    Currency *LKR = [[[Currency alloc] init]autorelease];
     LKR.positionRelatedToTheClass = DDCurrencyUnitSriLankaRupee;
     LKR.countryName = NSLocalizedString(@"Sri lanka",nil);
     LKR.countryABR = @"LKR";
     LKR.imageFlag =[UIImage imageNamed:@"Sri-Lanka-Flag-64.png"];
     [countryCurrancyList addObject:LKR];
     
-    Currency *SEK = [[Currency alloc] init];
+    Currency *SEK = [[[Currency alloc] init] autorelease];
     SEK.positionRelatedToTheClass = DDCurrencyUnitSwedishKrona;
     SEK.countryName = NSLocalizedString(@"Sweden",nil);
     SEK.countryABR = @"SEK";
     SEK.imageFlag = [UIImage imageNamed:@"Sweden-Flag-64.png"];
     [countryCurrancyList addObject:SEK];
     
-    Currency *CHF = [[Currency alloc] init];
+    Currency *CHF = [[[Currency alloc] init] autorelease];
     CHF.positionRelatedToTheClass = DDCurrencyUnitSwissFranc;
     CHF.countryName = NSLocalizedString(@"Swiss",nil);
     CHF.countryABR = @"CHF";
     CHF.imageFlag = [UIImage imageNamed:@"Swiss-Flag-64.png"];
     [countryCurrancyList addObject:CHF];
     
-    Currency *THB = [[Currency alloc] init];
+    Currency *THB = [[[Currency alloc] init] autorelease];
     THB.positionRelatedToTheClass = DDCurrencyUnitThaiBaht;
     THB.countryName = NSLocalizedString(@"Thailand",nil);
     THB.countryABR = @"THB";
     THB.imageFlag = [UIImage imageNamed:@"Thailand-Flag-64.png"];
     [countryCurrancyList addObject:THB];
     
-    Currency *TTD = [[Currency alloc] init];
+    Currency *TTD = [[[Currency alloc] init] autorelease];
     TTD.positionRelatedToTheClass = DDCurrencyUnitTrinidadAndTobagoDollar;
     TTD.countryName = NSLocalizedString(@"Trinidad",nil);
     TTD.countryABR = @"TTD";
     TTD.imageFlag = [UIImage imageNamed:@"Trinidad-Flag-64.png"];
     [countryCurrancyList addObject:TTD];
     
-    Currency *TND = [[Currency alloc] init];
+    Currency *TND = [[[Currency alloc] init] autorelease];
     TND.positionRelatedToTheClass = DDCurrencyUnitTunisianDinar;
     TND.countryName = NSLocalizedString(@"Tunisia",nil);
     TND.countryABR = @"TND";
     TND.imageFlag =  [UIImage imageNamed:@"Tunisia-Flag-64.png"];
     [countryCurrancyList addObject:TND];
     
-    Currency *AED = [[Currency alloc] init];
+    Currency *AED = [[[Currency alloc] init] autorelease];
     AED.positionRelatedToTheClass = DDCurrencyUnitUAEDirham;
     AED.countryName = NSLocalizedString(@"United Arab Emirates",nil);
     AED.countryABR = @"AED";
@@ -874,21 +880,21 @@ rowHeightForComponent:(NSInteger)component {
     [countryCurrancyList addObject:AED];
     
     
-    Currency *UYU = [[Currency alloc] init];
+    Currency *UYU = [[[Currency alloc] init] autorelease];
     UYU.positionRelatedToTheClass = DDCurrencyUnitPesoUruguayo;
     UYU.countryName = NSLocalizedString(@"Uruguay",nil);
     UYU.countryABR = @"UYU";
     UYU.imageFlag = [UIImage imageNamed:@"Uruguay-Flag-64.png"];
     [countryCurrancyList addObject:UYU];
     
-    Currency *BOB = [[Currency alloc] init];
+    Currency *BOB = [[[Currency alloc] init] autorelease];
     BOB.positionRelatedToTheClass = DDCurrencyUnitBolivarFuerte;
     BOB.countryName = NSLocalizedString(@"Bolivia",nil);
     BOB.countryABR = @"BOB";
     BOB.imageFlag = [UIImage imageNamed:@"Bolivia-Flag-64.png"];
     [countryCurrancyList addObject:BOB];
     
-    Currency *SDR = [[Currency alloc] init];
+    Currency *SDR = [[[Currency alloc] init] autorelease];
     SDR.positionRelatedToTheClass = DDCurrencyUnitSDR;
     SDR.countryName = NSLocalizedString(@"Spain",nil);
     SDR.countryABR = @"SDR";
@@ -1189,7 +1195,7 @@ rowHeightForComponent:(NSInteger)component {
     [pickerFrom selectRow:component1Position inComponent:1 animated:NO];
 
     //setup custom keyboard
-    self.keyboardView = [[CustomKeyboard alloc] initWithFrame:CGRectMake(0, 440, 320, 140)];
+    self.keyboardView = [[[CustomKeyboard alloc] initWithFrame:CGRectMake(0, 440, 320, 140)]autorelease];
     self.keyboardView.transform = CGAffineTransformMakeTranslation(0, self.keyboardView.bounds.size.height);
     // self.keyboardView.center = CGPointMake( self.view.center.x, self.view.center.y +480);
     [self.view addSubview:keyboardView];
@@ -1289,13 +1295,11 @@ rowHeightForComponent:(NSInteger)component {
     [lastupdated release];
     [dollarText release];
     [AllCountryNames release];
-    //[countryFlagImage release];
     [AllCountryFlagImage release];
     [currencyList release];
     [currentCurrancylist release];
     [favorites release];
     [keyboardView release];
-    //[customKeyboard release];
     [super dealloc];
     
 }

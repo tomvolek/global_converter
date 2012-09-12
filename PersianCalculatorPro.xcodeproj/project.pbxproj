@@ -397,6 +397,7 @@
 		5A90DD0814633C44002EA4B2 /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A90DD0A14633C44002EA4B2 /* InfoViewController.m */; };
 		5A924DBB1462829F00D0B9DF /* US_Flag.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A924DBA1462829F00D0B9DF /* US_Flag.png */; };
 		5A97645015DB0FC600DA1B8D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A97644F15DB0FC600DA1B8D /* CoreLocation.framework */; };
+		5AA20387160149ED00DDF068 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AA20386160149ED00DDF068 /* Default-568h@2x.png */; };
 		5AA22000144E5C0A00D7F4E6 /* PersianCalculatorAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AA21FFF144E5C0A00D7F4E6 /* PersianCalculatorAppDelegate.m */; };
 		5AA614FA14A7E02A0073B2C6 /* Argentina-Flag-64.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AA614F914A7E02A0073B2C6 /* Argentina-Flag-64.png */; };
 		5AACC37215B65D17000FCE6C /* EmergencyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AACC37015B65D17000FCE6C /* EmergencyViewController.m */; };
@@ -449,6 +450,7 @@
 		5AE288431459403E00933E84 /* gradientBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AE288421459403E00933E84 /* gradientBackground.png */; };
 		5AE288451459408F00933E84 /* topAndBottomRowSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AE288441459408F00933E84 /* topAndBottomRowSelected.png */; };
 		5AE2884714594E0600933E84 /* middleRowSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AE2884614594E0600933E84 /* middleRowSelected.png */; };
+		5AEEF7701600334200600A8F /* EmergencyTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AEEF76F1600334200600A8F /* EmergencyTableView.xib */; };
 		5AF2660814988E9F00390983 /* customKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AF2660714988E9F00390983 /* customKeyboard.m */; };
 /* End PBXBuildFile section */
 
@@ -974,6 +976,7 @@
 		5A924DBA1462829F00D0B9DF /* US_Flag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = US_Flag.png; sourceTree = "<group>"; };
 		5A924DBD146282F500D0B9DF /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5A97644F15DB0FC600DA1B8D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		5AA20386160149ED00DDF068 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		5AA21FFE144E5BEC00D7F4E6 /* PersianCalculatorAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersianCalculatorAppDelegate.h; sourceTree = "<group>"; };
 		5AA21FFF144E5C0A00D7F4E6 /* PersianCalculatorAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersianCalculatorAppDelegate.m; sourceTree = "<group>"; };
 		5AA614F914A7E02A0073B2C6 /* Argentina-Flag-64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Argentina-Flag-64.png"; sourceTree = "<group>"; };
@@ -1056,6 +1059,7 @@
 		5AE288421459403E00933E84 /* gradientBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gradientBackground.png; sourceTree = "<group>"; };
 		5AE288441459408F00933E84 /* topAndBottomRowSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = topAndBottomRowSelected.png; sourceTree = "<group>"; };
 		5AE2884614594E0600933E84 /* middleRowSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = middleRowSelected.png; sourceTree = "<group>"; };
+		5AEEF76F1600334200600A8F /* EmergencyTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmergencyTableView.xib; sourceTree = "<group>"; };
 		5AF2660614988E9E00390983 /* customKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = customKeyboard.h; sourceTree = "<group>"; };
 		5AF2660714988E9F00390983 /* customKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = customKeyboard.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1301,6 +1305,7 @@
 		5A473E181348521000F8CB13 = {
 			isa = PBXGroup;
 			children = (
+				5AA20386160149ED00DDF068 /* Default-568h@2x.png */,
 				5A40325315E7342000093121 /* FBConnect */,
 				5AC15B9214AAC23700E50890 /* DDUnitConverter */,
 				5A1D560E147A2AFF007EF07E /* DDMathParser */,
@@ -1809,6 +1814,7 @@
 				5AACC36F15B65D17000FCE6C /* EmergencyViewController.h */,
 				5AACC37015B65D17000FCE6C /* EmergencyViewController.m */,
 				5AACC37115B65D17000FCE6C /* EmergencyViewController.xib */,
+				5AEEF76F1600334200600A8F /* EmergencyTableView.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -2260,6 +2266,8 @@
 				5AB0102414CD4F04000C91F9 /* 138-scales.png in Resources */,
 				5AACC37315B65D17000FCE6C /* EmergencyViewController.xib in Resources */,
 				5A7499FC15DB5A7900C1B4AC /* CapitalCities.plist in Resources */,
+				5AEEF7701600334200600A8F /* EmergencyTableView.xib in Resources */,
+				5AA20387160149ED00DDF068 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

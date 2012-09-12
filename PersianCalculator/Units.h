@@ -13,6 +13,7 @@
 #import "LocalizationHelper.h"
 #import "customKeyboard.h"
 #import "DDUnitConversion.h"
+#import "PersianCalculatorLandscape.h"
 
 
 @interface Units : UIViewController<AVAudioPlayerDelegate,UITextFieldDelegate,UITextViewDelegate >{

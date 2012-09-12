@@ -1136,11 +1136,11 @@ int rowSelected =0;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
-    [functionText release];
-    [yTextfield release];
-    [keyboardView release];
-    [equations release];
-    [inputFormula release];
+    //[functionText release];
+    //[yTextfield release];
+    //[keyboardView release];
+    //[equations release];
+    //[inputFormula release];
     
     
 }
@@ -1148,6 +1148,11 @@ int rowSelected =0;
 - (void) dealloc
 {
     [myPickerView release];
+    [functionText release];
+    [yTextfield release];
+    [keyboardView release];
+    [equations release];
+    [inputFormula release];
     [super dealloc];
 }
 

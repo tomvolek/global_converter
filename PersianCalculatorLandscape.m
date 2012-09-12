@@ -649,7 +649,7 @@ NSString *fractionValue;
     
     UIImage *magniferImage = [UIImage imageNamed:@"keysymbol.png"];
     
-    self.magnifiedLetter = [[ UIImageView alloc ] initWithFrame:CGRectMake(0.0, 0.0, magniferImage.size.width, magniferImage.size.height)];
+    self.magnifiedLetter = [[[ UIImageView alloc ] initWithFrame:CGRectMake(0.0, 0.0, magniferImage.size.width, magniferImage.size.height)] autorelease];
     
     
     magnifiedLetter.image = magniferImage;
@@ -777,9 +777,27 @@ NSString *fractionValue;
             tab1.tabBarItem.image = [UIImage imageNamed:@"16-line-chart.png"];
             tab1.tabBarItem.title = NSLocalizedString(@"Plot",nill);
         }
-        
-        
-        
+        else if (selectedTabindex == 2) {
+            CurrencyViewController *currencyViewController = [[[[CurrencyViewController alloc] init]  initWithNibName:@"CurrencyView" bundle:nil]autorelease];
+            NSMutableArray* tabbarArray = [NSMutableArray arrayWithArray:self.tabBarController.viewControllers];
+            [tabbarArray replaceObjectAtIndex:2 withObject:currencyViewController];
+            [self.tabBarController setViewControllers:tabbarArray animated:YES];
+            
+            UIViewController *tab1 = [tabbarArray objectAtIndex:2];
+            tab1.tabBarItem.image = [UIImage imageNamed:@"190-bank.png"];
+            tab1.tabBarItem.title = NSLocalizedString(@"Currency",nill);
+        }
+        else if (selectedTabindex == 3) {
+            Units *unitViewController = [[[[Units alloc] init]  initWithNibName:@"Units" bundle:nil]autorelease];
+            NSMutableArray* tabbarArray = [NSMutableArray arrayWithArray:self.tabBarController.viewControllers];
+            [tabbarArray replaceObjectAtIndex:3 withObject:unitViewController];
+            [self.tabBarController setViewControllers:tabbarArray animated:YES];
+            
+            UIViewController *tab1 = [tabbarArray objectAtIndex:3];
+            tab1.tabBarItem.image = [UIImage imageNamed:@"138-scales.png"];
+            tab1.tabBarItem.title = NSLocalizedString(@"Units",nill);
+        }
+
     
     }
     

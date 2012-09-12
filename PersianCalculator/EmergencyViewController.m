@@ -87,7 +87,7 @@ calloutAccessoryControlTapped:(UIControl *)control {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     // setup the CoreLocation 
-    self.locationManager = [[CLLocationManager alloc] init];
+    self.locationManager = [[[CLLocationManager alloc] init] autorelease];
 
     [locationManager setDistanceFilter:kCLDistanceFilterNone];
     [locationManager setDesiredAccuracy:kCLLocationAccuracyBest];

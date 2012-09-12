@@ -68,7 +68,6 @@ bool soundFlag;
     if(keyletters.tag == 666 )
         keyletters.titleLabel.text= @"xx";
     
-  
     // All instances of TestClass will be notified
     //[[NSNotificationCenter defaultCenter] postNotificationName:@"TestNotification" object:self];
     

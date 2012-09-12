@@ -29,15 +29,9 @@
     UILabel            *resultLabel;
     UILabel            *lastupdated;
     UITextField        *dollarText;
-    
-    
-    float              currencyFromRate ;
-    float              currencyToRate;
-    
     NSMutableDictionary *currencyList;
     NSMutableArray *countryCurrancyList;
     NSMutableArray *currentCurrancylist;
-    
     NSMutableArray      *countryNames;
     NSMutableArray      *AllCountryNames;
     NSMutableArray      *favorites;
@@ -48,6 +42,9 @@
     NSInteger           component1Position;
     UIButton            *plusFavorite;
     UIButton            *minusFavorite;
+    
+    float              currencyFromRate ;
+    float              currencyToRate;
     
 }
 
@@ -69,7 +66,8 @@
 @property (nonatomic,retain)  NSMutableDictionary *currencyList;
 @property (nonatomic,retain)  NSArray *exchangeRates;
 @property (nonatomic,retain)  NSArray *currencySymbol;
-
+//@property (nonatomic,retain)  NSArray *currencyFromRate;
+//@property (nonatomic,retain)  NSArray *currencyToRate;
 
 
 @property (nonatomic,retain) CustomKeyboard *keyboardView;
