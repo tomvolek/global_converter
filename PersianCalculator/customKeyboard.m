@@ -78,7 +78,7 @@ bool soundFlag;
 
 - (void) dealloc
 {
-
+    [theAudio release];
     [super dealloc];
 }
 

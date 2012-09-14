@@ -1153,6 +1153,7 @@ int rowSelected =0;
     [keyboardView release];
     [equations release];
     [inputFormula release];
+    [graph release];
     [super dealloc];
 }
 
