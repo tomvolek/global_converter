@@ -16,6 +16,7 @@
 		5A084F811495551800D79390 /* PlotCalc.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A084F7F1495551800D79390 /* PlotCalc.xib */; };
 		5A084F831495913A00D79390 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A084F821495913A00D79390 /* arrow.png */; };
 		5A0A6523147C3B6E00B0EF6D /* keysymbolrub.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A0A6522147C3B6E00B0EF6D /* keysymbolrub.png */; };
+		5A0F0BD6162233A20009C8B6 /* 79-medical-bag.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A0F0BD5162233A20009C8B6 /* 79-medical-bag.png */; };
 		5A13EC6715A9654D00E6C3CC /* Currency.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A13EC6615A9654D00E6C3CC /* Currency.m */; };
 		5A17C9001485FB7E00A7F427 /* dark_green_button_gloss.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A17C8FF1485FB7D00A7F427 /* dark_green_button_gloss.png */; };
 		5A17C9021486044400A7F427 /* 3Arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A17C9011486044300A7F427 /* 3Arrow.png */; };
@@ -397,7 +398,6 @@
 		5A90DD0814633C44002EA4B2 /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A90DD0A14633C44002EA4B2 /* InfoViewController.m */; };
 		5A924DBB1462829F00D0B9DF /* US_Flag.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A924DBA1462829F00D0B9DF /* US_Flag.png */; };
 		5A97645015DB0FC600DA1B8D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A97644F15DB0FC600DA1B8D /* CoreLocation.framework */; };
-		5A9D7550160644FB003FA8CA /* 79-medical-bag.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A9D754F160644FB003FA8CA /* 79-medical-bag.png */; };
 		5A9D75531606469F003FA8CA /* 192-credit-card.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A9D75521606469F003FA8CA /* 192-credit-card.png */; };
 		5AA20387160149ED00DDF068 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AA20386160149ED00DDF068 /* Default-568h@2x.png */; };
 		5AA22000144E5C0A00D7F4E6 /* PersianCalculatorAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AA21FFF144E5C0A00D7F4E6 /* PersianCalculatorAppDelegate.m */; };
@@ -560,6 +560,7 @@
 		5A084F821495913A00D79390 /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
 		5A0A6522147C3B6E00B0EF6D /* keysymbolrub.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = keysymbolrub.png; sourceTree = "<group>"; };
 		5A0A6525147C55DD00B0EF6D /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Localizable.strings; sourceTree = "<group>"; };
+		5A0F0BD5162233A20009C8B6 /* 79-medical-bag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "79-medical-bag.png"; sourceTree = "<group>"; };
 		5A13EC6515A9654D00E6C3CC /* Currency.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Currency.h; sourceTree = "<group>"; };
 		5A13EC6615A9654D00E6C3CC /* Currency.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Currency.m; sourceTree = "<group>"; };
 		5A17C8FF1485FB7D00A7F427 /* dark_green_button_gloss.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dark_green_button_gloss.png; sourceTree = "<group>"; };
@@ -980,7 +981,6 @@
 		5A924DBA1462829F00D0B9DF /* US_Flag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = US_Flag.png; sourceTree = "<group>"; };
 		5A924DBD146282F500D0B9DF /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5A97644F15DB0FC600DA1B8D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		5A9D754F160644FB003FA8CA /* 79-medical-bag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "79-medical-bag.png"; path = "../../Downloads/glyphish-icons-1/icons/79-medical-bag.png"; sourceTree = "<group>"; };
 		5A9D75521606469F003FA8CA /* 192-credit-card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "192-credit-card.png"; path = "../../Downloads/glyphish-icons-1/icons/192-credit-card.png"; sourceTree = "<group>"; };
 		5AA20386160149ED00DDF068 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		5AA21FFE144E5BEC00D7F4E6 /* PersianCalculatorAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersianCalculatorAppDelegate.h; sourceTree = "<group>"; };
@@ -1435,6 +1435,7 @@
 				5A210384146E1CB200B8F49B /* saudi_arabia_flag_128.png */,
 				5A2B8E3D1466C82A00410042 /* keymagni.png */,
 				5A3CC0B214689152002C65D2 /* China-Flag-icon.png */,
+				5A0F0BD5162233A20009C8B6 /* 79-medical-bag.png */,
 				5A5AF41F1463D225005C89D7 /* worldMapBackgroud.png */,
 				5AB77C421467F08E0093D5BB /* keysymbol.png */,
 				5A821B25148363480070F852 /* customization-icon.png */,
@@ -1455,7 +1456,6 @@
 				5A4DAB4C1455FDD600813D9A /* white_button_gloss.png */,
 				5AC102D414555DAD0097295B /* blue_button_gloss.png */,
 				5AC450B01358C93D0070F16A /* backrub.png */,
-				5A9D754F160644FB003FA8CA /* 79-medical-bag.png */,
 				5A473E87134854DD00F8CB13 /* Facebook-32.png */,
 				5A473E891348550400F8CB13 /* mail-32x32.png */,
 				5A473E8A1348550400F8CB13 /* Print_32.png */,
@@ -2283,8 +2283,8 @@
 				5AEEF7701600334200600A8F /* EmergencyTableView.xib in Resources */,
 				5AA20387160149ED00DDF068 /* Default-568h@2x.png in Resources */,
 				5AD905CB160317CA002EF07A /* CreditsViewController.xib in Resources */,
-				5A9D7550160644FB003FA8CA /* 79-medical-bag.png in Resources */,
 				5A9D75531606469F003FA8CA /* 192-credit-card.png in Resources */,
+				5A0F0BD6162233A20009C8B6 /* 79-medical-bag.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
