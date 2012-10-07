@@ -35,6 +35,14 @@
 }
 
 
+- (IBAction)showInfo:(id)sender {
+     CreditsViewController *controller = [[[CreditsViewController alloc] initWithNibName:@"CreditsViewController" bundle:nil] autorelease];
+	
+	controller.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+	[self.navigationController presentModalViewController:controller animated:YES];
+	//[controller release];
+}
+
 - (IBAction) stepperValueChanged:(id)sender
 {
     self.fractionValue.text = [NSString stringWithFormat:@"%d",[[NSNumber numberWithDouble:[(UIStepper *) sender value]] intValue]];

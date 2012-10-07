@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "CalcLocalize.h"
 #import "LocalizationHelper.h"
+#import "CreditsViewController.h"
+
 //#import "LocalizationSystem.h"
 
 
@@ -36,6 +38,7 @@
 -(IBAction) setSoundSwitch;
 -(IBAction) saveInfoView:(id) sender;
 -(IBAction) stepperValueChanged:(id)sender;
+-(IBAction) showInfo:(id) sender;
 
 @end
 

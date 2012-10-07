@@ -397,6 +397,8 @@
 		5A90DD0814633C44002EA4B2 /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A90DD0A14633C44002EA4B2 /* InfoViewController.m */; };
 		5A924DBB1462829F00D0B9DF /* US_Flag.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A924DBA1462829F00D0B9DF /* US_Flag.png */; };
 		5A97645015DB0FC600DA1B8D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A97644F15DB0FC600DA1B8D /* CoreLocation.framework */; };
+		5A9D7550160644FB003FA8CA /* 79-medical-bag.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A9D754F160644FB003FA8CA /* 79-medical-bag.png */; };
+		5A9D75531606469F003FA8CA /* 192-credit-card.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A9D75521606469F003FA8CA /* 192-credit-card.png */; };
 		5AA20387160149ED00DDF068 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AA20386160149ED00DDF068 /* Default-568h@2x.png */; };
 		5AA22000144E5C0A00D7F4E6 /* PersianCalculatorAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AA21FFF144E5C0A00D7F4E6 /* PersianCalculatorAppDelegate.m */; };
 		5AA614FA14A7E02A0073B2C6 /* Argentina-Flag-64.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AA614F914A7E02A0073B2C6 /* Argentina-Flag-64.png */; };
@@ -441,6 +443,8 @@
 		5AC450B11358C93D0070F16A /* backrub.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AC450B01358C93D0070F16A /* backrub.png */; };
 		5AD7A41E135238B600191D1D /* PersianCalculatorLandscape.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AD7A41C135238B500191D1D /* PersianCalculatorLandscape.m */; };
 		5AD7A41F135238B600191D1D /* PersianCalculatorLandscape.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AD7A41D135238B500191D1D /* PersianCalculatorLandscape.xib */; };
+		5AD905CA160317CA002EF07A /* CreditsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AD905C8160317CA002EF07A /* CreditsViewController.m */; };
+		5AD905CB160317CA002EF07A /* CreditsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AD905C9160317CA002EF07A /* CreditsViewController.xib */; };
 		5AD97CD3149D58990068EF25 /* keyboard.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AD97CD2149D58990068EF25 /* keyboard.png */; };
 		5ADD74DE14993DB2007C7941 /* customKeyboard.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5ADD74DD14993DB2007C7941 /* customKeyboard.xib */; };
 		5AE1D5E01490264700759599 /* Reload-icon-32.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AE1D5DF1490264700759599 /* Reload-icon-32.png */; };
@@ -976,6 +980,8 @@
 		5A924DBA1462829F00D0B9DF /* US_Flag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = US_Flag.png; sourceTree = "<group>"; };
 		5A924DBD146282F500D0B9DF /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5A97644F15DB0FC600DA1B8D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		5A9D754F160644FB003FA8CA /* 79-medical-bag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "79-medical-bag.png"; path = "../../Downloads/glyphish-icons-1/icons/79-medical-bag.png"; sourceTree = "<group>"; };
+		5A9D75521606469F003FA8CA /* 192-credit-card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "192-credit-card.png"; path = "../../Downloads/glyphish-icons-1/icons/192-credit-card.png"; sourceTree = "<group>"; };
 		5AA20386160149ED00DDF068 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		5AA21FFE144E5BEC00D7F4E6 /* PersianCalculatorAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersianCalculatorAppDelegate.h; sourceTree = "<group>"; };
 		5AA21FFF144E5C0A00D7F4E6 /* PersianCalculatorAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersianCalculatorAppDelegate.m; sourceTree = "<group>"; };
@@ -1050,6 +1056,9 @@
 		5AD7A41B135238B500191D1D /* PersianCalculatorLandscape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersianCalculatorLandscape.h; sourceTree = SOURCE_ROOT; };
 		5AD7A41C135238B500191D1D /* PersianCalculatorLandscape.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersianCalculatorLandscape.m; sourceTree = SOURCE_ROOT; };
 		5AD7A41D135238B500191D1D /* PersianCalculatorLandscape.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersianCalculatorLandscape.xib; sourceTree = SOURCE_ROOT; };
+		5AD905C7160317CA002EF07A /* CreditsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditsViewController.h; sourceTree = "<group>"; };
+		5AD905C8160317CA002EF07A /* CreditsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreditsViewController.m; sourceTree = "<group>"; };
+		5AD905C9160317CA002EF07A /* CreditsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreditsViewController.xib; sourceTree = "<group>"; };
 		5AD97CD2149D58990068EF25 /* keyboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = keyboard.png; sourceTree = "<group>"; };
 		5ADD74DD14993DB2007C7941 /* customKeyboard.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = customKeyboard.xib; sourceTree = "<group>"; };
 		5AE1D5DF1490264700759599 /* Reload-icon-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Reload-icon-32.png"; sourceTree = "<group>"; };
@@ -1393,6 +1402,7 @@
 			isa = PBXGroup;
 			children = (
 				5AB0102314CD4F04000C91F9 /* 138-scales.png */,
+				5A9D75521606469F003FA8CA /* 192-credit-card.png */,
 				5A20F74114A79EA4003419A7 /* CountryFlags */,
 				5AC3BF9A14A41B6D008620ED /* Germany-Flag-128.png */,
 				5AE1D5DF1490264700759599 /* Reload-icon-32.png */,
@@ -1445,6 +1455,7 @@
 				5A4DAB4C1455FDD600813D9A /* white_button_gloss.png */,
 				5AC102D414555DAD0097295B /* blue_button_gloss.png */,
 				5AC450B01358C93D0070F16A /* backrub.png */,
+				5A9D754F160644FB003FA8CA /* 79-medical-bag.png */,
 				5A473E87134854DD00F8CB13 /* Facebook-32.png */,
 				5A473E891348550400F8CB13 /* mail-32x32.png */,
 				5A473E8A1348550400F8CB13 /* Print_32.png */,
@@ -1815,6 +1826,9 @@
 				5AACC37015B65D17000FCE6C /* EmergencyViewController.m */,
 				5AACC37115B65D17000FCE6C /* EmergencyViewController.xib */,
 				5AEEF76F1600334200600A8F /* EmergencyTableView.xib */,
+				5AD905C7160317CA002EF07A /* CreditsViewController.h */,
+				5AD905C8160317CA002EF07A /* CreditsViewController.m */,
+				5AD905C9160317CA002EF07A /* CreditsViewController.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -1864,7 +1878,7 @@
 		5A473E1A1348521000F8CB13 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0440;
+				LastUpgradeCheck = 0450;
 			};
 			buildConfigurationList = 5A473E1D1348521000F8CB13 /* Build configuration list for PBXProject "PersianCalculatorPro" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -2268,6 +2282,9 @@
 				5A7499FC15DB5A7900C1B4AC /* CapitalCities.plist in Resources */,
 				5AEEF7701600334200600A8F /* EmergencyTableView.xib in Resources */,
 				5AA20387160149ED00DDF068 /* Default-568h@2x.png in Resources */,
+				5AD905CB160317CA002EF07A /* CreditsViewController.xib in Resources */,
+				5A9D7550160644FB003FA8CA /* 79-medical-bag.png in Resources */,
+				5A9D75531606469F003FA8CA /* 192-credit-card.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2362,6 +2379,7 @@
 				5AC15BD814AAC23800E50890 /* NSDecimalNumber+DDConstants.m in Sources */,
 				5A13EC6715A9654D00E6C3CC /* Currency.m in Sources */,
 				5AACC37215B65D17000FCE6C /* EmergencyViewController.m in Sources */,
+				5AD905CA160317CA002EF07A /* CreditsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2471,7 +2489,7 @@
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -2485,7 +2503,7 @@
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 			};

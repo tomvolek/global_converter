@@ -142,7 +142,7 @@ int rowSelected =0;
             [self equalKey];
         
     } 
-    else if ([keyletters.titleLabel.text isEqualToString:NSLocalizedString(@"Clean",nil) ] ) {
+    else if ([keyletters.titleLabel.text isEqualToString:NSLocalizedString(@"Clear",nil) ] ) {
         if ( whichTextField == 1 ){ y1TextField.text =@"" ;}
         else if ( whichTextField == 2 ){ y2TextField.text =@"" ;}
         else if ( whichTextField == 3 ){ y3TextField.text =@"" ;}
