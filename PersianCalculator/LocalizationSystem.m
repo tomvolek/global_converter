@@ -14,7 +14,7 @@
 static LocalizationSystem *_sharedLocalSystem = nil;
 
 //Current application bungle to get the languages.
-static NSBundle *bundle = nil;
+static NSBundle *bundle = nil;  
 
 + (LocalizationSystem *)sharedLocalSystem
 {
