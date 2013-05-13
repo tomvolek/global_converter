@@ -461,7 +461,9 @@ NSString *fractionValue;
 		[composer setSubject:NSLocalizedString(@"Calculator Results:",nil)];
 		[composer setMessageBody:emailMessage isHTML:NO];
         
-		[self presentModalViewController:composer animated:YES];
+        [self presentModalViewController:composer animated:YES];
+        //[self presentViewController:composer animated:YES];
+        
     }
     [composer release];
 }

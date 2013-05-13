@@ -398,7 +398,6 @@
 		5A90DD0814633C44002EA4B2 /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A90DD0A14633C44002EA4B2 /* InfoViewController.m */; };
 		5A924DBB1462829F00D0B9DF /* US_Flag.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A924DBA1462829F00D0B9DF /* US_Flag.png */; };
 		5A97645015DB0FC600DA1B8D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A97644F15DB0FC600DA1B8D /* CoreLocation.framework */; };
-		5A9D75531606469F003FA8CA /* 192-credit-card.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A9D75521606469F003FA8CA /* 192-credit-card.png */; };
 		5AA20387160149ED00DDF068 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AA20386160149ED00DDF068 /* Default-568h@2x.png */; };
 		5AA22000144E5C0A00D7F4E6 /* PersianCalculatorAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AA21FFF144E5C0A00D7F4E6 /* PersianCalculatorAppDelegate.m */; };
 		5AA614FA14A7E02A0073B2C6 /* Argentina-Flag-64.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AA614F914A7E02A0073B2C6 /* Argentina-Flag-64.png */; };
@@ -456,6 +455,16 @@
 		5AE2884714594E0600933E84 /* middleRowSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AE2884614594E0600933E84 /* middleRowSelected.png */; };
 		5AEEF7701600334200600A8F /* EmergencyTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AEEF76F1600334200600A8F /* EmergencyTableView.xib */; };
 		5AF2660814988E9F00390983 /* customKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AF2660714988E9F00390983 /* customKeyboard.m */; };
+		BE0E4FFC165CA0C600D8D52E /* 192-credit-card.png in Resources */ = {isa = PBXBuildFile; fileRef = BE0E4FFB165CA0C600D8D52E /* 192-credit-card.png */; };
+		BE2532C5165F3D82007D3DF2 /* FacebookSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BE2532C4165F3D82007D3DF2 /* FacebookSDKResources.bundle */; };
+		BE2532C7165F3D90007D3DF2 /* FBUserSettingsViewResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BE2532C6165F3D90007D3DF2 /* FBUserSettingsViewResources.bundle */; };
+		BE2532C9165F3E04007D3DF2 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE2532C8165F3E04007D3DF2 /* Accounts.framework */; };
+		BE2532CB165F3E0C007D3DF2 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE2532CA165F3E0C007D3DF2 /* AdSupport.framework */; };
+		BE2532CD165F3E18007D3DF2 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE2532CC165F3E18007D3DF2 /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		BE2532DB166204B3007D3DF2 /* facebook128.png in Resources */ = {isa = PBXBuildFile; fileRef = BE2532DA166204B3007D3DF2 /* facebook128.png */; };
+		BEE3D3CA173F64CA002D684C /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEE3D3C9173F64CA002D684C /* FacebookSDK.framework */; };
+		BEE3D3CC173F669D002D684C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEE3D3CB173F669D002D684C /* Security.framework */; };
+		BEE3D3CE173F66D7002D684C /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BEE3D3CD173F66D7002D684C /* libsqlite3.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -981,7 +990,6 @@
 		5A924DBA1462829F00D0B9DF /* US_Flag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = US_Flag.png; sourceTree = "<group>"; };
 		5A924DBD146282F500D0B9DF /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5A97644F15DB0FC600DA1B8D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		5A9D75521606469F003FA8CA /* 192-credit-card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "192-credit-card.png"; path = "../../Downloads/glyphish-icons-1/icons/192-credit-card.png"; sourceTree = "<group>"; };
 		5AA20386160149ED00DDF068 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		5AA21FFE144E5BEC00D7F4E6 /* PersianCalculatorAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersianCalculatorAppDelegate.h; sourceTree = "<group>"; };
 		5AA21FFF144E5C0A00D7F4E6 /* PersianCalculatorAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersianCalculatorAppDelegate.m; sourceTree = "<group>"; };
@@ -1071,6 +1079,16 @@
 		5AEEF76F1600334200600A8F /* EmergencyTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmergencyTableView.xib; sourceTree = "<group>"; };
 		5AF2660614988E9E00390983 /* customKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = customKeyboard.h; sourceTree = "<group>"; };
 		5AF2660714988E9F00390983 /* customKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = customKeyboard.m; sourceTree = "<group>"; };
+		BE0E4FFB165CA0C600D8D52E /* 192-credit-card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "192-credit-card.png"; sourceTree = "<group>"; };
+		BE2532C4165F3D82007D3DF2 /* FacebookSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = FacebookSDKResources.bundle; path = ../../../Documents/FacebookSDK/FacebookSDK.framework/Versions/A/Resources/FacebookSDKResources.bundle; sourceTree = "<group>"; };
+		BE2532C6165F3D90007D3DF2 /* FBUserSettingsViewResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = FBUserSettingsViewResources.bundle; path = ../../../Documents/FacebookSDK/FacebookSDK.framework/Versions/A/Resources/FBUserSettingsViewResources.bundle; sourceTree = "<group>"; };
+		BE2532C8165F3E04007D3DF2 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		BE2532CA165F3E0C007D3DF2 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		BE2532CC165F3E18007D3DF2 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		BE2532DA166204B3007D3DF2 /* facebook128.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook128.png; sourceTree = "<group>"; };
+		BEE3D3C9173F64CA002D684C /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
+		BEE3D3CB173F669D002D684C /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		BEE3D3CD173F66D7002D684C /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1078,6 +1096,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BEE3D3CE173F66D7002D684C /* libsqlite3.dylib in Frameworks */,
+				BEE3D3CC173F669D002D684C /* Security.framework in Frameworks */,
+				BE2532CD165F3E18007D3DF2 /* Social.framework in Frameworks */,
+				BE2532CB165F3E0C007D3DF2 /* AdSupport.framework in Frameworks */,
+				BE2532C9165F3E04007D3DF2 /* Accounts.framework in Frameworks */,
 				5A97645015DB0FC600DA1B8D /* CoreLocation.framework in Frameworks */,
 				5AACC37515B66102000FCE6C /* MapKit.framework in Frameworks */,
 				5A6C573D14569B8500793A3F /* AudioToolbox.framework in Frameworks */,
@@ -1089,6 +1112,7 @@
 				5A473E2A1348521100F8CB13 /* Foundation.framework in Frameworks */,
 				5A473E2C1348521100F8CB13 /* CoreGraphics.framework in Frameworks */,
 				5A084F2B14952A6700D79390 /* libCorePlot-CocoaTouch.a in Frameworks */,
+				BEE3D3CA173F64CA002D684C /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1338,6 +1362,14 @@
 		5A473E261348521100F8CB13 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BEE3D3CD173F66D7002D684C /* libsqlite3.dylib */,
+				BEE3D3CB173F669D002D684C /* Security.framework */,
+				BEE3D3C9173F64CA002D684C /* FacebookSDK.framework */,
+				BE2532CC165F3E18007D3DF2 /* Social.framework */,
+				BE2532CA165F3E0C007D3DF2 /* AdSupport.framework */,
+				BE2532C8165F3E04007D3DF2 /* Accounts.framework */,
+				BE2532C6165F3D90007D3DF2 /* FBUserSettingsViewResources.bundle */,
+				BE2532C4165F3D82007D3DF2 /* FacebookSDKResources.bundle */,
 				5A084F2A14952A6700D79390 /* libCorePlot-CocoaTouch.a */,
 				5A97644F15DB0FC600DA1B8D /* CoreLocation.framework */,
 				5AACC37415B66102000FCE6C /* MapKit.framework */,
@@ -1401,8 +1433,9 @@
 		5A473E841348546300F8CB13 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				BE2532DA166204B3007D3DF2 /* facebook128.png */,
+				BE0E4FFB165CA0C600D8D52E /* 192-credit-card.png */,
 				5AB0102314CD4F04000C91F9 /* 138-scales.png */,
-				5A9D75521606469F003FA8CA /* 192-credit-card.png */,
 				5A20F74114A79EA4003419A7 /* CountryFlags */,
 				5AC3BF9A14A41B6D008620ED /* Germany-Flag-128.png */,
 				5AE1D5DF1490264700759599 /* Reload-icon-32.png */,
@@ -2283,8 +2316,11 @@
 				5AEEF7701600334200600A8F /* EmergencyTableView.xib in Resources */,
 				5AA20387160149ED00DDF068 /* Default-568h@2x.png in Resources */,
 				5AD905CB160317CA002EF07A /* CreditsViewController.xib in Resources */,
-				5A9D75531606469F003FA8CA /* 192-credit-card.png in Resources */,
 				5A0F0BD6162233A20009C8B6 /* 79-medical-bag.png in Resources */,
+				BE0E4FFC165CA0C600D8D52E /* 192-credit-card.png in Resources */,
+				BE2532C5165F3D82007D3DF2 /* FacebookSDKResources.bundle in Resources */,
+				BE2532C7165F3D90007D3DF2 /* FBUserSettingsViewResources.bundle in Resources */,
+				BE2532DB166204B3007D3DF2 /* facebook128.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2486,11 +2522,12 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				SDKROOT = iphoneos;
+				VALID_ARCHS = "armv7 armv7s i386";
 			};
 			name = Debug;
 		};
@@ -2500,12 +2537,13 @@
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
+				VALID_ARCHS = "armv7 armv7s i386";
 			};
 			name = Release;
 		};
@@ -2517,6 +2555,8 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(DEVELOPER_FRAMEWORKS_DIR)\"",
+					"\"$(SRCROOT)/../../../Documents/FacebookSDK\"",
+					"\"$(SRCROOT)/../../../.Trash\"",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -2531,7 +2571,10 @@
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
 				);
-				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
+				"OTHER_LDFLAGS[arch=*]" = (
+					"-ObjC",
+					"-lsqlite3.0",
+				);
 				PRODUCT_NAME = PersianCalculatorPro;
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
@@ -2546,6 +2589,8 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(DEVELOPER_FRAMEWORKS_DIR)\"",
+					"\"$(SRCROOT)/../../../Documents/FacebookSDK\"",
+					"\"$(SRCROOT)/../../../.Trash\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PersianCalculator/PersianCalculatorPro-Prefix.pch";
@@ -2555,7 +2600,10 @@
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
 				);
-				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
+				"OTHER_LDFLAGS[arch=*]" = (
+					"-ObjC",
+					"-lsqlite3.0",
+				);
 				PRODUCT_NAME = PersianCalculatorPro;
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;

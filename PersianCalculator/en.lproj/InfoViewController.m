@@ -215,13 +215,8 @@
     self.languageSet = [[NSUserDefaults standardUserDefaults] objectForKey:@"AppleLanguages"];
     self.listOfLanguages = [[[NSMutableArray alloc] initWithCapacity:9] autorelease];
     
-    NSArray *data = [NSArray arrayWithObjects:NSLocalizedString(@"Farsi", @"Farsi Language"), @"Iran-Flag-64.png", @"fa", nil];
-    
-    [self.listOfLanguages addObject:data];
-    
-    data = [NSArray arrayWithObjects:NSLocalizedString(@"German",  @"German Lanhuage"),  @"Germany-Flag-64.png", @"de", nil];    
-    [self.listOfLanguages addObject:data];
-    
+   
+    NSArray *data;
     data = [NSArray arrayWithObjects:NSLocalizedString(@"Arabic", @"Arabic Language"), @"Saudi-Arabia-Flag-64.png", @"ar", nil];
     [self.listOfLanguages addObject:data];
     
@@ -231,17 +226,25 @@
     data = [NSArray arrayWithObjects:NSLocalizedString(@"English", @"English Language"), @"United-States-Flag-64.png", @"en", nil];
     [self.listOfLanguages addObject:data];
     
+    data = [NSArray arrayWithObjects:NSLocalizedString(@"Farsi", @"Farsi Language"),
+        @"Iran-Flag-64.png", @"fa", nil];
+    [self.listOfLanguages addObject:data];
+    
+    data = [NSArray arrayWithObjects:NSLocalizedString(@"French",  @"french Language"),  @"France-Flag-64.png", @"fr", nil];
+    [self.listOfLanguages addObject:data];
+    
+    data = [NSArray arrayWithObjects:NSLocalizedString(@"German",  @"German Language"),  @"Germany-Flag-64.png", @"de", nil];
+    [self.listOfLanguages addObject:data];
+    
     data = [NSArray arrayWithObjects:NSLocalizedString(@"Japanese", @"Japanese Language"), @"Japan-Flag-64.png", @"ja", nil];
+    [self.listOfLanguages addObject:data];
+    
+    data = [NSArray arrayWithObjects:NSLocalizedString(@"Polish",  @"Ploish Language"),  @"Poland-Flag-64.png", @"pl", nil];
     [self.listOfLanguages addObject:data];
     
     data = [NSArray arrayWithObjects:NSLocalizedString(@"Spanish", @"Spanish Language"), @"Spain-Flag-64.png", @"es", nil];
     [self.listOfLanguages addObject:data];
     
-    data = [NSArray arrayWithObjects:NSLocalizedString(@"Polish",  @"Ploish Lanhuage"),  @"Poland-Flag-64.png", @"pl", nil];    
-    [self.listOfLanguages addObject:data];
-    
-    data = [NSArray arrayWithObjects:NSLocalizedString(@"French",  @"french Lanhuage"),  @"France-Flag-64.png", @"fr", nil];    
-    [self.listOfLanguages addObject:data];
     
     
     self.languageTableView = [[[UITableView alloc] initWithFrame:CGRectMake(15, 115, 280, 190) style:UITableViewStyleGrouped] autorelease];
