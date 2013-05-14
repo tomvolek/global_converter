@@ -27,7 +27,11 @@
 calloutAccessoryControlTapped:(UIControl *)control {
     //NSString *phoneNo = view.annotation.subtitle;
    // NSString *telString = [NSString stringWithFormat:@"telprompt://%@", phoneNo];
-    NSString *telString = [NSString stringWithFormat:@"telprompt://16509611964"];
+   
+    MKPointAnnotation *annotationTapped = (MKPointAnnotation *)view.annotation;
+    NSString *telString = [NSString stringWithFormat:@"tel://%@", annotationTapped.subtitle];
+    [self postStatusUpdateClick:annotationTapped.subtitle withCoordinate:annotationTapped.coordinate];
+    
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:telString]];
 }
 
@@ -56,8 +60,24 @@ calloutAccessoryControlTapped:(UIControl *)control {
     if (self) {
         // Custom initialization
         //_mapView.delegate = self;
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(FBLoginNotification:)
+                                                     name:@"FBLoginInfo"
+                                                   object:nil];
     }
     return self;
+}
+
+- (void) FBLoginNotification:(NSNotification *) notification
+{
+    // [notification name] should always be @"TestNotification"
+    // unless you use this method for observation of other notifications
+    // as well.
+    
+    if ([[notification name] isEqualToString:@"FBLoginInfo"]) {
+        NSError *error = [notification.userInfo objectForKey:@"error"];
+        [self loginView:nil handleError:error];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -91,6 +111,7 @@ calloutAccessoryControlTapped:(UIControl *)control {
     // code for FB start 
     NSArray *perms;
     perms = [NSArray arrayWithObjects:@"status_update", nil];
+    [self setFBLoginView:nil];
     //FBLoginView *loginview =
     //[[FBLoginView alloc] initWithPermissions:perms];
     //[FBSession openActiveSessionWithAllowLoginUI:YES];
@@ -454,6 +475,7 @@ calloutAccessoryControlTapped:(UIControl *)control {
     // Upon login, transition to the main UI by pushing it onto the navigation stack.
     //SCAppDelegate *appDelegate = (SCAppDelegate *)[UIApplication sharedApplication].delegate;
     //[self.navigationController pushViewController:((UIViewController *)appDelegate.mainViewController) animated:YES];
+    self.FBLoginView.hidden = YES;
 }
 
 - (void)loginView:(FBLoginView *)loginView
@@ -512,10 +534,93 @@ calloutAccessoryControlTapped:(UIControl *)control {
     //} else {
     //    [self logOut];
     //}
+    [self logOut];
 }
 
 - (void)logOut {
-    [self.navigationController popToRootViewControllerAnimated:YES];
+    self.FBLoginView.hidden = NO;
+    //[self.navigationController popToRootViewControllerAnimated:YES];
+}
+
+// Convenience method to perform some action that requires the "publish_actions" permissions.
+- (void) performPublishAction:(void (^)(void)) action {
+    // we defer request for permission to post to the moment of post, then we check for the permission
+    if ([FBSession.activeSession.permissions indexOfObject:@"publish_actions"] == NSNotFound) {
+        // if we don't already have the permission, then we request it now
+        [FBSession.activeSession requestNewPublishPermissions:@[@"publish_actions"]
+                                              defaultAudience:FBSessionDefaultAudienceFriends
+                                            completionHandler:^(FBSession *session, NSError *error) {
+                                                if (!error) {
+                                                    action();
+                                                }
+                                                //For this example, ignore errors (such as if user cancels).
+                                            }];
+    } else {
+        action();
+    }
+    
+}
+
+// Post Status Update button handler; will attempt different approaches depending upon configuration.
+- (void)postStatusUpdateClick:(NSString *)data  withCoordinate:(CLLocationCoordinate2D)coordinate {
+    // Post a status update to the user's feed via the Graph API, and display an alert view
+    // with the results or an error.
+    
+    NSURL *urlToShare = [NSURL URLWithString:@"http://developers.facebook.com/ios"];
+    
+    // This code demonstrates 3 different ways of sharing using the Facebook SDK.
+    // The first method tries to share via the Facebook app. This allows sharing without
+    // the user having to authorize your app, and is available as long as the user has the
+    // correct Facebook app installed. This publish will result in a fast-app-switch to the
+    // Facebook app.
+    // The second method tries to share via Facebook's iOS6 integration, which also
+    // allows sharing without the user having to authorize your app, and is available as
+    // long as the user has linked their Facebook account with iOS6. This publish will
+    // result in a popup iOS6 dialog.
+    // The third method tries to share via a Graph API request. This does require the user
+    // to authorize your app. They must also grant your app publish permissions. This
+    // allows the app to publish without any user interaction.
+    
+    // If it is available, we will first try to post using the share dialog in the Facebook app
+    FBAppCall *appCall = [FBDialogs presentShareDialogWithLink:urlToShare
+                                                          name:@"Hello Facebook"
+                                                       caption:nil
+                                                   description:@"The 'Hello Facebook' sample application showcases simple Facebook integration."
+                                                       picture:nil
+                                                   clientState:nil
+                                                       handler:^(FBAppCall *call, NSDictionary *results, NSError *error) {
+                                                           if (error) {
+                                                               NSLog(@"Error: %@", error.description);
+                                                           } else {
+                                                               NSLog(@"Success!");
+                                                           }
+                                                       }];
+    
+    if (!appCall) {
+        // Next try to post using Facebook's iOS6 integration
+        BOOL displayedNativeDialog = [FBDialogs presentOSIntegratedShareDialogModallyFrom:self
+                                                                              initialText:nil
+                                                                                    image:nil
+                                                                                      url:urlToShare
+                                                                                  handler:nil];
+        
+        if (!displayedNativeDialog) {
+            // Lastly, fall back on a request for permissions and a direct post using the Graph API
+            [self performPublishAction:^{
+                NSString *message = [NSString stringWithFormat:@"Updating status for %@ at %@",data, [NSDate date]];
+                
+                [FBRequestConnection startForPostStatusUpdate:message
+                                           // place:<#(id)#> tags:nil,
+                                            completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+                                                
+                                                [self showAlert:message result:result error:error];
+                                                //self.buttonPostStatus.enabled = YES;
+                                            }];
+                
+                //self.buttonPostStatus.enabled = NO;
+            }];
+        }
+    }
 }
 
 @end
